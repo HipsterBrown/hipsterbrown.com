@@ -1,10 +1,11 @@
 // Typography
 ///////////////////////////////////////////////////////////////////////////////
-$sans-serif: $helvetica;
-$serif: $georgia;
+$sans-serif: 'museo-sans', helvetica, sans-serif;
+$serif: 'museo', georgia, serif;
+$logo-font: 'Playfair Display', serif;
 
 $base-font-family: $sans-serif;
-$header-font-family: $base-font-family;
+$header-font-family: $serif;
 
 // Sizes
 ///////////////////////////////////////////////////////////////////////////////

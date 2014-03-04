@@ -4,7 +4,8 @@
 /*
 /*****************************************************************************/
 
-/* Global Reset */
+/* Globals */
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:900);
 @import 'bourbon/bourbon';
 @import 'bitters/bitters';
 @import 'neat/neat';
@@ -25,7 +26,7 @@
 
 .posts span {
   color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
+  font-family: $sans-serif;
   font-size: 80%;
 }
 
@@ -51,6 +52,7 @@
 .title {
   display: inline-block;
   margin-bottom: 2em;
+  font-family: $logo-font;
 }
 
 .title a {
