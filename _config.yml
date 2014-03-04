@@ -3,3 +3,4 @@ markdown: redcarpet
 pygments: true
 exclude: ['sass']
 gems: ['bourbon', 'bitters', 'neat']
+permalink: /:categories/:title

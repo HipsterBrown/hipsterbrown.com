@@ -1,13 +1,16 @@
 ---
-layout: home
+layout: default
 title: HipsterBrown
+description: I feel strangely <span>ironic</span> today.
+tags:
+- home
 ---
-
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+<article>
+  <div class="container">
+    <h1>Intro</h1>
+    <p>Hello and welcome from Nick Hehr, aka HipsterBrown. As an admitted hipster and jack of web trades, I enjoy keeping up with the latest design and development trends that make the web a more beautiful and usable place.</p>
+    <p>My favorite tools for most of my projects are Sass with a little bit of Bourbon for some sweet stylings, Coffeescript to handle all my Javascript/JQuery needs, Sketch by Bohemian Coding to create the most pixel perfect graphics possible with the power to export my CSS stylings, and Coda 2 as my primary text editor, FTP client, and Terminal.</p>
+    <p>When I'm not jotting down a new project idea in my MoleSkine or behind my computer trying to implement it, I can usually be found at Disney, geocaching with my friends, or attending local design & tech meetups.</p>
+    <p>Please explore my site freely and with an open mind, from more about me in Bio to some prime examples of my work in Projects. The occasional thought or topic that can't fit in 140 characters can be found in my Musings blog, and don't forget to Connect with a quick hello message.</p>
+  </div>
+</article>
