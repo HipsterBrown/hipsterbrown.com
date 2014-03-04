@@ -1,3 +1,5 @@
-name: Your New Jekyll Site
+name: HipsterBrown
 markdown: redcarpet
 pygments: true
+exclude: ['sass']
+gems: ['bourbon', 'bitters', 'neat']
