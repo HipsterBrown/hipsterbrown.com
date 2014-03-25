@@ -1,7 +1,6 @@
-'use strict';
-
 module.exports = function(grunt) {
 
+  'use strict';
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -43,6 +42,15 @@ module.exports = function(grunt) {
       }
     },
 
+    svgstore: {
+      options: {
+        prefix: 'icon-',
+      },
+      files: {
+        'images/social-icons.svg': ['svg/*.svg']
+      }
+    },
+
     watch: {
       sass: {
         files: [
@@ -68,9 +76,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-svgstore');
 
   // Default task(s).
   grunt.registerTask('default', ['watch']);
+
+  grunt.registerTask('svg', ['svgstore']);
 
   grunt.registerTask('production', ['sass', 'jshint', 'uglify']);
 
