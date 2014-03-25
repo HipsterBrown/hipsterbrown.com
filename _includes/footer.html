@@ -1,11 +1,30 @@
       <footer>
-    		<h2>Copyright {{ site.time | date_to_string }}</h2>
+    		<h2>Copyright {{ site.time | date: "%Y" }}</h2>
     		<p>Design & Developed by Yours Truly</p>
     		<h3>TL;DR</h3>
     		<ul>
-    			<li><a href="https://twitter.com/hipsterbrown"><img src="img/Twitter@2x.png" alt="Twitter"></a></li>
-    			<li><a href="http://instagram.com/hipsterbrwn"><img src="img/Instagram@2x.png" alt="Instagram"></a></li>
-    			<li><a href="https://github.com/HipsterBrown"><img src="img/Github@2x.png" alt="Github"></a></li>
+    			<li>
+            <a href="https://twitter.com/hipsterbrown">
+              <svg viewBox="0 0 100 100" class="icon icon-twitter">
+                <use xlink:href="#icon-twitter"></use>
+              </svg>
+            </a>
+          </li>
+    			<li><a href="https://www.flickr.com/photos/charliebrwn1209/">
+            <svg viewBox="0 0 100 100" class="icon icon-flickr">
+              <use xlink:href="#icon-flickr"></use>
+            </svg>
+          </a></li>
+    			<li><a href="https://github.com/HipsterBrown">
+            <svg viewBox="0 0 100 100" class="icon icon-github">
+              <use xlink:href="#icon-github"></use>
+            </svg>
+          </a></li>
+          <li><a href="http://codepen.io/HipsterBrown/">
+            <svg viewBox="0 0 100 100" class="icon icon-codepen">
+              <use xlink:href="#icon-codepen"></use>
+            </svg>
+          </a></li>
     		</ul>
     </footer>
     <!-- Load JQuery -->
