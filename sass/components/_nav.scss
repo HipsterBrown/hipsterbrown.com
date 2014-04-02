@@ -1,7 +1,27 @@
 #navbar {
+  @include span-columns(12);
   background: $navblue;
+  position: relative;
 
   #home-link {
-    
+    @include span-columns(1 of 12);
+  }
+
+  nav {
+    @include span-columns(10 of 12);
+
+    ul {
+      @include fill-parent();
+      @include clearfix();
+
+      li {
+        @include span-columns(2.5 of 10);
+        text-align: center;
+
+        a {
+
+        }
+      }
+    }
   }
 }
