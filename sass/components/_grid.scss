@@ -1,0 +1,7 @@
+.full {
+  @include span-columns(12 of 12);
+}
+
+.quart {
+  @include span-columns(3 of 12);
+}

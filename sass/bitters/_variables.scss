@@ -17,6 +17,7 @@ $base-border-radius: em(3);
 ///////////////////////////////////////////////////////////////////////////////
 
 $navblue: #b8fef7;
+$linkblue: #093C4F;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #DDD;
@@ -32,7 +33,7 @@ $base-font-color: $dark-gray;
 $base-accent-color: $navblue;
 
 //  Text Link Colors
-$base-link-color: $base-accent-color;
+$base-link-color: $linkblue;
 $hover-link-color: darken($base-accent-color, 15);
 
 // Border color
