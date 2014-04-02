@@ -3,7 +3,7 @@
   <header class="container">
   {% if page.icon %}
       <figure class="icon-container quart">
-        {{ page.icon }}
+        {% include Icon-Logo.svg %}
       {% if page.title == 'HipsterBrown' %}
         <figcaption>{{ page.title }}</figcaption>
       {% endif %}

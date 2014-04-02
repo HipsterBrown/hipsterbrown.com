@@ -24,4 +24,11 @@
       }
     }
   }
+
+  a#break {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    margin-left: -45px;
+  }
 }
