@@ -3,7 +3,7 @@
   background: $navblue;
   position: relative;
   @include clearfix;
-  height: 5em;
+  height: 6em;
 
   #home-link {
     @include span-columns(1 of 12);
@@ -15,6 +15,10 @@
 
     svg > #icon-logo > #inner {
       stroke: $linkblue;
+
+      path#Head {
+        stroke-width: 8px;
+      }
 
       path#Stache {
         fill: $linkblue;
