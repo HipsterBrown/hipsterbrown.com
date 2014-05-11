@@ -1,0 +1,10 @@
+@mixin hover-effect($color, $bg, $border: .5em) {
+  padding: 1em 2em;
+  border-radius: $border;
+  @include transition(color .15s ease-in, background .35s ease-in-out);
+
+  &:hover {
+    color: $color;
+    background: $bg;
+  }
+}

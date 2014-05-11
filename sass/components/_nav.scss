@@ -1,14 +1,42 @@
 #navbar {
-  @include span-columns(12);
+  font-size: 1.2rem;
   background: $navblue;
   position: relative;
+  @include clearfix;
+  height: 5em;
 
   #home-link {
     @include span-columns(1 of 12);
+    @extend %vertical-align;
+    margin-left: 1%;
+    padding: .5em 5em .5em 1em;
+    border-radius: .5em;
+    @include transition(all .25s ease-in-out);
+
+    svg > #icon-logo > #inner {
+      stroke: $linkblue;
+
+      path#Stache {
+        fill: $linkblue;
+      }
+    }
+
+    &:hover {
+      background: $linkblue;
+
+      svg > #icon-logo > #inner {
+        stroke: $navblue;
+
+        path#Stache {
+          fill: $navblue;
+        }
+      }
+    }
   }
 
   nav {
     @include span-columns(10 of 12);
+    @extend %vertical-align;
 
     ul {
       @include fill-parent();
@@ -19,7 +47,9 @@
         text-align: center;
 
         a {
-
+          font-family: $serif;
+          font-size: 1.3em;
+          @include hover-effect($navblue, $linkblue);
         }
       }
     }
