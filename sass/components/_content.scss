@@ -1,0 +1,35 @@
+.content {
+  font-size: 1rem;
+
+  article {
+    padding: 2em 0;
+
+    &:nth-of-type(odd) {
+      background: $base-body-color;
+    }
+
+    &:nth-of-type(even) {
+      background: $alt-body-color;
+    }
+
+    .thin {
+      width: 60%;
+    }
+
+    h1 {
+      border-bottom: 3px solid $linkblue;
+      color: $linkblue;
+      font-size: 3em;
+      margin: 0 auto 1em;
+      width: intrinsic;
+      width: -moz-max-content;
+    }
+
+    p {
+      font-size: 1.2em;
+      font-weight: 100;
+      line-height: 1.6em;
+      padding: 0 0 1em;
+    }
+  }
+}
