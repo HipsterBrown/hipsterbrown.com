@@ -5,3 +5,17 @@
 .quart {
   @include span-columns(3 of 12);
 }
+
+.three-quart {
+  @include span-columns(8 of 12);
+}
+
+.half {
+  @include span-columns(6 of 12);
+}
+
+.container {
+  @include clearfix;
+  width: 85%;
+  margin: 0 auto;
+}

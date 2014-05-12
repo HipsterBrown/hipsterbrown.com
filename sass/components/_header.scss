@@ -1,0 +1,18 @@
+header {
+  font-size: 1rem;
+  height: 8em;
+
+  figure.icon-container {
+    text-align: center;
+
+    figcaption {
+      font-family: $logo-font;
+      font-weight: bold;
+    }
+  }
+
+  h1 {
+    @extend %vertical-align;
+    text-align: center;
+  }
+}
