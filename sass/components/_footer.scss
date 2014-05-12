@@ -1,0 +1,33 @@
+footer {
+  font-size: .8rem;
+  padding: 1em 2em;
+
+  aside.copy {
+    p {
+      font-size: 1.4em;
+      font-weight: 100;
+    }
+  }
+
+  ul.social {
+    @include clearfix;
+    float: right;
+    text-align: center;
+    width: 15%;
+
+    h2 {
+      padding: 0 0 .15em;
+      text-decoration: underline;
+    }
+
+    li {
+      @include span-columns(3 of 12);
+      opacity: 0.8;
+      @include transition(all .3s ease-in-out);
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
