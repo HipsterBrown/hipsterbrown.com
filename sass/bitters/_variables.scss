@@ -27,6 +27,7 @@ $light-green: #E6EFC2;
 $hip-tan: #ECDFC8;
 $hip-dark-tan: #7F7150;
 $hip-darker-tan: #BFB199;
+$hip-dark-brown: #564A36;
 
 // Body Color
 $base-body-color: $hip-tan;
@@ -35,6 +36,8 @@ $alt-body-color: $hip-darker-tan;
 //  Font Colors
 $base-font-color: $dark-gray;
 $base-accent-color: $navblue;
+$base-strong-highlight: $hip-dark-brown;
+$alt-strong-highlight: $base-body-color;
 
 //  Text Link Colors
 $base-link-color: $linkblue;

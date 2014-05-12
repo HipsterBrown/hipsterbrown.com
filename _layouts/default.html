@@ -1,9 +1,9 @@
 {% include header.html %}
 
-  <header class="container">
+  <header class="container {{ page.tags }}">
   {% if page.icon %}
       <figure class="icon-container quart">
-        {% include Icon-Logo.svg %}
+        {% include {{page.icon}} %}
       {% if page.title == 'HipsterBrown' %}
         <figcaption>{{ page.title }}</figcaption>
       {% endif %}

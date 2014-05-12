@@ -6,10 +6,20 @@
 
     &:nth-of-type(odd) {
       background: $base-body-color;
+
+      strong {
+        color: $base-body-color;
+        background: $base-strong-highlight;
+      }
     }
 
     &:nth-of-type(even) {
       background: $alt-body-color;
+
+      strong {
+        color: $base-strong-highlight;
+        background: $alt-strong-highlight;
+      }
     }
 
     h1 {
@@ -21,11 +31,27 @@
       width: -moz-max-content;
     }
 
+    h2 {
+      color: $linkblue;
+      font-size: 1.9em;
+    }
+
+    h3 {
+      @extend h2;
+      font-size: 1.6em;
+    }
+
     p {
       font-size: 1.2em;
       font-weight: 100;
       line-height: 1.6em;
       padding: 0 0 1em;
+    }
+
+    strong {
+      padding: .1em .3em;
+      border-radius: 4px;
+      font-weight: normal;
     }
   }
 }

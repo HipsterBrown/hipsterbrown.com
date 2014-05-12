@@ -24,6 +24,11 @@ header {
           }
         }
       }
+
+      //Bio Icon
+      path#Chest {
+        stroke-width: 5px;
+      }
     }
 
     figcaption {
@@ -40,6 +45,16 @@ header {
     span.hip-feel {
       color: $hip-dark-tan;
       border-bottom: 3px solid $hip-dark-tan;
+    }
+  }
+
+  //Bio Page specific styles for header
+
+  &.bio {
+    figure.icon-container {
+      svg {
+        height: 14em;
+      }
     }
   }
 }
