@@ -31,6 +31,10 @@
       width: -moz-max-content;
     }
 
+    h2,h3 {
+      text-indent: -2em;
+    }
+
     h2 {
       color: $linkblue;
       font-size: 1.9em;
@@ -52,6 +56,16 @@
       padding: .1em .3em;
       border-radius: 4px;
       font-weight: normal;
+    }
+
+    img {
+      border: 8px solid $linkblue;
+      border-radius: 6px;
+      width: 80%;
+
+      &:hover {
+        border-color: lighten($linkblue, 12%);
+      }
     }
   }
 }
