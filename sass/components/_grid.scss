@@ -24,6 +24,18 @@
   }
 }
 
+.t-right {
+  text-align: right;
+}
+
+.el-right {
+  float: right;
+}
+
+.el-left {
+  float: left;
+}
+
 .clearfix {
   @include clearfix;
 }

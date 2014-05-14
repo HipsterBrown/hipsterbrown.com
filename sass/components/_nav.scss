@@ -9,19 +9,26 @@
     @include span-columns(1 of 12);
     @extend %vertical-align;
     margin-left: 1%;
-    padding: .5em 5em .5em 1em;
+    //padding: .5em 5em .5em 1em;
+    width: 5em;
+    height: 5em;
     border-radius: .5em;
     @include transition(all .25s ease-in-out);
 
-    svg > #icon-logo > #inner {
-      stroke: $linkblue;
+    svg {
+      width: 90%;
+      height: 90%;
 
-      path#Head {
-        stroke-width: 8px;
-      }
+      > #icon-logo > #inner {
+        stroke: $linkblue;
 
-      path#Stache {
-        fill: $linkblue;
+        path#Head {
+          stroke-width: 8px;
+        }
+
+        path#Stache {
+          fill: $linkblue;
+        }
       }
     }
 
@@ -61,8 +68,15 @@
 
   a#break {
     position: absolute;
-    bottom: -15px;
+    bottom: -1.5em;
     left: 50%;
-    margin-left: -45px;
+    margin-left: -2.25em;
+    height: 3em;
+    width: 4.5em;
+
+    svg {
+      width: 90%;
+      height: 90%;
+    }
   }
 }
