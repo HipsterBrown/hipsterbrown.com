@@ -11,7 +11,9 @@ tags:
     <div class="container">
       <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
       <aside class="img-container half">
-        <img src="{{ post.img_excerpt }}" alt="Project Image Except" class="img-excerpt">
+        <a href="{{ post.url }}">
+          <img src="{{ post.img_excerpt }}" alt="Project Image Except" class="img-excerpt">
+        </a>
       </aside>
       <section class="excerpt half">
         {{post.excerpt}}
