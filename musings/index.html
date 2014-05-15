@@ -6,6 +6,7 @@ icon: Icon-Musings.svg
 tags:
 - musings
 ---
+
 {% for post in site.categories['musing'] %}
   <article>
     <div class="container thin">
@@ -13,9 +14,12 @@ tags:
       <section class="excerpt full">
         {{post.excerpt}}
         <p class="tags t-right">
-          Categories: <em>{{post.tags}}</em>
+          Categories: <em>{{ post.tags | join: ', ' }}</em>
         </p>
       </section>
     </div>
   </article>
 {% endfor %}
+<h1>{{paginator.total_pages}}</h1>
+<h3>{{paginator.page}}</h3>
+<a href="/{{paginator.next_page_path}}">{{paginator.next_page}}</a>
