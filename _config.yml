@@ -4,5 +4,3 @@ pygments: true
 exclude: ['sass', node_modules, README.md, package.json]
 gems: ['bourbon', 'bitters', 'neat']
 permalink: /:categories/:title
-paginate: 3
-pagination: true
