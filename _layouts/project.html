@@ -5,22 +5,22 @@
     <h2 class="full">{{page.description}}</h2>
   </header>
   <section class="main content">
-  <article>
-    <div class="container">
-      {% if page.img_excerpt %}
-        <aside class="img-container quart">
-        {% if page.live_link %}
-          <a href="{{ page.live_link }}">
-            <img src="{{ page.img_excerpt }}" alt="Project Screenshot" />
-          </a>
-        {% else %}
-          <img src="{{ page.img_excerpt }}" alt="Project Screenchot" />
+    <article>
+      <div class="container">
+        {% if page.img_excerpt %}
+          <aside class="img-container quart">
+          {% if page.live_link %}
+            <a href="{{ page.live_link }}">
+              <img src="{{ page.img_excerpt }}" alt="Project Screenshot" />
+            </a>
+          {% else %}
+            <img src="{{ page.img_excerpt }}" alt="Project Screenchot" />
+          {% endif %}
+          </aside>
         {% endif %}
-        </aside>
-      {% endif %}
-      {{ content }}
-    </div>
-  </article>
+        {{ content }}
+      </div>
+    </article>
   </section>
 
 {% include footer.html %}

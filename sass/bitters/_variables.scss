@@ -11,7 +11,7 @@ $header-font-family: $serif;
 ///////////////////////////////////////////////////////////////////////////////
 $base-font-size: 1em;
 $base-line-height: $base-font-size * 1.5;
-$base-border-radius: em(3);
+$base-border-radius: em(4);
 
 // Colors
 ///////////////////////////////////////////////////////////////////////////////
@@ -45,6 +45,7 @@ $hover-link-color: lighten($linkblue, 15);
 
 // Border color
 $base-border-color: $light-gray;
+$dark-accent-color: $hip-dark-brown;
 
 // Flash Colors
 $error-color: $light-red;
