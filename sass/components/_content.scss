@@ -70,6 +70,11 @@
       &:hover {
         border-color: lighten($linkblue, 12%);
       }
+
+      &.no-border {
+        border: none;
+        border-radius: 0px;
+      }
     }
   }
 
