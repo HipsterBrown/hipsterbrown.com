@@ -18,6 +18,38 @@ $(function() {
 
   spanSwitch(headSpan, hipArray);
 
+  // Text Fit functionality for article headings
+
+  var heading = $(' article h1 ');
+
+  for ( var i = 0; i < heading.length; i++ ) {
+
+    var head = heading[i],
+      headText = head.textContent;
+
+    if ( headText.length > 36 ) {
+      head.style.fontSize = '2em';
+    } else if ( headText.length > 48 ) {
+      head.style.fontSize = '1.8em';
+    }
+
+  }
+
+  // Archive Show List
+
+  var arrow = $('span.arrow');
+
+  arrow.on('click', function(e) {
+    $(this).toggleClass('open');
+    if ( this.classList.contains('open') ) {
+      $(this).html('&#8744;');
+    } else {
+      $(this).html('&#8743;');
+    }
+    $('article.archive').toggleClass('hide');
+  });
+
+
   /***
     Mandrill Email Contact Stuff
   ***/
@@ -69,20 +101,4 @@ $(function() {
       $('p.response').html('<strong>Something went wrong. I\'ll look into it. \n' + err.message + '</strong>');
     });
   });
-
-  // Text Fit functionality for article headings
-
-  var heading = $(' article h1 ');
-
-  for ( var i = 0; i < heading.length; i++ ) {
-
-    var head = heading[i],
-      headText = head.textContent;
-
-    if ( headText.length > 36 ) {
-      head.style.fontSize = '2.2em';
-    }
-
-  }
-
 });

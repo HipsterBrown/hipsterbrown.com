@@ -1,0 +1,21 @@
+#archives {
+
+  > h1 {
+    padding: 1em 0;
+  }
+
+  .arrow {
+    cursor: pointer;
+  }
+
+  .open {
+    @include transform(rotate(180deg));
+  }
+
+  .archive {
+    h1 {
+      font-size: 2em;
+      margin: 0 auto;
+    }
+  }
+}
