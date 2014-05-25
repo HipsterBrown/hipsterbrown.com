@@ -70,6 +70,19 @@ $(function() {
     });
   });
 
+  // Text Fit functionality for article headings
 
+  var heading = $(' article h1 ');
+
+  for ( var i = 0; i < heading.length; i++ ) {
+
+    var head = heading[i],
+      headText = head.textContent;
+
+    if ( headText.length > 36 ) {
+      head.style.fontSize = '2.2em';
+    }
+
+  }
 
 });
