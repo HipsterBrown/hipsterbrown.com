@@ -36,12 +36,30 @@
   text-align: left;
 }
 
+.img-half {
+  width: 50%;
+}
+
+.img-quart {
+  width: 25%;
+}
+
+.img-three-quart {
+  width: 75%;
+}
+
+.img-full {
+  width: 100%;
+}
+
 .el-right {
   float: right;
+  margin-left: $img-margin;
 }
 
 .el-left {
   float: left;
+  margin-right: $img-margin;
 }
 
 .clearfix {

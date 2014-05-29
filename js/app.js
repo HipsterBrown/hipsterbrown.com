@@ -4,8 +4,6 @@ var hipArray = ['ironic', 'authentic', 'vintage', 'classic', 'hip', 'confident']
 $(function() {
   'use strict';
 
-  console.log('ready to work!');
-
   /***
     Switches header span on page load
   ***/
