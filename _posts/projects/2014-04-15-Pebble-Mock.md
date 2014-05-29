@@ -2,7 +2,7 @@
 layout: project
 title: Pebble Mock
 description: A sketch mockup of the popular smartwatch for watchface design
-img_excerpt: http://hipsterbrown.com/img/Pebble_Mockup@2x.png
+img_excerpt: http://hip.projects.s3.amazonaws.com/Pebble_Mockup@2x.png
 categories:
 - project
 - sketch

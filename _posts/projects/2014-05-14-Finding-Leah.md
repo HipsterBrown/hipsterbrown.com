@@ -2,7 +2,7 @@
 layout: project
 title: Finding Leah
 description: A simple site for a creative writer to display her work
-img_excerpt: http://hipsterbrown.com/img/Finding_Leah.png
+img_excerpt: http://hip.projects.s3.amazonaws.com/Finding_Leah.png
 live_link: http://www.leahmarks.com
 categories:
 - project
