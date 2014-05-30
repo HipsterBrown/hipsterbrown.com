@@ -1,10 +1,14 @@
 footer {
-  font-size: .8rem;
+  font-size: 1rem;
   padding: 1em 2em;
+
+  @media screen and (max-width: 868px) {
+    font-size: .8rem;
+  }
 
   aside.copy {
     p {
-      font-size: 1.4em;
+      font-size: 1.2em;
       font-weight: 100;
     }
   }
@@ -14,6 +18,10 @@ footer {
     float: right;
     text-align: center;
     width: 15%;
+
+    @media screen and (max-width: 868px) {
+      width: 25%;
+    }
 
     h2 {
       padding: 0 0 .15em;

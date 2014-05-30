@@ -3,6 +3,14 @@ header {
   height: 17em;
   padding-bottom: 2em;
 
+  @media screen and (max-width: 900px) {
+    font-size: .8rem;
+
+    &.container {
+      width: 90%;
+    }
+  }
+
   figure.icon-container {
     @extend %vertical-align;
     text-align: center;
