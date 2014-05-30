@@ -1,9 +1,9 @@
 #navbar {
   font-size: 1rem;
   background: $navblue;
-  position: relative;
+  position: fixed;
   @include clearfix;
-  height: 6em;
+  height: $nav-height;
 
   #home-link {
     @include span-columns(1 of 12);

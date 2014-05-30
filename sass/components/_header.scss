@@ -1,6 +1,6 @@
 header {
   font-size: 1rem;
-  height: 17em;
+  height: 17em + $nav-height;
   padding-bottom: 2em;
 
   @media screen and (max-width: 900px) {
