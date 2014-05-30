@@ -2,7 +2,7 @@
 layout: project
 title: Gastracker
 description: A design-in-the-browser crack at a single page web app
-img_excerpt: http://hip.projects.s3.amazonaws.com/gastracker.png
+img_excerpt: http://hip.projects.s3.amazonaws.com/GasTracker/gastracker.png
 live_link: http://hipsterbrown.com/GasTracker/index.html
 categories:
 - project
