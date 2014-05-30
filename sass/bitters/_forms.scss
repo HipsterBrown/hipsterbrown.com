@@ -16,6 +16,12 @@ fieldset {
   padding: $base-line-height;
 }
 
+@-moz-document url-prefix() {
+    fieldset {
+        display: table-cell;
+    }
+}
+
 input,
 label,
 select {

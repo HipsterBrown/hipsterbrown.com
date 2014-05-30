@@ -1,6 +1,12 @@
 .content {
   font-size: 1rem;
 
+  @media screen and (max-width: 900px) {
+    &.musings {
+      font-size: .6rem;
+    }
+  }
+
   article {
     padding: 2em 0;
 
@@ -23,12 +29,15 @@
     }
 
     h1 {
-      border-bottom: 3px solid $linkblue;
       color: $linkblue;
       font-size: 3em;
       margin: 0 auto 1em;
-      width: intrinsic;
-      width: -moz-max-content;
+      width: auto;
+      text-align: center;
+
+      a {
+        border-bottom: 3px solid $linkblue;
+      }
     }
 
     h2,h3 {
@@ -50,6 +59,10 @@
       font-weight: 100;
       line-height: 1.6em;
       padding: 0 0 1em;
+
+      @media screen and (max-width: 800px) {
+        font-size: 1.3em;
+      }
 
       a {
         text-decoration: underline;
