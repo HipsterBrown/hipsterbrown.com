@@ -4,6 +4,8 @@
   position: fixed;
   @include clearfix;
   height: $nav-height;
+  width: 100%;
+  z-index: 130;
 
   #home-link {
     @include span-columns(1 of 12);

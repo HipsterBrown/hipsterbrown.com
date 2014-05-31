@@ -1,8 +1,15 @@
 var hipArray = ['ironic', 'authentic', 'vintage', 'classic', 'hip', 'confident'],
   headSpan = $('span.hip-feel');
 
+
 $(function() {
   'use strict';
+
+  // Scroll to hide nav function
+
+  $(document).on('scroll', function(e) {
+    console.log(e.target);
+  });
 
   /***
     Switches header span on page load
