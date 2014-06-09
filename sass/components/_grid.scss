@@ -4,14 +4,26 @@
 
 .quart {
   @include span-columns(3 of 12);
+
+  @media screen and (max-width: 530px) {
+    @include span-columns(12 of 12);
+  }
 }
 
 .three-quart {
   @include span-columns(8 of 12);
+
+  @media screen and (max-width: 530px) {
+    @include span-columns(12 of 12);
+  }
 }
 
 .half {
   @include span-columns(6 of 12);
+
+  @media screen and (max-width: 530px) {
+    @include span-columns(12 of 12);
+  }
 }
 
 .container {
@@ -19,8 +31,16 @@
   width: 85%;
   margin: 0 auto;
 
+  @media screen and (max-width: 710px) {
+    width: 90%;
+  }
+
   &.thin {
     width: 60%;
+
+    @media screen and (max-width: 710px) {
+      width: 70%;
+    }
   }
 }
 

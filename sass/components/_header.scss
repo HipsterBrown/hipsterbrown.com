@@ -12,9 +12,24 @@ header {
     }
   }
 
+  @media screen and (max-width: 710px) {
+    font-size: .6rem;
+  }
+
+  @media screen and (max-width: 530px) {
+    padding-top: 3em;
+  }
+
   figure.icon-container {
     @extend %vertical-align;
     text-align: center;
+
+    @media screen and (max-width: 530px) {
+      top: 0;
+      @include transform(none);
+      margin: 0;
+      padding: 0 0 2em;
+    }
 
     svg {
       width: 14em;
@@ -50,6 +65,11 @@ header {
   h1 {
     @extend %vertical-align;
     text-align: center;
+
+    @media screen and (max-width: 530px) {
+      top: 0;
+      @include transform(none);
+    }
 
     span.hip-feel {
       color: $hip-dark-tan;
