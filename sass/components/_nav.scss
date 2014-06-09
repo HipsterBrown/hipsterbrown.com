@@ -9,8 +9,19 @@
   @include transition(all .2s ease-in-out);
 
   &.scrolled {
-    font-size: .5em;
+    font-size: .5rem;
     @include transform(translateY(-5em));
+
+    &:hover {
+      font-size: 1rem;
+      @include transform(translateY(0em));
+    }
+  }
+
+  @media screen and (max-width: 710px) {
+    font-size: .8rem;
+    height: auto;
+    @include transform(translateY(-21.5em));
   }
 
   #home-link {
@@ -23,9 +34,24 @@
     border-radius: .5em;
     @include transition(all .25s ease-in-out);
 
+    @media screen and (max-width: 710px) {
+      @include span-columns(12 of 12);
+      top: 0;
+      @include transform(none);
+      margin: 0;
+      border-radius: 0;
+    }
+
     svg {
       width: 90%;
       height: 90%;
+
+      @media screen and (max-width: 710px) {
+        display: block;
+        width: auto;
+        height: 4.8em;
+        margin: auto;
+      }
 
       > #icon-logo > #inner {
         stroke: $linkblue;
@@ -57,6 +83,12 @@
     @include span-columns(10 of 12);
     @extend %vertical-align;
 
+    @media screen and (max-width: 710px) {
+      @include span-columns(12 of 12);
+      position: static;
+      @include transform(none);
+    }
+
     ul {
       @include fill-parent();
       @include clearfix();
@@ -65,10 +97,20 @@
         @include span-columns(2.5 of 10);
         text-align: center;
 
+        @media screen and (max-width: 710px) {
+          width: 100%;
+          //padding: 1em 0 0;
+        }
+
         a {
           font-family: $serif;
           font-size: 1.3em;
           @include hover-effect($navblue, $linkblue);
+
+          @media screen and (max-width: 710px) {
+            display: block;
+            border-radius: 0;
+          }
         }
       }
     }

@@ -8,17 +8,14 @@ $(function() {
   // Scroll to hide nav function
   var lastScroll = 0;
 
-  $(window).on('scroll', function(e) {
+  $(window).on('scroll.hip', function(e) {
     var navbar = $('div#navbar'),
-      header = $('header'),
       st = $(this).scrollTop();
 
     if (st + lastScroll >= 100 ) {
       navbar.addClass('scrolled');
-      console.log(st + ' ' + lastScroll);
       if ( st < lastScroll ) {
         navbar.removeClass('scrolled');
-        console.log(st + ' ' + lastScroll);
       }
     } else if ( st < lastScroll ) {
       navbar.removeClass('scrolled');
@@ -30,6 +27,22 @@ $(function() {
     return lastScroll;
 
   });
+
+  //mobile navigation menu functionality
+  var mq = window.matchMedia('@media all and (max-width: 710px)'),
+    stache = $('a#break'),
+    nav = $('div#navbar');
+
+  if (mq.matches) {
+    console.log("this is not the size you're looking for.");
+  } else {
+    console.log("this is a match!");
+    $(window).off('scroll.hip');
+    stache.on('click.hip', function(e) {
+      e.preventDefault();
+      nav.toggleClass('scrolled');
+    });
+  }
 
   /***
     Switches header span on page load
