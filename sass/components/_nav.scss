@@ -6,6 +6,12 @@
   height: $nav-height;
   width: 100%;
   z-index: 130;
+  @include transition(all .2s ease-in-out);
+
+  &.scrolled {
+    font-size: .5em;
+    @include transform(translateY(-5em));
+  }
 
   #home-link {
     @include span-columns(1 of 12);

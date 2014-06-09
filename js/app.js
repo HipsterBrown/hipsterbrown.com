@@ -6,9 +6,29 @@ $(function() {
   'use strict';
 
   // Scroll to hide nav function
+  var lastScroll = 0;
 
-  $(document).on('scroll', function(e) {
-    console.log(e.target);
+  $(window).on('scroll', function(e) {
+    var navbar = $('div#navbar'),
+      header = $('header'),
+      st = $(this).scrollTop();
+
+    if (st + lastScroll >= 100 ) {
+      navbar.addClass('scrolled');
+      console.log(st + ' ' + lastScroll);
+      if ( st < lastScroll ) {
+        navbar.removeClass('scrolled');
+        console.log(st + ' ' + lastScroll);
+      }
+    } else if ( st < lastScroll ) {
+      navbar.removeClass('scrolled');
+      console.log(st + ' ' + lastScroll);
+    }
+
+    lastScroll = st;
+
+    return lastScroll;
+
   });
 
   /***
