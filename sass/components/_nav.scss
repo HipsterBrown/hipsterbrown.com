@@ -18,6 +18,10 @@
     }
   }
 
+  &.open {
+    @include transform(translateY(0em));
+  }
+
   @media screen and (max-width: 710px) {
     font-size: .8rem;
     height: auto;

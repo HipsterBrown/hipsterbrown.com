@@ -40,7 +40,7 @@ $(function() {
     $(window).off('scroll.hip');
     stache.on('click.hip', function(e) {
       e.preventDefault();
-      nav.toggleClass('scrolled');
+      nav.toggleClass('open');
     });
   }
 
