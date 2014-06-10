@@ -29,7 +29,7 @@ $(function() {
   });
 
   //mobile navigation menu functionality
-  var mq = window.matchMedia('@media all and (max-width: 710px)'),
+  var mq = window.matchMedia('(min-width: 710px)'),
     stache = $('a#break'),
     nav = $('div#navbar');
 
