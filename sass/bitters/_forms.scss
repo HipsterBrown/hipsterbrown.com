@@ -99,4 +99,9 @@ input[type="submit"] {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+
+  @media screen and (max-width: 530px) {
+    width: 100%;
+    display: block;
+  }
 }
