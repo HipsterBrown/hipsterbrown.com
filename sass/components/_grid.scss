@@ -35,13 +35,25 @@
     width: 90%;
   }
 
+  @media screen and (max-width: 450px) {
+    width: 95%;
+  }
+
   &.thin {
     width: 60%;
 
     @media screen and (max-width: 710px) {
       width: 70%;
     }
+
+    @media screen and (max-width: 450px) {
+      width: 85%;
+    }
   }
+}
+
+.img-container {
+  text-align: center;
 }
 
 .t-right {
@@ -58,14 +70,23 @@
 
 .img-half {
   width: 49%;
+  @media screen and (max-width: 530px) {
+    width: 100%;
+  }
 }
 
 .img-quart {
   width: 22%;
+  @media screen and (max-width: 530px) {
+    width: 100%;
+  }
 }
 
 .img-three-quart {
   width: 75%;
+  @media screen and (max-width: 530px) {
+    width: 100%;
+  }
 }
 
 .img-full {

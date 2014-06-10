@@ -6,6 +6,11 @@ footer {
     font-size: .8rem;
   }
 
+  @media screen and (max-width: 530px) {
+    font-size: .7rem;
+    text-align: center;
+  }
+
   aside.copy {
     p {
       font-size: 1.2em;
@@ -15,13 +20,7 @@ footer {
 
   ul.social {
     @include clearfix;
-    float: right;
     text-align: center;
-    width: 15%;
-
-    @media screen and (max-width: 868px) {
-      width: 25%;
-    }
 
     h2 {
       padding: 0 0 .15em;
@@ -31,7 +30,13 @@ footer {
     li {
       @include span-columns(3 of 12);
       opacity: 0.8;
+      padding-top: .5em;
       @include transition(all .3s ease-in-out);
+
+      @media screen and (max-width: 530px) {
+        //@include span-columns(12 of 12);
+        margin: 0;
+      }
 
       &:hover {
         opacity: 1;

@@ -17,7 +17,13 @@ header {
   }
 
   @media screen and (max-width: 530px) {
-    padding-top: 3em;
+    padding-top: 3.5em;
+    padding-bottom: 4em;
+    height: auto;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: .5rem;
   }
 
   figure.icon-container {
@@ -80,6 +86,11 @@ header {
   h2 {
     @extend %vertical-align;
     text-align: center;
+
+    @media screen and (max-width: 530px) {
+      top: 0;
+      @include transform(none);
+    }
   }
 
   //Bio Page specific styles for header

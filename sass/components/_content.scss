@@ -7,6 +7,10 @@
     }
   }
 
+  @media screen and (max-width: 530px) {
+    font-size: .8rem;
+  }
+
   article {
     padding: 2em 0;
 
@@ -42,6 +46,15 @@
 
     h2,h3 {
       text-indent: -2em;
+
+      @media screen and (max-width: 450px) {
+        text-indent: -.5em;
+      }
+
+      @media screen and (max-width: 360px) {
+        text-indent: 0em;
+        text-align: center;
+      }
     }
 
     h2 {
