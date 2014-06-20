@@ -1,5 +1,0 @@
-@include keyframes(open) {
-  to {
-    @include transform(rotate(180deg));
-  }
-}
