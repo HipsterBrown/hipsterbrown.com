@@ -1,0 +1,37 @@
+---
+layout: default
+title: Hip Musings
+description: Where is my mind?
+icon: Icon-Musings.svg
+tags:
+- musings
+---
+
+{% for post in site.categories['musing'] limit:5 %}
+  <article>
+    <div class="container thin">
+      <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+      <section class="excerpt full clearfix">
+        <p>
+          {{post.description}}
+        </p>
+        <p class="half">
+          {{ post.date | date_to_long_string }}
+        </p>
+        <p class="tags half t-right">
+          Categories: <em>{{ post.tags | join: ', ' }}</em>
+        </p>
+      </section>
+    </div>
+  </article>
+{% endfor %}
+<section id="archives">
+  <h1 class="t-center">Archives <span class="arrow">&#8743;</span></h1>
+  {% for post in site.categories['musing'] offset:5 %}
+    <article class="archive hide">
+      <div class="container thin">
+        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+      </div>
+    </article>
+  {% endfor %}
+</section>

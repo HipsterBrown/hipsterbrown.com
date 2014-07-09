@@ -1,0 +1,27 @@
+svg.icon {
+  height: 3em;
+
+  &.icon-github {
+    height: 2.2em;
+  }
+
+  &.icon-codepen {
+    height: 2.5em;
+  }
+}
+
+#icon-twitter, #icon-flickr, #icon-codepen {
+  path {
+    fill: $dark-gray;
+  }
+}
+
+#icon-github {
+  path#Head {
+    fill: $dark-gray;
+  }
+
+  path#Eye---Left, path#Eye---Right {
+    fill: $dark-gray;
+  }
+}

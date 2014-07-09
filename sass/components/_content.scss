@@ -1,0 +1,115 @@
+.content {
+  font-size: 1rem;
+
+  @media screen and (max-width: 900px) {
+    &.musings {
+      font-size: .6rem;
+    }
+  }
+
+  @media screen and (max-width: 530px) {
+    font-size: .8rem;
+  }
+
+  article {
+    padding: 2em 0;
+
+    &:nth-of-type(odd) {
+      background: $base-body-color;
+
+      strong {
+        color: $base-body-color;
+        background: $base-strong-highlight;
+      }
+    }
+
+    &:nth-of-type(even) {
+      background: $alt-body-color;
+
+      strong {
+        color: $base-strong-highlight;
+        background: $alt-strong-highlight;
+      }
+    }
+
+    h1 {
+      color: $linkblue;
+      font-size: 3em;
+      margin: 0 auto 1em;
+      width: auto;
+      text-align: center;
+
+      a {
+        border-bottom: 3px solid $linkblue;
+      }
+    }
+
+    h2,h3 {
+      text-indent: -2em;
+
+      @media screen and (max-width: 450px) {
+        text-indent: -.5em;
+      }
+
+      @media screen and (max-width: 360px) {
+        text-indent: 0em;
+        text-align: center;
+      }
+    }
+
+    h2 {
+      color: $linkblue;
+      font-size: 1.9em;
+    }
+
+    h3 {
+      @extend h2;
+      font-size: 1.6em;
+    }
+
+    p {
+      font-size: 1.2em;
+      font-weight: 300;
+      line-height: 1.6em;
+      padding: 0 0 1em;
+
+      @media screen and (max-width: 800px) {
+        font-size: 1.3em;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    strong {
+      padding: .1em .3em;
+      border-radius: 4px;
+      font-weight: normal;
+    }
+
+    img {
+      border: 8px solid $linkblue;
+      border-radius: 6px;
+      margin-top: $img-margin;
+      margin-bottom: $img-margin;
+      //width: 80%;
+
+      &:hover {
+        border-color: lighten($linkblue, 12%);
+      }
+
+      &.no-border {
+        border: none;
+        border-radius: 0px;
+      }
+    }
+  }
+
+  &.no-border {
+    img {
+      border: none;
+      border-radius: 0px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{% include header.html %}
+
+  <header class="container {{ page.tags }}">
+  {% if page.icon %}
+      <figure class="icon-container quart">
+        {% include {{page.icon}} %}
+      {% if page.title == 'HipsterBrown' %}
+        <figcaption>{{ page.title }}</figcaption>
+      {% endif %}
+      </figure>
+      <h1 class="three-quart">{{ page.description }}</h1>
+      {% else %}
+      <h1 class="full">{{ page.description }}</h1>
+  {% endif %}
+  </header>
+  <section class="main content {{ page.tags }}">
+    {{ content }}
+  </section>
+
+{% include footer.html %}

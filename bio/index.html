@@ -1,0 +1,16 @@
+---
+layout: default
+title: Hip Bio
+description: Allow me to introduce myself.
+icon: Icon-Bio.svg
+tags:
+- bio
+---
+{% for post in site.categories['bio'] %}
+  <article>
+    <div class="container thin">
+      <h1>{{ post.title }}</h1>
+      {{ post.content }}
+    </div>
+  </article>
+{% endfor %}

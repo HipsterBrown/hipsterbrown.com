@@ -1,0 +1,22 @@
+%button {
+  background: $base-body-color;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 0 2px darken($alt-body-color, 30), inset -1px -1px 0 1px darken($alt-body-color, 15);
+  color: $dark-accent-color;
+  display: inline-block;
+  font-family: $serif;
+  padding: 0.5em 1em;
+  text-shadow: none;
+  font-size: $base-font-size;
+
+  &:hover, &:focus {
+    background: darken($base-body-color, 5);
+  }
+
+  &:active {
+    background: $base-body-color;
+    box-shadow: 0 0 0 2px darken($alt-body-color, 30);
+    @include transform(translateY(2px));
+  }
+}
