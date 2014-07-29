@@ -1,32 +1,41 @@
-var hipArray = ['ironic', 'authentic', 'vintage', 'classic', 'hip', 'confident'],
-  headSpan = $('span.hip-feel');
-
-
 $(function() {
   'use strict';
+  
+  var HipWeb = HipWeb || {};
 
   // Scroll to hide nav function
-  var lastScroll = 0;
+  HipWeb.ScrollMod = (function(){
+	var lastScroll = 0,
+		navbar = $('div#navbar');
 
-  $(window).on('scroll.hip', function(e) {
-    var navbar = $('div#navbar'),
-      st = $(this).scrollTop();
+	function scrollListener() {
+		$(window).on('scroll', aniScroll );
+	}
 
-    if (st + lastScroll >= 100 ) {
-      navbar.addClass('scrolled');
-      if ( st < lastScroll ) {
-        navbar.removeClass('scrolled');
-      }
-    } else if ( st < lastScroll ) {
-      navbar.removeClass('scrolled');
-      console.log(st + ' ' + lastScroll);
-    }
+	function aniScroll() {
+		var st = $(this).scrollTop();
 
-    lastScroll = st;
+		if ( st + lastScroll >= 100 ) {
+			navbar.addClass('scrolled');
+			
+			if ( st < lastScroll ) {
+				navbar.removeClass('scrolled');
+			}
+		} else if ( st < lastScroll ) {
+			navbar.removeClass('scrolled');
+		}
 
-    return lastScroll;
+		lastScroll = st;
 
-  });
+		return lastScroll;	
+	}
+
+	return {
+		listen: scrollListener
+	};
+  }());
+
+  HipWeb.ScrollMod.listen();
 
   //mobile navigation menu functionality
   var mq = window.matchMedia('(min-width: 710px)'),
@@ -48,6 +57,9 @@ $(function() {
     Switches header span on page load
   ***/
 
+  var hipArray = ['ironic', 'authentic', 'vintage', 'classic', 'hip', 'confident'],
+  headSpan = $('span.hip-feel');
+  
   function spanSwitch(el, arr) {
 		var span = el;
 		var newWord = arr[Math.floor(Math.random() * arr.length)];
@@ -139,4 +151,7 @@ $(function() {
       $('p.response').html('<strong>Something went wrong. I\'ll look into it. \n' + err.message + '</strong>');
     });
   });
+
+
+
 });
