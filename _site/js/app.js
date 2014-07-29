@@ -173,7 +173,71 @@ $(function() {
   /***
     Mandrill Email Contact Stuff
   ***/
+ HipWeb.EmailMod = (function() {
+	 var mail = new mandrill.Mandrill('nhtBwMOLtPtaBV8fKHiuww'),
+		 submit = $('#submit'),
+		 response = $('p.response');
 
+	 function createParams(name, email, topic, message, to) {
+		 var params = {
+			 'message': {
+				 'from_email': email,
+				 'to': [{'email': to}],
+				 'subject': topic,
+				 'text': name + ' has sent you a message from your site: \n' + message
+			 }
+		 };
+
+		 return params;
+	 }
+
+	 function clearVals() {
+		 var args = arguments;
+
+		 for (var i = 0; i < args.length; i++ ) {
+			 args[i].val('');
+		 }
+
+	 }
+
+	 function sendMail() {
+		 submit.on('click', function(event) {
+			mailer(event);
+		 });
+	 }
+
+	 function mailer(event) {
+		 event.preventDefault();
+
+		 response.html('<strong>Sending...</strong>');
+		 
+		 var name = $('#name'),
+			 email = $('#email'),
+			 topic = $('#topic'),
+			 message = $('#message'),
+			 me = 'headhipster@hipsterbrown.com',
+			 params = createParams(name.val(), email.val(), topic.val(), message.val(), me);
+
+		 console.log(name.val(), email.val(), topic.val(), message.val(), me);
+		
+		 mail.messages.send(params, function(res) {
+			 console.log(res);
+			 clearVals(name, email, topic, message);
+			 response.html('<strong>Message received, thanks for reaching out!</strong>');
+		 }, function(err) {
+			 console.log(err);
+			 response.html('<strong>Something went wrong. I\'ll look into it. \n' + err.message + '</strong>');
+		 });
+	 }
+
+	 return {
+		 listen: sendMail
+	 };
+ }());
+
+ HipWeb.EmailMod.listen();
+
+/*
   var mail = new mandrill.Mandrill('nhtBwMOLtPtaBV8fKHiuww'),
     submit = $('#submit');
 
@@ -221,7 +285,7 @@ $(function() {
       $('p.response').html('<strong>Something went wrong. I\'ll look into it. \n' + err.message + '</strong>');
     });
   });
-
+*/
 
 
 });
