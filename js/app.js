@@ -38,6 +38,43 @@ $(function() {
   HipWeb.ScrollMod.listen();
 
   //mobile navigation menu functionality
+  HipWeb.MenuMod = (function(){
+	var win = $(window),
+		mq = window.matchMedia('(min-width: 710px)'),
+		stache = $('a#break'),
+		nav = $('div#navbar');
+
+	function matchListener() {
+		win.on('resize', function(e) {
+			console.log('resizing...');
+			if ( !mq.matches ) {
+				removeListener();
+				stacheClick();
+			} else {
+				console.log('still big enough');
+				HipWeb.ScrollMod.listen();
+			}
+		});
+	}
+
+	function removeListener() {
+		win.off('scroll');	
+	}
+
+	function stacheClick() {
+		stache.on('click', function(e) {
+			e.preventDefault();
+			nav.toggleClass('open');
+		});
+	}
+
+	return {
+		listen: matchListener
+	};
+  }());
+
+  HipWeb.MenuMod.listen();
+/*
   var mq = window.matchMedia('(min-width: 710px)'),
     stache = $('a#break'),
     nav = $('div#navbar');
@@ -52,7 +89,7 @@ $(function() {
       nav.toggleClass('open');
     });
   }
-
+*/
   /***
     Switches header span on page load
   ***/
