@@ -118,21 +118,28 @@ $(function() {
   HipWeb.SwitchMod.switcher;
 
   // Text Fit functionality for article headings
+  HipWeb.TextFitMod = (function() {
+	  var heading = $(' article h1 ');
 
-  var heading = $(' article h1 ');
+	  function sizingLoop() {
+		  for ( var i = 0; i < heading.length; i++ ) {
+			  var head = heading[i],
+				  headText = head.textContent;
 
-  for ( var i = 0; i < heading.length; i++ ) {
+			  if ( headText.length > 36 ) {
+				  head.style.fontSize = '2em';
+			  } else if ( headText.length > 48 ) {
+				  head.style.fontSize = '1.8em';
+			  }
+		  }
+	  }
 
-    var head = heading[i],
-      headText = head.textContent;
+	  return {
+		  sizer: sizingLoop
+	  };
+  }());
 
-    if ( headText.length > 36 ) {
-      head.style.fontSize = '2em';
-    } else if ( headText.length > 48 ) {
-      head.style.fontSize = '1.8em';
-    }
-
-  }
+  HipWeb.TextFitMod.sizer();
 
   // Archive Show List
 
