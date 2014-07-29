@@ -142,19 +142,33 @@ $(function() {
   HipWeb.TextFitMod.sizer();
 
   // Archive Show List
+  HipWeb.ArchiveShowMod = (function() {
+	  var arrow = $('span.arrow');
 
-  var arrow = $('span.arrow');
+	  function listControl() {
+		  arrow.on('click', reveil);
+	  }
 
-  arrow.on('click', function(e) {
-    $(this).toggleClass('open');
-    if ( this.classList.contains('open') ) {
-      $(this).html('&#8744;');
-    } else {
-      $(this).html('&#8743;');
-    }
-    $('article.archive').toggleClass('hide');
-  });
+	  function reveil() {
+		  var that = $(this);
 
+		  that.toggleClass('open');
+
+		  if ( this.classList.contains('open') ) {
+			  that.html('&#8744;');
+		  } else {
+			  that.html('&#8743;');
+		  }
+
+		  $('article.archive').toggleClass('hide');
+	  }
+
+	  return {
+		  listen: listControl
+	  };
+  }());
+
+  HipWeb.ArchiveShowMod.listen();
 
   /***
     Mandrill Email Contact Stuff
