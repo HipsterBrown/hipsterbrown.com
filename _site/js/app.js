@@ -9,7 +9,7 @@ $(function() {
 		navbar = $('div#navbar');
 
 	function scrollListener() {
-		$(window).on('scroll', aniScroll );
+		$(window).on('scroll.hip', aniScroll );
 	}
 
 	function aniScroll() {
@@ -42,18 +42,37 @@ $(function() {
 	var win = $(window),
 		mq = window.matchMedia('(min-width: 710px)'),
 		stache = $('a#break'),
-		nav = $('div#navbar');
+		nav = $('div#navbar'),
+		isSmall = false;
 
-	function matchListener() {
+	function matchListener(check) {
+		var check = check || !mq.matches;
+		
+		if ( check ) {
+			removeListener();
+			stacheClick();
+		} else {
+			HipWeb.ScrollMod.listen();
+		}
+	}
+
+	function resizeListener() {
 		win.on('resize', function(e) {
 			console.log('resizing...');
+			var sizeCheck = isSmall;
+
 			if ( !mq.matches ) {
-				removeListener();
-				stacheClick();
+				isSmall = true;
 			} else {
 				console.log('still big enough');
-				HipWeb.ScrollMod.listen();
+				isSmall = false;
 			}
+
+			if ( sizeCheck !== isSmall ) {
+				matchListener(isSmall);
+			}
+
+			return isSmall;
 		});
 	}
 
@@ -69,41 +88,34 @@ $(function() {
 	}
 
 	return {
-		listen: matchListener
+		listen: matchListener,
+		resizer: resizeListener
 	};
   }());
 
   HipWeb.MenuMod.listen();
-/*
-  var mq = window.matchMedia('(min-width: 710px)'),
-    stache = $('a#break'),
-    nav = $('div#navbar');
+  HipWeb.MenuMod.resizer();
 
-  if (mq.matches) {
-    console.log("this is not the size you're looking for.");
-  } else {
-    console.log("this is a match!");
-    $(window).off('scroll.hip');
-    stache.on('click.hip', function(e) {
-      e.preventDefault();
-      nav.toggleClass('open');
-    });
-  }
-*/
   /***
     Switches header span on page load
   ***/
 
-  var hipArray = ['ironic', 'authentic', 'vintage', 'classic', 'hip', 'confident'],
-  headSpan = $('span.hip-feel');
-  
-  function spanSwitch(el, arr) {
-		var span = el;
-		var newWord = arr[Math.floor(Math.random() * arr.length)];
-		span.text(newWord);
-	}
+  HipWeb.SwitchMod = (function() {
+	  var hipArray = ['ironic', 'authentic', 'vintage', 'classic', 'hip', 'confident'],
+	  headSpan = $('span.hip-feel');
+	  
+	  function spanSwitch(el, arr) {
+		  var span = el;
+		  var newWord = arr[Math.floor(Math.random() * arr.length)];
+		  span.text(newWord);
+	  }
 
-  spanSwitch(headSpan, hipArray);
+	  return {
+		  switcher: spanSwitch(headSpan, hipArray)
+	  };
+  }());
+
+  HipWeb.SwitchMod.switcher;
 
   // Text Fit functionality for article headings
 
