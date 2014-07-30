@@ -10,11 +10,11 @@ module.exports = function(grunt) {
         camelcase: true,
         curly: true,
         eqeqeq: true,
-        indent: 2,
-        strict: true
+        strict: true,
+		validthis: true
       },
       all: [
-        'js/*.js'
+        'js/app.js'
       ]
     },
 
