@@ -94,7 +94,7 @@ $(function() {
   }());
 
   HipWeb.MenuMod.listen();
-  HipWeb.MenuMod.resizer();
+  //HipWeb.MenuMod.resizer();
 
   /***
     Switches header span on page load
@@ -218,14 +218,14 @@ $(function() {
 			 me = 'headhipster@hipsterbrown.com',
 			 params = createParams(name.val(), email.val(), topic.val(), message.val(), me);
 
-		 console.log(name.val(), email.val(), topic.val(), message.val(), me);
+		 //console.log(name.val(), email.val(), topic.val(), message.val(), me);
 		
 		 mail.messages.send(params, function(res) {
-			 console.log(res);
+			 //console.log(res);
 			 clearVals(name, email, topic, message);
 			 response.html('<strong>Message received, thanks for reaching out!</strong>');
 		 }, function(err) {
-			 console.log(err);
+			 //console.log(err);
 			 response.html('<strong>Something went wrong. I\'ll look into it. \n' + err.message + '</strong>');
 		 });
 	 }
@@ -236,56 +236,6 @@ $(function() {
  }());
 
  HipWeb.EmailMod.listen();
-
-/*
-  var mail = new mandrill.Mandrill('nhtBwMOLtPtaBV8fKHiuww'),
-    submit = $('#submit');
-
-  function createParams(name, email, topic, message, to) {
-    var params = {
-      'message': {
-        'from_email': email,
-        'to': [{'email': to}],
-        'subject': topic,
-        'text': name + ' has sent you a message from your site: \n' + message
-      }
-    };
-
-    return params;
-  }
-
-  function clearVals() {
-    var args = arguments;
-
-    for (var i = 0; i < args.length; i++ ) {
-      args[i].val('');
-    }
-
-  }
-
-  submit.on('click', function(e) {
-    e.preventDefault();
-
-    var name = $('#name'),
-      email = $('#email'),
-      topic = $('#topic'),
-      message = $('#message'),
-      me = 'headhipster@hipsterbrown.com';
-
-    console.log(name.val(), email.val(), topic.val(), message.val(), me);
-
-    var params = createParams(name.val(), email.val(), topic.val(), message.val(), me);
-
-    mail.messages.send(params, function(res) {
-      console.log(res);
-      clearVals(name, email, topic, message);
-      $('p.response').html('<strong>Message received, thanks for reaching out!</strong>');
-    }, function(err) {
-      console.log(err);
-      $('p.response').html('<strong>Something went wrong. I\'ll look into it. \n' + err.message + '</strong>');
-    });
-  });
-*/
 
 
 });
