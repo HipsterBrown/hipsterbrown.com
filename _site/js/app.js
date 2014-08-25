@@ -26,7 +26,7 @@ $(function() {
 
 			lastScroll = st;
 
-			return lastScroll;	
+			return lastScroll;
 		}
 
 		return {
@@ -34,7 +34,7 @@ $(function() {
 		};
 	}());
 
-	HipWeb.ScrollMod.listen();
+
 
 	HipWeb.MenuMod = (function(){
 		var win = $(window),
@@ -49,7 +49,7 @@ $(function() {
 			if ( mobile ) {
 				removeListener();
 				stacheClick();
-			} 
+			}
 		}
 
 		function resizeListener() {
@@ -73,7 +73,7 @@ $(function() {
 		}
 
 		function removeListener() {
-			win.off('scroll');	
+			win.off('scroll');
 		}
 
 		function stacheClick() {
@@ -89,8 +89,7 @@ $(function() {
 		};
 	}());
 
-	HipWeb.MenuMod.listen();
-	//HipWeb.MenuMod.resizer();
+
 
 	HipWeb.SwitchMod = (function() {
 		var hipArray = ['ironic', 'authentic', 'vintage', 'classic', 'hip', 'confident'],
@@ -111,7 +110,7 @@ $(function() {
 		};
 	}());
 
-	HipWeb.SwitchMod.switcher();
+
 
 	HipWeb.TextFitMod = (function() {
 		var heading = $(' article h1 ');
@@ -134,7 +133,7 @@ $(function() {
 		};
 	}());
 
-	HipWeb.TextFitMod.sizer();
+
 
 	HipWeb.ArchiveShowMod = (function() {
 		var arrow = $('span.arrow');
@@ -162,7 +161,7 @@ $(function() {
 		};
 	}());
 
-	HipWeb.ArchiveShowMod.listen();
+
 
 	HipWeb.EmailMod = (function() {
 		var mail = new mandrill.Mandrill('nhtBwMOLtPtaBV8fKHiuww'),
@@ -226,5 +225,22 @@ $(function() {
 		};
 	}());
 
-	HipWeb.EmailMod.listen();
+	HipWeb.init = function(){
+		console.log('initialize!');
+		HipWeb.ScrollMod.listen();
+
+		HipWeb.MenuMod.listen();
+		//HipWeb.MenuMod.resizer();
+
+		HipWeb.SwitchMod.switcher();
+
+		HipWeb.TextFitMod.sizer();
+
+		HipWeb.ArchiveShowMod.listen();
+
+		HipWeb.EmailMod.listen();
+
+	};
+
+	HipWeb.init();
 });

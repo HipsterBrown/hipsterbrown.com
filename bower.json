@@ -1,0 +1,7 @@
+{
+  "name": "hip-web",
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "mandrill-api": "~1.0.38"
+  }
+}

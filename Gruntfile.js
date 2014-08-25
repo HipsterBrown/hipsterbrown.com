@@ -20,10 +20,11 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+        mangle: false
       },
       build: {
-        src: 'js/app.js',
+        src: ['bower_components/jquery/dist/jquery.min.js','bower_components/mandrill-api/mandrill.min.js','js/app.js'],
         dest: 'js/app.min.js'
       }
     },
@@ -63,9 +64,9 @@ module.exports = function(grunt) {
 
       js: {
         files: [
-          'js/*.js'
+          'js/app.js'
         ],
-        tasks: ['jshint']
+        tasks: ['jshint', 'uglify']
       }
     }
 
