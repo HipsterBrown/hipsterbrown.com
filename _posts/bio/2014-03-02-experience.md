@@ -5,11 +5,11 @@ categories:
 - bio
 - experience
 ---
-## Front-End Developer; SurgeWP; Remote - Orlando,FL
+## Front-End Developer; SurgeWP; Remote
 
-### December 2013 - Present
+### December 2013 - September 2014
 
-A mixed role of Wordpress development, Sass architecture, and project management while working flexible hours from home or Starbucks.
+A mixed role of Wordpress development, Sass architecture, and project management while working flexible hours from home, the local coffee shop, or a co-working space.
 
 ## Contract Information Technician; Kavaliro; Orlando, FL
 
