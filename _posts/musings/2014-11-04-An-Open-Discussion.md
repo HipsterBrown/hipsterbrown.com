@@ -1,0 +1,27 @@
+---
+layout: musing
+title: An Open Discussion About People
+description: Some takeaways from a brief but thorough discussion with Ben Callahan
+categories:
+- musings
+- musing
+tags:
+- real-talk
+- people
+- process
+---
+
+
+I had a fairly thorough but brief discussion with [Ben Callahan](https://twitter.com/bencallahan) of [Sparkbox](http://seesparkbox.com) yesterday evening about Web Design and Development Processes, or at least it started out that way, via [public Google Doc](https://docs.google.com/document/d/1M02V6mVMgFa9In-wcId4bBkCu62Ngk-sJzkljKKkBi8/edit?usp=sharing). These are some initial takeaways from that discussion and experience:
+
+1. **The role of front-end developer is still very vague in the responsibilities, purpose, and knowledge required to fulfill this position**; this includes which side the group stands on with the gap between designers and developers in a work/project environment. Ben asserts that there shouldn't be a gap, wall, or division between the teams, and we should "bring everyone to the table." I completely agree, and I still believe the ideal mix of design-thinking and development know-how makes the front-end (and its devs) the perfect platform for bridging that gap, tearing down that wall, and eliminating that division.  
+2. **It's ultimately about people.** We kept circling back to this point thoroughout the discussion, and it epitomizes the root of most problems in any industry, much less tech. You can put a designer, front-end developer, and a server-side developer on a project, but who makes the tough decisions and ensures the project is done correctly? Companies need **Passionate Maintainers**<sup>TM</sup>, team members who can facilitate communication among the group members, as well as contribute to the end product in a technical way. Teammates should empathize with each others' challenges, not just their own, and display humility to the expertise of others as well. Ben talks about developing these ideals in his teams at Sparkbox and through the various [Build Right Workshops](http://buildright.io/), but they are not easily or traditionally taught skills, especially in such a short period of time. I suppose it helps to at least start a dialogue among a group, or company, to foster those ideas when hiring new people and supporting the old. I would personally love to attend the Collaboration workshop at least once.
+3. **Community is key.**  As I stated in the Doc, we can look to Open Source Software (OSS) projects as a prime example of Passionate Maintainers<sup>TM</sup>, people who care about the success of the project because it matches their ideals and is important to the community built around it. There are complete conferences around OSS projects and high-level jobs for OSS developers to represent their company in helping maintain the free tools they use everyday, because the power of a coomunity is massive. The most deciding factor behind learning and sticking with a new tool/framework/whatever is the community of people also sticking with it; it could have the strangest syntax, button layout, or name, but I will overcome those gripes as I consume the numerous articles, demos, and videos created by the community to learn all I need to know. So besides hiring someone to contribute to OSS, how does a company inspire the same type of passion and spirit seen in open source communities around its personal product or service? One the personnel level, Ben says, "We need to express the “bigger thing” that we want to champion and trust that the right people will show up." They [Sparkbox] like to know a person well enough that they are confient that their ideals match up before hiring them; this could be contracting them for a real world project and seeing how they work, or simply becoming more familiar with them over time. I'm still not sure how this can scale into the enterprise space with department heads and hundreds, if not thousands, of employees, but I didn't say we had all the answers yet.
+
+Phew, that was a lot to download a couple hours after the initial discussion. I will probably be going over that Doc a lot and exploring these topics with other owners, developers, designers, managers, etc to get their weigh in as well. I'm hoping more people contribute to it organically and inspire further discussion. I would love if anyone reading this post would submit any constructive thoughts in the Doc, especially since I don't have comments.
+
+Thanks for reading. Cheers.
+
+*Hipsterbrown*
+
+**P.S.** There really should be a better way to have the type of open discussion I started with Ben. Using a collaborative Doc or GitHub issue is kind of a hack for the real solution, because someone ultimately owns that issue or document, and/or the medium isn't open enough for everyone to contribute. There was a service called [Branch](http://branch.com/) that was pretty popular about two years ago until Facebook acquirred it and rolled it into their platform (even though the old Branches still exist). It had the nice format of conversational comments you find in GitHub issues and the accessibilty to anyone like Google Docs, but completely focused on open conversations. [Quora](https://www.quora.com/) is the closest alternative I can think of, but the user experience is too focused on sign-ups before any content is shown and the amount of emails received after signing up just isn't worth it. So if someone knows of any good alternatives, please let me know.
