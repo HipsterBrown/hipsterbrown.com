@@ -1,6 +1,6 @@
 name: HipsterBrown
 markdown: redcarpet
-pygments: true
+highlighter: 'pygments'
 exclude: ['sass', node_modules, README.md, package.json, Gruntfile.js, bower.json, bower_components]
 gems: ['bourbon', 'bitters', 'neat']
 permalink: /:categories/:title
