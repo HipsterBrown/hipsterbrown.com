@@ -1,0 +1,20 @@
+---
+layout: default
+title: Resources About Empathy
+description: Gathering Empathy from across the web.
+tags:
+- empathy
+---
+
+{% for post in site.categories['empathy'] %}
+  <article>
+    <div class="container thin">
+      <h1><a href="{{post.external_url}}">{{post.title}}</a></h1>
+      <section class="excerpt full clearfix">
+        <p>
+          {{post.description}}
+        </p>
+      </section>
+    </div>
+  </article>
+{% endfor %}
