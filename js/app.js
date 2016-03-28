@@ -142,12 +142,14 @@ HipWeb.ArchiveShowMod = (function() {
     that.classList.toggle('open');
 
     if ( that.classList.contains('open') ) {
-      that.html('&#8744;');
+      that.innerHTML = '&#8744;';
     } else {
-      that.html('&#8743;');
+      that.innerHTML = '&#8743;';
     }
 
-    document.querySelector('article.archive').classList.toggle('hide');
+    [].forEach.call(document.querySelectorAll('article.archive'), function (article) {
+      article.classList.toggle('hide');
+    });
   }
 
   return {
