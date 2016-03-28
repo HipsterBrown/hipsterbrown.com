@@ -1,246 +1,167 @@
-$(function() {
-	'use strict';
-
-	var HipWeb = HipWeb || {};
+/* globals document, window */
+
+var HipWeb = HipWeb || {};
+
+HipWeb.ScrollMod = (function(){
+  var lastScroll = 0,
+    navbar = document.getElementById('navbar');
+
+  function scrollListener() {
+    // $(window).on('scroll.hip', aniScroll);
+    window.addEventListener('scroll', aniScroll);
+  }
+
+  function aniScroll() {
+    var st = window.scrollY;
+
+    if ( st + lastScroll >= 100 ) {
+      navbar.classList.add('scrolled');
+
+      if ( st < lastScroll ) {
+        navbar.classList.remove('scrolled');
+      }
+    } else if ( st < lastScroll ) {
+      navbar.classList.remove('scrolled');
+    }
+
+    lastScroll = st;
+
+    return lastScroll;
+  }
+
+  return {
+    listen: scrollListener
+  };
+}());
+
+HipWeb.MenuMod = (function(){
+  var mq = window.matchMedia('(min-width: 710px)'),
+    stache = document.getElementById('break'),
+    nav = document.getElementById('navbar'),
+    isSmall = false;
+
+  function matchListener(check) {
+    var mobile  = check || !mq.matches;
+
+    if ( mobile ) {
+      removeListener();
+      stacheClick();
+    }
+  }
+
+  function resizeListener() {
+    window.addEventListener('resize', function(e) {
+      var sizeCheck = isSmall;
+
+      if ( !mq.matches ) {
+        isSmall = true;
+      } else {
+        isSmall = false;
+      }
+
+      if ( sizeCheck !== isSmall ) {
+        matchListener(isSmall);
+      }
+
+      return isSmall;
+    });
+  }
+
+  function removeListener() {
+    window.removeEventListener('scroll', aniScroll);
+  }
+
+  function stacheClick() {
+    stache.addEventListener('click', function(e) {
+      e.preventDefault();
+      nav.classList.toggle('open');
+    });
+  }
+
+  return {
+    listen: matchListener,
+    resizer: resizeListener
+  };
+}());
+
+HipWeb.SwitchMod = (function() {
+  var hipArray = ['ironic', 'authentic', 'vintage', 'classic', 'hip', 'confident'],
+    headSpan = document.querySelector('span.hip-feel');
+
+  function spanSwitch(el, arr) {
+    var span = el;
+    var newWord = arr[Math.floor(Math.random() * arr.length)];
+    span.textContent = newWord;
+  }
+
+  function loader() {
+    spanSwitch(headSpan, hipArray);
+  }
+
+  return {
+    switcher: loader
+  };
+}());
 
-	HipWeb.ScrollMod = (function(){
-		var lastScroll = 0,
-		navbar = $('div#navbar');
+HipWeb.TextFitMod = (function() {
+  var heading = document.querySelectorAll(' article h1 ');
 
-		function scrollListener() {
-			$(window).on('scroll.hip', aniScroll );
-		}
+  function sizingLoop() {
+    for ( var i = 0; i < heading.length; i++ ) {
+      var head = heading.item(i),
+        headText = head.textContent;
 
-		function aniScroll() {
-			var st = $(this).scrollTop();
+      if ( headText.length > 36 ) {
+        head.style.fontSize = '2em';
+      } else if ( headText.length > 48 ) {
+        head.style.fontSize = '1.8em';
+      }
+    }
+  }
 
-			if ( st + lastScroll >= 100 ) {
-				navbar.addClass('scrolled');
+  return {
+    sizer: sizingLoop
+  };
+}());
 
-				if ( st < lastScroll ) {
-					navbar.removeClass('scrolled');
-				}
-			} else if ( st < lastScroll ) {
-				navbar.removeClass('scrolled');
-			}
+HipWeb.ArchiveShowMod = (function() {
+  var arrow = document.querySelector('span.arrow');
 
-			lastScroll = st;
+  function listControl() {
+    if (arrow) {
+      arrow.addEventListener('click', reveil);
+    }
+  }
 
-			return lastScroll;
-		}
+  function reveil(e) {
+    var that = e.target;
 
-		return {
-			listen: scrollListener
-		};
-	}());
+    that.classList.toggle('open');
 
+    if ( that.classList.contains('open') ) {
+      that.html('&#8744;');
+    } else {
+      that.html('&#8743;');
+    }
 
+    document.querySelector('article.archive').classList.toggle('hide');
+  }
 
-	HipWeb.MenuMod = (function(){
-		var win = $(window),
-		mq = window.matchMedia('(min-width: 710px)'),
-		stache = $('a#break'),
-		nav = $('div#navbar'),
-		isSmall = false;
+  return {
+    listen: listControl
+  };
+}());
 
-		function matchListener(check) {
-			var mobile  = check || !mq.matches;
+HipWeb.init = function(){
+  HipWeb.ScrollMod.listen();
 
-			if ( mobile ) {
-				removeListener();
-				stacheClick();
-			}
-		}
+  HipWeb.MenuMod.listen();
 
-		function resizeListener() {
-			win.on('resize', function(e) {
-				console.log('resizing...');
-				var sizeCheck = isSmall;
+  HipWeb.SwitchMod.switcher();
 
-				if ( !mq.matches ) {
-					isSmall = true;
-				} else {
-					console.log('still big enough');
-					isSmall = false;
-				}
+  HipWeb.TextFitMod.sizer();
 
-				if ( sizeCheck !== isSmall ) {
-					matchListener(isSmall);
-				}
+  HipWeb.ArchiveShowMod.listen();
+};
 
-				return isSmall;
-			});
-		}
-
-		function removeListener() {
-			win.off('scroll');
-		}
-
-		function stacheClick() {
-			stache.on('click', function(e) {
-				e.preventDefault();
-				nav.toggleClass('open');
-			});
-		}
-
-		return {
-			listen: matchListener,
-			resizer: resizeListener
-		};
-	}());
-
-
-
-	HipWeb.SwitchMod = (function() {
-		var hipArray = ['ironic', 'authentic', 'vintage', 'classic', 'hip', 'confident'],
-		headSpan = $('span.hip-feel');
-
-		function spanSwitch(el, arr) {
-			var span = el;
-			var newWord = arr[Math.floor(Math.random() * arr.length)];
-			span.text(newWord);
-		}
-
-		function loader() {
-			spanSwitch(headSpan, hipArray);
-		}
-
-		return {
-			switcher: loader
-		};
-	}());
-
-
-
-	HipWeb.TextFitMod = (function() {
-		var heading = $(' article h1 ');
-
-		function sizingLoop() {
-			for ( var i = 0; i < heading.length; i++ ) {
-				var head = heading[i],
-				headText = head.textContent;
-
-				if ( headText.length > 36 ) {
-					head.style.fontSize = '2em';
-				} else if ( headText.length > 48 ) {
-					head.style.fontSize = '1.8em';
-				}
-			}
-		}
-
-		return {
-			sizer: sizingLoop
-		};
-	}());
-
-
-
-	HipWeb.ArchiveShowMod = (function() {
-		var arrow = $('span.arrow');
-
-		function listControl() {
-			arrow.on('click', reveil);
-		}
-
-		function reveil() {
-			var that = $(this);
-
-			that.toggleClass('open');
-
-			if ( this.classList.contains('open') ) {
-				that.html('&#8744;');
-			} else {
-				that.html('&#8743;');
-			}
-
-			$('article.archive').toggleClass('hide');
-		}
-
-		return {
-			listen: listControl
-		};
-	}());
-
-
-
-	HipWeb.EmailMod = (function() {
-		var mail = new mandrill.Mandrill('nhtBwMOLtPtaBV8fKHiuww'),
-		submit = $('#submit'),
-		response = $('p.response');
-
-		function createParams(name, email, topic, message, to) {
-			var params = {
-				'message': {
-					'from_email': email,
-					'to': [{'email': to}],
-					'subject': topic,
-					'text': name + ' has sent you a message from your site: \n' + message
-				}
-			};
-
-			return params;
-		}
-
-		function clearVals() {
-			var args = arguments;
-
-			for (var i = 0; i < args.length; i++ ) {
-				args[i].val('');
-			}
-
-		}
-
-		function sendMail() {
-			submit.on('click', function(event) {
-				mailer(event);
-			});
-		}
-
-		function mailer(event) {
-			event.preventDefault();
-
-			response.html('<strong>Sending...</strong>');
-
-			var name = $('#name'),
-			email = $('#email'),
-			topic = $('#topic'),
-			message = $('#message'),
-			me = 'headhipster@hipsterbrown.com',
-			params = createParams(name.val(), email.val(), topic.val(), message.val(), me);
-
-			//console.log(name.val(), email.val(), topic.val(), message.val(), me);
-
-			mail.messages.send(params, function(res) {
-				//console.log(res);
-				clearVals(name, email, topic, message);
-				response.html('<strong>Message received, thanks for reaching out!</strong>');
-			}, function(err) {
-				//console.log(err);
-				response.html('<strong>Something went wrong. I\'ll look into it. \n' + err.message + '</strong>');
-			});
-		}
-
-		return {
-			listen: sendMail
-		};
-	}());
-
-	HipWeb.init = function(){
-		console.log('initialize!');
-		HipWeb.ScrollMod.listen();
-
-		HipWeb.MenuMod.listen();
-		//HipWeb.MenuMod.resizer();
-
-		HipWeb.SwitchMod.switcher();
-
-		HipWeb.TextFitMod.sizer();
-
-		HipWeb.ArchiveShowMod.listen();
-
-		HipWeb.EmailMod.listen();
-
-	};
-
-	HipWeb.init();
-});
+HipWeb.init();

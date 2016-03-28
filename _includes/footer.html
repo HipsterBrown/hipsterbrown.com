@@ -1,56 +1,42 @@
-      <footer class="clearfix">
-        <aside class="copy half">
-          <h2>Copyright {{ site.time | date: "%Y" }}</h2>
-          <p>Design & Developed by Yours Truly</p>
-        </aside>
-    		<ul class="quart el-right social">
-          <h2>TL;DR</h2>
-    			<li>
-            <a href="https://twitter.com/hipsterbrown">
-              <svg viewBox="0 0 100 100" class="icon icon-twitter">
-                <use xlink:href="#icon-twitter"></use>
-              </svg>
-            </a>
-          </li>
-    			<li><a href="https://www.flickr.com/photos/charliebrwn1209/">
-            <svg viewBox="0 0 100 100" class="icon icon-flickr">
-              <use xlink:href="#icon-flickr"></use>
-            </svg>
-          </a></li>
-    			<li><a href="https://github.com/HipsterBrown">
-            <svg viewBox="0 0 260 100" class="icon icon-github">
-              <use xlink:href="#icon-github"></use>
-            </svg>
-          </a></li>
-          <li><a href="http://codepen.io/HipsterBrown/">
-            <svg viewBox="0 20 180 90" class="icon icon-codepen">
-              <use xlink:href="#icon-codepen"></use>
-            </svg>
-          </a></li>
-    		</ul>
-    </footer>
-    <!-- Load JQuery -->
-    <!--
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" charset="utf-8"></script>
-    -->
-    <!-- Load Mandrill Library -->
-    <!--
-    <script type="text/javascript" src="https://mandrillapp.com/api/docs/js/mandrill.js"></script>
-    -->
-    <!-- Custom JS -->
-    <script type="text/javascript" src="/js/app.min.js" charset="utf-8"></script>
-    <script type="text/javascript">
+<footer class="clearfix">
+  <aside class="copy half">
+    <h2>Copyright {{ site.time | date: "%Y" }}</h2>
+    <p>Design & Developed by Yours Truly</p>
+  </aside>
+  <ul class="third el-right social">
+    <h2>TL;DR</h2>
+    <li>
+      <a href="https://twitter.com/hipsterbrown">
+        <svg viewBox="0 0 100 100" class="icon icon-twitter">
+          <use xlink:href="#icon-twitter"></use>
+        </svg>
+      </a>
+    </li>
+    <li><a href="https://github.com/HipsterBrown">
+        <svg viewBox="0 0 260 100" class="icon icon-github">
+          <use xlink:href="#icon-github"></use>
+        </svg>
+    </a></li>
+    <li><a href="http://codepen.io/HipsterBrown/">
+        <svg viewBox="0 20 180 90" class="icon icon-codepen">
+          <use xlink:href="#icon-codepen"></use>
+        </svg>
+    </a></li>
+  </ul>
+</footer>
+<script type="text/javascript" src="/js/app.min.js" charset="utf-8"></script>
+<script type="text/javascript">
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-40896315-1']);
-      _gaq.push(['_trackPageview']);
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40896315-1']);
+  _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-    </script>
+</script>
   </body>
 </html>

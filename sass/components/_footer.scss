@@ -28,13 +28,12 @@ footer {
     }
 
     li {
-      @include span-columns(3 of 12);
+      @include span-columns(4 of 12);
       opacity: 0.8;
       padding-top: .5em;
       @include transition(all .3s ease-in-out);
 
       @media screen and (max-width: 530px) {
-        //@include span-columns(12 of 12);
         margin: 0;
       }
 

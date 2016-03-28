@@ -10,8 +10,7 @@ module.exports = function(grunt) {
         camelcase: true,
         curly: true,
         eqeqeq: true,
-        strict: true,
-		validthis: true
+        validthis: true
       },
       all: [
         'js/app.js'
@@ -24,7 +23,7 @@ module.exports = function(grunt) {
         mangle: false
       },
       build: {
-        src: ['bower_components/jquery/dist/jquery.min.js','bower_components/mandrill-api/mandrill.min.js','js/app.js'],
+        src: ['js/app.js'],
         dest: 'js/app.min.js'
       }
     },
