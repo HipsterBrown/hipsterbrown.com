@@ -91,7 +91,10 @@ HipWeb.SwitchMod = (function() {
   function spanSwitch(el, arr) {
     var span = el;
     var newWord = arr[Math.floor(Math.random() * arr.length)];
-    span.textContent = newWord;
+
+    if (span) {
+      span.textContent = newWord;
+    }
   }
 
   function loader() {
