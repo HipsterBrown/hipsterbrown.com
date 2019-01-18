@@ -26,6 +26,14 @@
   }
 }
 
+.third {
+  @include span-columns(4 of 12);
+
+  @media screen and (max-width: 530px) {
+    @include span-columns(12 of 12);
+  }
+}
+
 .container {
   @include clearfix;
   width: 85%;

@@ -30,7 +30,7 @@ footer {
     li {
       @include span-columns(4 of 12);
       opacity: 0.8;
-      padding-top: .5em;
+      padding-top: 1rem;
       @include transition(all .3s ease-in-out);
 
       @media screen and (max-width: 530px) {

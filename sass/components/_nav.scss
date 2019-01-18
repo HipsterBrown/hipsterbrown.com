@@ -9,23 +9,38 @@
   @include transition(all .2s ease-in-out);
 
   &.scrolled {
-    font-size: .5rem;
-    @include transform(translateY(-5em));
+    font-size: 1rem;
+    @include transform(translateY(-5rem));
 
     &:hover {
       font-size: 1rem;
-      @include transform(translateY(0em));
+      @include transform(translateY(0rem));
+    }
+
+    #home-link {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    @media screen and (max-width: 710px) {
+      @include transform(translateY(0rem));
+
+      #home-link {
+        display: flex;
+        height: 5rem;
+        width: 100%;
+      }
     }
   }
 
   &.open {
-    @include transform(translateY(0em));
+    @include transform(translateY(0rem));
   }
 
   @media screen and (max-width: 710px) {
     font-size: .8rem;
     height: auto;
-    @include transform(translateY(-21.5em));
+    @include transform(translateY(-14rem));
   }
 
   #home-link {
@@ -33,9 +48,9 @@
     @extend %vertical-align;
     margin-left: 1%;
     //padding: .5em 5em .5em 1em;
-    width: 5em;
-    height: 5em;
-    border-radius: .5em;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10px;
     @include transition(all .25s ease-in-out);
 
     @media screen and (max-width: 710px) {
@@ -44,6 +59,7 @@
       @include transform(none);
       margin: 0;
       border-radius: 0;
+      height: 4rem;
     }
 
     svg {
