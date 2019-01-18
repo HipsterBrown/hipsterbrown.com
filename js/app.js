@@ -7,7 +7,6 @@ HipWeb.ScrollMod = (function(){
     navbar = document.getElementById('navbar');
 
   function scrollListener() {
-    // $(window).on('scroll.hip', aniScroll);
     window.addEventListener('scroll', aniScroll);
   }
 
@@ -30,57 +29,40 @@ HipWeb.ScrollMod = (function(){
   }
 
   return {
+    aniScroll: aniScroll,
     listen: scrollListener
   };
 }());
 
 HipWeb.MenuMod = (function(){
-  var mq = window.matchMedia('(min-width: 710px)'),
+  var mq = window.matchMedia('screen and (min-width: 710px)'),
     stache = document.getElementById('break'),
-    nav = document.getElementById('navbar'),
-    isSmall = false;
+    nav = document.getElementById('navbar');
 
-  function matchListener(check) {
-    var mobile  = check || !mq.matches;
+  function matchListener(isMobile) {
+    nav.classList.remove('open');
 
-    if ( mobile ) {
-      removeListener();
-      stacheClick();
+    if ( isMobile ) {
+      window.removeEventListener('scroll', HipWeb.ScrollMod.aniScroll);
+      stache.addEventListener('click', stacheClick);
+    } else {
+      HipWeb.ScrollMod.listen();
+      stache.removeEventListener('click', stacheClick);
     }
   }
 
-  function resizeListener() {
-    window.addEventListener('resize', function(e) {
-      var sizeCheck = isSmall;
+  mq.addListener(function (event) {
+    matchListener(!event.target.matches);
+  });
 
-      if ( !mq.matches ) {
-        isSmall = true;
-      } else {
-        isSmall = false;
-      }
-
-      if ( sizeCheck !== isSmall ) {
-        matchListener(isSmall);
-      }
-
-      return isSmall;
-    });
-  }
-
-  function removeListener() {
-    window.removeEventListener('scroll', aniScroll);
-  }
-
-  function stacheClick() {
-    stache.addEventListener('click', function(e) {
-      e.preventDefault();
-      nav.classList.toggle('open');
-    });
+  function stacheClick(e) {
+    e.preventDefault();
+    nav.classList.toggle('open');
   }
 
   return {
     listen: matchListener,
-    resizer: resizeListener
+    mq: mq,
   };
 }());
 
@@ -160,7 +142,7 @@ HipWeb.ArchiveShowMod = (function() {
 HipWeb.init = function(){
   HipWeb.ScrollMod.listen();
 
-  HipWeb.MenuMod.listen();
+  HipWeb.MenuMod.listen(!HipWeb.MenuMod.mq.matches);
 
   HipWeb.SwitchMod.switcher();
 
@@ -169,4 +151,4 @@ HipWeb.init = function(){
   HipWeb.ArchiveShowMod.listen();
 };
 
-HipWeb.init();
+document.addEventListener('DOMContentLoaded', HipWeb.init);
