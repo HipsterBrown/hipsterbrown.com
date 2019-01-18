@@ -4,3 +4,5 @@
 /.sass-cache/
 *.swp
 _site/
+.jekyll-metadata
+css/main.min.css.map
