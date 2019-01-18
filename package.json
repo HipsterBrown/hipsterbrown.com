@@ -2,14 +2,20 @@
   "name": "HipsterBrown.com",
   "version": "0.1.0",
   "description": "My personal website rebuilt to make it easier for iterate on the design and portfolio sections",
+  "repository": "https://github.com/hipsterbrown/hipsterbrown.com",
+  "scripts": {
+    "build": "grunt production",
+    "build:svg": "grund svg",
+    "dev": "grunt"
+  },
   "author": "HipsterBrown",
-  "license": "MIT License",
+  "license": "MIT",
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-sass": "~0.7.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-uglify": "~0.3.2",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-svgstore": "0.0.2"
+    "grunt": "^1.0.3",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-svgstore": "^2.0.0"
   }
 }
