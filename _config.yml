@@ -1,5 +1,0 @@
-name: HipsterBrown
-markdown: redcarpet
-highlighter: 'pygments'
-exclude: ['sass', node_modules, README.md, package.json, Gruntfile.js, bower.json, bower_components]
-permalink: /:categories/:title

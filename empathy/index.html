@@ -6,13 +6,13 @@ tags:
 - empathy
 ---
 
-{% for post in site.categories['empathy'] %}
+{% for post in collections.empathy %}
   <article>
     <div class="container thin">
-      <h1><a href="{{post.external_url}}">{{post.title}}</a></h1>
+      <h1><a href="{{post.data.external_url}}">{{post.data.title}}</a></h1>
       <section class="excerpt full clearfix">
         <p>
-          {{post.description}}
+          {{post.data.description}}
         </p>
       </section>
     </div>

@@ -1,16 +1,19 @@
 {
   "name": "HipsterBrown.com",
-  "version": "0.1.0",
-  "description": "My personal website rebuilt to make it easier for iterate on the design and portfolio sections",
+  "private": true,
+  "version": "0.2.0",
+  "description": "My personal website",
   "repository": "https://github.com/hipsterbrown/hipsterbrown.com",
   "scripts": {
-    "build": "grunt production",
+    "start": "eleventy --serve",
+    "build": "grunt production && ELEVENTY_ENV=production eleventy",
     "build:svg": "grund svg",
     "dev": "grunt"
   },
   "author": "HipsterBrown",
   "license": "MIT",
   "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
     "grunt": "^1.3.0",
     "grunt-contrib-jshint": "^2.0.0",
     "grunt-contrib-sass": "^1.0.0",

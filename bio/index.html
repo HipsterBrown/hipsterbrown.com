@@ -6,11 +6,11 @@ icon: Icon-Bio.svg
 tags:
 - bio
 ---
-{% for post in site.categories['bio'] %}
+{% for post in collections.bio %}
   <article>
     <div class="container thin">
-      <h1>{{ post.title }}</h1>
-      {{ post.content }}
+      <h1>{{ post.data.title }}</h1>
+      {{ post.templateContent }}
     </div>
   </article>
 {% endfor %}

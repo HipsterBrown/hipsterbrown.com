@@ -10,6 +10,7 @@ categories:
 ---
 
 Finding Leah is a personal site for a creative copywriter. I created it with the intent of trying out a new blogging service called Postachio and ended up establishing an entire brand identity for her. I used simple CSS3 animations and transitions to keep the site lively and interesting.
+---
 
 I have known Leah for over 3 years in and I was really excited for the opportunity to design a professional web presence for such a creative person. <img src="http://hip.projects.s3.amazonaws.com/Finding%20Leah/Moleskin_Sketch.jpg" alt="Moleskin Sketch" class="img-quart el-right" /> I started out thinking about a newer take to the usual landing page design. I wanted to make it an enjoyable, single-page experience with all the fun CSS features used effectively.
 
@@ -21,4 +22,4 @@ Building out the basic HTML and CSS for the site was a fairly quick process beca
 
 Finally, I was planning on linking Leah's time-traveler cloud to a new blogging platform called [Postachio](http://postach.io) for her to share short stories through the ease of Evernote, but it was not what she wanted for the time being. <img src="http://hip.projects.s3.amazonaws.com/Finding%20Leah/Blog.png" alt="Postachio Blog" class="img-half el-right" /> So instead, we decided to share her "Books I've Read" board on Pinterest, with each pin containing a short, personal review of the story. It still reflected her adventures through reading while showing off a small bit of her writing ability.
 
-Overall, it took about a week to complete this project with plans to iterate upon its functionality and design at some point in the future. It taught me a lot about constraining content into smaller chunks around a site, as well as controlling user flows with CSS and a dash of JavaScript. There is room for refinement within the code, looking back, but Leah is still happy to share the site with any of her future employers and colleagues. 
+Overall, it took about a week to complete this project with plans to iterate upon its functionality and design at some point in the future. It taught me a lot about constraining content into smaller chunks around a site, as well as controlling user flows with CSS and a dash of JavaScript. There is room for refinement within the code, looking back, but Leah is still happy to share the site with any of her future employers and colleagues.

@@ -7,11 +7,11 @@ tags:
 - faq
 ---
 
-{% for post in site.categories['faq'] %}
+{% for post in collections.faq %}
   <article>
     <div class="container thin">
-      <h2>{{ post.title }}</h2>
-      {{ post.content }}
+      <h2>{{ post.data.title }}</h2>
+      {{ post.templateContent }}
     </div>
   </article>
 {% endfor %}

@@ -1,7 +1,11 @@
-{% include header.html %}
+---
+permalink: "{{ categories | join: '/' }}/{{ page.fileSlug }}/"
+---
+
+{% include "header.html" %}
 
   <header>
-    <h1 class="full">{{ page.title }}</h1>
+    <h1 class="full">{{ title }}</h1>
   </header>
   <section class="main content no-border">
     <article>
@@ -11,4 +15,4 @@
     </article>
   </section>
 
-{% include footer.html %}
+{% include "footer.html" %}

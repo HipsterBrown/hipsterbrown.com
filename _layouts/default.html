@@ -1,20 +1,20 @@
-{% include header.html %}
+{% include "header.html" %}
 
-  <header class="container {{ page.tags }}">
-  {% if page.icon %}
+<header class="container {% if tags %}{{ tags | join: ' ' }}{% endif %}">
+  {% if icon %}
       <figure class="icon-container quart">
-        {% include {{page.icon}} %}
-      {% if page.title == 'HipsterBrown' %}
-        <figcaption>{{ page.title }}</figcaption>
+        {% include {{icon}} %}
+      {% if title == 'HipsterBrown' %}
+        <figcaption>{{ title }}</figcaption>
       {% endif %}
       </figure>
-      <h1 class="three-quart">{{ page.description }}</h1>
+      <h1 class="three-quart">{{ description }}</h1>
       {% else %}
-      <h1 class="full">{{ page.description }}</h1>
+      <h1 class="full">{{ description }}</h1>
   {% endif %}
   </header>
-  <section class="main content {{ page.tags }}">
+  <section class="main content {% if tags %}{{ tags | join: ' ' }}{% endif %}">
     {{ content }}
   </section>
 
-{% include footer.html %}
+{% include "footer.html" %}
