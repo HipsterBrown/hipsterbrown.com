@@ -6,8 +6,9 @@
   "repository": "https://github.com/hipsterbrown/hipsterbrown.com",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "grunt production && ELEVENTY_ENV=production eleventy",
-    "build:svg": "grund svg",
+    "build": "ELEVENTY_ENV=production eleventy",
+    "build:site": "eleventy",
+    "build:svg": "grunt svg",
     "dev": "grunt"
   },
   "author": "HipsterBrown",
