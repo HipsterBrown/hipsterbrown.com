@@ -6,3 +6,6 @@
 _site/
 .jekyll-metadata
 css/main.min.css.map
+css/main.min.css
+css/main.css
+js/app.min.js
