@@ -1,0 +1,27 @@
+name: Deploy to Dokku - production
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DOKKU_HOST: 'hipsterbrown.com'
+  DOKKU_APP_NAME: 'hipsterbrown.com'
+  DOKKU_REMOTE_BRANCH: 'master'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Deploy
+        uses: woudsma/dokku-deploy-github-action@v1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          dokku-host: ${{ env.DOKKU_HOST }}
+          app-name: ${{ env.DOKKU_APP_NAME }}
+          app-remote-branch: ${{ env.DOKKU_REMOTE_BRANCH }}
