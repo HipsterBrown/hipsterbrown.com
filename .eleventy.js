@@ -27,6 +27,7 @@ module.exports = config => {
   config.addCollection("faq", getCategory("faq"));
   config.addCollection("bio", getCategory("bio"));
   config.addCollection("projects", getCategory("project"));
+  config.addCollection("empathy", getCategory("empathy"));
 
   return {
     dir: {

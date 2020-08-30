@@ -41,15 +41,6 @@ module.exports = function (grunt) {
       }
     },
 
-    svgstore: {
-      options: {
-        prefix: "icon-"
-      },
-      files: {
-        "images/social-icons.svg": ["svg/*.svg"]
-      }
-    },
-
     watch: {
       sass: {
         files: ["sass/*.scss", "sass/**/*.scss", "sass/**/**/*.scss"],
@@ -72,8 +63,6 @@ module.exports = function (grunt) {
 
   // Default task(s).
   grunt.registerTask("default", ["watch"]);
-
-  grunt.registerTask("svg", ["svgstore"]);
 
   grunt.registerTask("production", ["sass", "jshint", "uglify"]);
 };

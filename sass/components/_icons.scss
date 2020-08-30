@@ -10,13 +10,13 @@ svg.icon {
   }
 }
 
-#icon-twitter, #icon-codepen {
+.icon-twitter {
   path {
     fill: $dark-gray;
   }
 }
 
-#icon-github {
+.icon-github {
   path#Head {
     fill: $dark-gray;
   }

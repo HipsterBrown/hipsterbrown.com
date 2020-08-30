@@ -19,7 +19,6 @@ footer {
   }
 
   ul.social {
-    @include clearfix;
     text-align: center;
 
     h2 {
@@ -28,7 +27,6 @@ footer {
     }
 
     li {
-      @include span-columns(4 of 12);
       opacity: 0.8;
       padding-top: 1rem;
       @include transition(all .3s ease-in-out);

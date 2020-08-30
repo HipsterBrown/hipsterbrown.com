@@ -7,7 +7,6 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "grunt production && ELEVENTY_ENV=production eleventy",
-    "build:svg": "grunt svg",
     "dev": "grunt"
   },
   "author": "HipsterBrown",
@@ -20,7 +19,6 @@
     "grunt-contrib-uglify": "^4.0.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-sass": "^3.1.0",
-    "grunt-svgstore": "^2.0.0",
     "node-sass": "^4.14.1"
   }
 }
