@@ -1,3 +1,5 @@
+const pluginRSS = require("@11ty/eleventy-plugin-rss");
+
 function getCategory(name) {
   return collection => {
     return collection
@@ -13,6 +15,7 @@ function getCategory(name) {
 }
 
 module.exports = config => {
+  config.addPlugin(pluginRSS);
   config.addPassthroughCopy("css");
   config.addPassthroughCopy("js");
   config.setFrontMatterParsingOptions({
