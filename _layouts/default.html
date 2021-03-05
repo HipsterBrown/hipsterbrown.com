@@ -6,6 +6,8 @@
         {% include {{icon}} %}
       {% if title == 'HipsterBrown' %}
         <figcaption>{{ title }}</figcaption>
+      {% else %}
+        <figcaption class="visually-hidden">{{ title }}</figcaption>
       {% endif %}
       </figure>
       <h1 class="three-quart">{{ description }}</h1>
@@ -13,7 +15,7 @@
       <h1 class="full">{{ description }}</h1>
   {% endif %}
   </header>
-  <section class="main content {% if tags %}{{ tags | join: ' ' }}{% endif %}">
+  <section tabindex"-1" id="main" class="main content {% if tags %}{{ tags | join: ' ' }}{% endif %}">
     {{ content }}
   </section>
 

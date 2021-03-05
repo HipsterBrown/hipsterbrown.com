@@ -8,7 +8,7 @@ permalink: "{{ categories | join: '/' }}/{{ page.fileSlug }}/"
     <h1 class="full">{{ title }}</h1>
     <h2 class="full">{{description}}</h2>
   </header>
-  <section class="main content">
+  <section id="main" tabindex="-1" class="main content">
     <article>
       <div class="container">
         {% if page.img_excerpt %}

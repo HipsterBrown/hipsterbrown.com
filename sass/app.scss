@@ -6,13 +6,47 @@
 
 /* Globals */
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:900);
-@import 'bourbon/bourbon';
-@import 'bitters/bitters';
-@import 'neat/neat';
-@import 'components/all';
+@import "bourbon/bourbon";
+@import "bitters/bitters";
+@import "neat/neat";
+@import "components/all";
 
 /*****************************************************************************/
 /*
 /* Site
 /*
 /*****************************************************************************/
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+a.skip-main {
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+
+  &:focus {
+    left: auto;
+    top: auto;
+    width: 30%;
+    height: auto;
+    overflow: auto;
+    margin: 0 35%;
+    padding: 5px;
+    font-size: 20px;
+    outline: 3px solid red;
+    text-align: center;
+    z-index: 999;
+  }
+}

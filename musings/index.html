@@ -17,12 +17,8 @@ tags:
       >
     </h1>
     <section class="excerpt full clearfix">
-      <p>
-        {{post.data.description}}
-      </p>
-      <p class="half">
-        {{ post.date | date: "%e %b, %Y" }}
-      </p>
+      <p>{{post.data.description}}</p>
+      <p class="half">{{ post.date | date: "%e %b, %Y" }}</p>
       <p class="tags half t-right">
         Categories: <em>{{ post.data.tags | join: ', ' }}</em>
       </p>
@@ -31,12 +27,19 @@ tags:
 </article>
 {% endfor %}
 <section id="archives">
-  <h1 class="t-center">Archives <span class="arrow">&#8743;</span></h1>
-  {% for post in collections.musings offset:5 %}
-  <article class="archive hide">
-    <div class="container thin">
-      <h1><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
-    </div>
-  </article>
-  {% endfor %}
+  <h1 class="t-center">
+    Archives
+    <span class="arrow" role="button" tabindex="0" aria-expanded="false" aria-controls="archive-content"
+      >&#8743;</span
+    >
+  </h1>
+  <div id="archive-content">
+    {% for post in collections.musings offset:5 %}
+    <article class="archive hide">
+      <div class="container thin">
+        <h1><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
 </section>

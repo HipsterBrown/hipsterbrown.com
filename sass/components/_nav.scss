@@ -86,7 +86,7 @@
       }
     }
 
-    &:hover {
+    &:hover, &:focus {
       background: $linkblue;
 
       svg > #icon-logo > #inner {
@@ -126,6 +126,10 @@
           font-size: 1.3em;
           @include hover-effect($navblue, $linkblue);
 
+          &:focus {
+            text-decoration: underline;
+          }
+
           @media screen and (max-width: 710px) {
             display: block;
             border-radius: 0;
@@ -142,6 +146,10 @@
     margin-left: -2.25em;
     height: 3em;
     width: 4.5em;
+
+    &:focus {
+      outline: 1px solid $linkblue;
+    }
 
     svg {
       width: 90%;
