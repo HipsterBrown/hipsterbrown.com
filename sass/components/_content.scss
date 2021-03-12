@@ -83,11 +83,16 @@
       font-size: 1.6em;
     }
 
+    pre {
+      margin-bottom: 1em;
+    }
+
     p {
       font-size: 1.2em;
       font-weight: 300;
       line-height: 1.6em;
-      padding: 0 0 1em;
+      padding: 0;
+      margin: 1em 0;
 
       @media screen and (max-width: 800px) {
         font-size: 1.3em;
@@ -96,6 +101,14 @@
       a {
         text-decoration: underline;
       }
+
+      & + pre {
+        margin-top: -1em;
+      }
+    }
+
+    blockquote + p {
+      margin-top: -1em;
     }
 
     strong {
