@@ -30,7 +30,7 @@ For a refresher on generics:
 
 [_https://www.typescriptlang.org/docs/handbook/2/generics.html#hello-world-of-generics_](https://www.typescriptlang.org/docs/handbook/2/generics.html#hello-world-of-generics)
 
-For the feature in question, there is a list of items that can be selected in a table with the selected items stored as a list of IDs. We want to make sure this Context data stores objects that must include an `id` property. We need to tell TypeScript that the generic type argument has constrains (required fields in this case): https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints
+For the feature in question, there is a list of items that can be selected in a table with the selected items stored as a list of IDs. We want to make sure this Context data stores objects that must include an `id` property. We need to tell TypeScript that the generic type argument has constraints (required fields in this case): [https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints)
 
 ```ts
 type ItemWithID = { id: string };
