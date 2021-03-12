@@ -1,5 +1,8 @@
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const {
+  createInlineCss
+} = require("eleventy-google-fonts/eleventy-google-fonts");
 
 function getCategory(name) {
   return collection => {
@@ -18,8 +21,12 @@ function getCategory(name) {
 module.exports = config => {
   config.addPlugin(pluginRSS);
   config.addPlugin(pluginSyntaxHighlight);
+
+  config.addLiquidShortcode("eleventyGoogleFonts", createInlineCss);
+
   config.addPassthroughCopy("css");
   config.addPassthroughCopy("js");
+  config.addPassthroughCopy("images");
   config.setFrontMatterParsingOptions({
     excerpt: true
   });
