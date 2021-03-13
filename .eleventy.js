@@ -3,6 +3,8 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const {
   createInlineCss
 } = require("eleventy-google-fonts/eleventy-google-fonts");
+const esbuild = require("esbuild");
+const { sassPlugin } = require("esbuild-sass-plugin");
 
 function getCategory(name) {
   return collection => {
@@ -19,13 +21,27 @@ function getCategory(name) {
 }
 
 module.exports = config => {
+  config.on("afterBuild", () => {
+    return esbuild.build({
+      entryPoints: ["sass/app.scss", "js/app.js"],
+      outdir: "_site/assets",
+      minify: process.env.ELEVENTY_ENV === "production",
+      sourcemap: process.env.ELEVENTY_ENV !== "production",
+      plugins: [
+        sassPlugin({
+          implementation: "node-sass"
+        })
+      ]
+    });
+  });
   config.addPlugin(pluginRSS);
   config.addPlugin(pluginSyntaxHighlight);
 
   config.addLiquidShortcode("eleventyGoogleFonts", createInlineCss);
 
+  config.addWatchTarget("./sass/");
+  config.addWatchTarget("./js/");
   config.addPassthroughCopy("css");
-  config.addPassthroughCopy("js");
   config.addPassthroughCopy("images");
   config.setFrontMatterParsingOptions({
     excerpt: true
