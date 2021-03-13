@@ -16,7 +16,6 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
     "eleventy-google-fonts": "^0.0.5",
     "esbuild": "^0.8.57",
-    "esbuild-sass-plugin": "^1.0.11",
-    "node-sass": "^5.0.0"
+    "esbuild-sass-plugin": "^1.0.11"
   }
 }

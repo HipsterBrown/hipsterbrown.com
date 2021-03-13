@@ -27,11 +27,7 @@ module.exports = config => {
       outdir: "_site/assets",
       minify: process.env.ELEVENTY_ENV === "production",
       sourcemap: process.env.ELEVENTY_ENV !== "production",
-      plugins: [
-        sassPlugin({
-          implementation: "node-sass"
-        })
-      ]
+      plugins: [sassPlugin()]
     });
   });
   config.addPlugin(pluginRSS);
