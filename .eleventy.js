@@ -23,7 +23,7 @@ function getCategory(name) {
 module.exports = config => {
   config.on("afterBuild", () => {
     return esbuild.build({
-      entryPoints: ["sass/app.scss", "js/app.js"],
+      entryPoints: ["sass/app.scss", "js/app.ts"],
       outdir: "_site/assets",
       minify: process.env.ELEVENTY_ENV === "production",
       sourcemap: process.env.ELEVENTY_ENV !== "production",
