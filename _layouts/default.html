@@ -3,7 +3,7 @@
 <header class="container {% if tags %}{{ tags | join: ' ' }}{% endif %}">
   {% if icon %}
       <figure class="icon-container quart">
-        {% include {{icon}} %}
+        {% svg icon %}
       {% if title == 'HipsterBrown' %}
         <figcaption>{{ title }}</figcaption>
       {% else %}

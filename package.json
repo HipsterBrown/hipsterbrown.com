@@ -14,6 +14,7 @@
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-plugin-rss": "^1.0.9",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
+    "@jamshop/eleventy-plugin-svg": "^2.0.0",
     "@tsconfig/recommended": "^1.0.1",
     "eleventy-google-fonts": "^0.0.5",
     "esbuild": "^0.8.57",

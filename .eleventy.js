@@ -5,6 +5,7 @@ const {
 } = require("eleventy-google-fonts/eleventy-google-fonts");
 const esbuild = require("esbuild");
 const { sassPlugin } = require("esbuild-sass-plugin");
+const pluginSvg = require("@jamshop/eleventy-plugin-svg");
 
 function getCategory(name) {
   return collection => {
@@ -32,6 +33,9 @@ module.exports = config => {
   });
   config.addPlugin(pluginRSS);
   config.addPlugin(pluginSyntaxHighlight);
+  config.addPlugin(pluginSvg, {
+    input: "svg/"
+  });
 
   config.addLiquidShortcode("eleventyGoogleFonts", createInlineCss);
 
