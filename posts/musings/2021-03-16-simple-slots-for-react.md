@@ -11,15 +11,17 @@ tags:
 
 ---
 
-If you haven't checked out the `slot` element for Custom Elements:
+Once you get started building components in React, they start out fairly simple or very specific to a feature. As you continue constructing your interfaces, patterns emerge and there's a need for more generalized, flexible components. You may stumble upon the term "compound components" through some very informative articles like [this one from EpicReact.dev](https://epicreact.dev/soul-crushing-components/). To author compound components at work and for personal projects, I use an approach inspired by the `slot` element from the Web Component spec.
 
-> a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together. 
+If you haven't heard of the `slot` element:
 
-[MDN HTML elements reference > <slot>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Slot)
+> a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
+
+[MDN HTML elements reference `<slot>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Slot)
 
 There is a more in-depth tutorial here: [https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots)
 
-This sort of composability is great when building structural components, like layouts, that should be very flexible about their content but want more control for placement. In React, `props` could certainly be used, however the readability of JSX is hindered when passing large blocks of context through `props`.
+This sort of composability is great when building structural components, like layouts, that should be very flexible about their content but want more control over placement of that content. In React, `props` could certainly be used, however the readability of JSX is hindered when passing large blocks of context through `props`.
 
 In the past, I've enabled this kind of flexibility with static child component connected to a parent:
 
@@ -34,7 +36,7 @@ type MyLayoutComponent = React.FC & {
 
 const MyLayout: MyLayoutComponent = ({ children }) => {
   const [header, body, footer] = React.Children.toArray(children);
-  
+
   // place elements as needed
 }
 
@@ -75,15 +77,15 @@ export function getSlots(
 }
 ```
 
-As you can see the `Slot` component itself is basically a wrapper object to expose a `name` prop for use in the `getSlots` function. Using this API to the earlier `MyLayout` component would look like the following:
+As you can see, the `Slot` component itself is basically a wrapper object to expose a `name` prop for use in the `getSlots` function. Using this API to the earlier `MyLayout` component would look like the following:
 
 ```tsx
 import React from 'react';
 import { getSlots, Slot } from './Slot';
 
 const MyLayout: React.FC = ({ children }) => {
-  const [header, body, footer] = getSlots(['header', 'body', 'footer']);
-  
+  const [header, body, footer] = getSlots(['header', 'body', 'footer'], children);
+
   // place elements as needed
 }
 
@@ -109,15 +111,15 @@ type MyLayoutComponent = React.FC & {
 };
 
 const MyLayout: MyLayoutComponent = ({ children }) => {
-  const [header, body, footer] = getSlots(['header', 'body', 'footer']);
-  
+  const [header, body, footer] = getSlots(['header', 'body', 'footer'], children);
+
   // place elements as needed
 }
 
 MyLayout.Slot = Slot as MyLayoutSlot;
 ```
 
-Even with the slight overhead of adding a static `Slot` child, the authoring and usage of the new API provides an arguably better experience than the approach of three different static child components. There is no need to worry about ordering and any unused slot will default to `null`, thus [rendering nothing](https://reactjs.org/docs/react-component.html#render). When comparing it with the `slot` API for Web Components, it reverses the roles for the sake of discoverability and type-safety; since the `<slot>` is used in the component template to author the slotted areas, and a `slot` attribute is used to set the slotted content when using the component. 
+Even with the slight overhead of adding a static `Slot` child, the authoring and usage of the new API provides an arguably better experience than the approach of three different static child components. There is no need to worry about ordering and any unused slot will default to `null`, thus [rendering nothing](https://reactjs.org/docs/react-component.html#render). When comparing it with the `slot` API for Web Components, it reverses the roles for the sake of discoverability and type-safety; since the `<slot>` is used in the component template to author the slotted areas, and a `slot` attribute is used to set the slotted content when using the component.
 
 As mentioned before, the `Slot` component is a convenient feature for providing flexibility with control over placement of content. There is still a case for using static child components to provide styling or functionality through association without carrying about placement (maybe more on that in a future post).
 
