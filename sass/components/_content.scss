@@ -44,6 +44,16 @@
       }
     }
 
+    ul {
+      list-style-type: disc;
+      padding-left: 1.2em;
+
+      li {
+        font-size: 1.2em;
+        font-weight: 300;
+      }
+    }
+
     h1 {
       color: $linkblue;
       font-size: 3em;
@@ -131,6 +141,12 @@
         border: none;
         border-radius: 0px;
       }
+    }
+
+    svg {
+      border: 8px solid $linkblue;
+      height: auto;
+      width: 100%;
     }
   }
 

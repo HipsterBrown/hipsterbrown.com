@@ -13,6 +13,10 @@ function getCategory(name) {
       .getAllSorted()
       .reverse()
       .filter(post => {
+        if (process.env.ELEVENTY_ENV === "production") return !post.data.draft;
+        return true;
+      })
+      .filter(post => {
         if (post.data.categories) {
           return post.data.categories.includes(name);
         }
