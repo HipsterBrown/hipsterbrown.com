@@ -84,7 +84,7 @@ function MyAccordion () {
 }
 ```
 
-View live example on CodePen: [https://codepen.io/HipsterBrown/pen/qBRWbOG](https://codepen.io/HipsterBrown/pen/qBRWbOG)
+View live example on CodePen: [https://codepen.io/HipsterBrown/details/qBRWbOG](https://codepen.io/HipsterBrown/details/qBRWbOG)
 
 The state management code appears simple enough with two boolean state variables and two click handlers. The state variables are toggling the `open` states of the two `<details>` elements, as well as the `<summary>` text for each panel. Each time we toggle one piece of state, we may end up toggling another since only one panel should be open at a time. Adding more panels would quickly lead to the state explosion introduced in the beginning of this post. Even in this pared-down version, it would be tough to guarantee our feature is working at a glance.
 
@@ -128,7 +128,7 @@ function MyAccordion() {
 }
 ```
 
-View live example on CodePen: [https://codepen.io/HipsterBrown/pen/ExZYPmM](https://codepen.io/HipsterBrown/pen/ExZYPmM)
+View live example on CodePen: [https://codepen.io/HipsterBrown/details/ExZYPmM](https://codepen.io/HipsterBrown/details/ExZYPmM)
 
 Adding in our reducer helped collect all the allowed state changes into one function, rather than spreading it between two click handlers, which is useful for identifying where to add or update any new behavior. However, we still haven't solved our state explosion issue, since any every new panel will add a new boolean field to our `state` object controlled by the reducer and no guarantee the accordion couldn't end up in a state of displaying more than one open panel. We need a way to define all the allowed states for our component, i.e. a finite-state reducer;
 
@@ -184,7 +184,7 @@ function MyAccordion() {
 }
 ```
 
-View live example on CodePen: [https://codepen.io/HipsterBrown/pen/PoWYZQm](https://codepen.io/HipsterBrown/pen/PoWYZQm)
+View live example on CodePen: [https://codepen.io/HipsterBrown/details/PoWYZQm](https://codepen.io/HipsterBrown/details/PoWYZQm)
 
 The nested (or two-dimensional) `switch` statement can be a little unsettling at first, especially when compared to the first version that appeared relatively compact. However, the point of using the current state in the first `switch` is to describe the allowed "transitions" to another state based on the "action", or "event" in typical machine parlance. As we read down the 2D `switch`, when the current state is "closed", toggling the first panel will display the first panel, and the same goes respective to the second panel.
 
@@ -236,7 +236,7 @@ function MyAccordion() {
 
 ```
 
-View live example on CodePen: [https://codepen.io/HipsterBrown/pen/zYNOqYY](https://codepen.io/HipsterBrown/pen/zYNOqYY)
+View live example on CodePen: [https://codepen.io/HipsterBrown/details/zYNOqYY](https://codepen.io/HipsterBrown/details/zYNOqYY)
 
 In the end, we have a clear description for how our feature works and the freedom to share the functionality with another component without including the UI or creating some specialized hook. If the feature grows, there is a maintainable structure for adding new states, transitions, and actions to accommodate those changes. As [side-effects](https://redux.js.org/tutorials/fundamentals/part-6-async-logic#redux-middleware-and-side-effects) start to get involved, we can reach for something like [`useEffectReducer`](https://github.com/davidkpiano/useEffectReducer), [`@xstate/fsm`](https://xstate.js.org/docs/packages/xstate-fsm/), or [`xstate`](https://xstate.js.org/docs/), but more on that in another post.
 
