@@ -11,6 +11,9 @@ tags:
 
 ---
 
+A little while ago, I migrated my personal site to [11ty](https://11ty.dev) as the static site engine; moving away from Jekyll for various reasons: speed, language familiarity, and community. Given 11ty's sole focus on being a great static site builder, there isn't a built-in concern for processing or bundling other assets like CSS and JavaScript. While using Jekyll, I had [`grunt`](https://gruntjs.com/) set up to process [Sass](https://sass-lang.com/), minify JS, and create an SVG icon map. Since I replaced the SVG icon map with inline `{% include %}` expressions, I wanted a different build system to process the Sass and JS that could integrate cleanly with 11ty.
+
+
 
 - hit issues with parcel, 1 and 2
 - didn't want to manage another config, i.e. rollup or webpack
