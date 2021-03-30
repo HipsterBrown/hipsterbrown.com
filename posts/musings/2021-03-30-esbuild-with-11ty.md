@@ -2,7 +2,6 @@
 layout: musing
 title: Using esbuild with 11ty
 description: While looking to upgrade my site's asset pipeline, I ended up on esbuild as my solution with just a little bit of integration code.
-draft: true
 categories:
 - musings
 - musing
@@ -26,7 +25,7 @@ const { sassPlugin } = require("esbuild-sass-plugin");
 module.exports = config => {
   config.on("afterBuild", () => {
     return esbuild.build({
-      entryPoints: ["sass/app.scss", "js/app.ts"],
+      entryPoints: ["sass/app.scss", "js/app.js"],
       outdir: "_site/assets",
       minify: process.env.ELEVENTY_ENV === "production",
       sourcemap: process.env.ELEVENTY_ENV !== "production",
@@ -39,6 +38,10 @@ module.exports = config => {
 };
 ```
 
-// talk about watch target command
-// talk about efficient builds not mattering for unneccessary resourcing
-// talk about easy conversion to TypeScript now that esbuild was in place
+The [`addWatchTarget` method](https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets) helps trigger the esbuild when one of the entrypoints, or files related to those entrypoints, has changed. Keeping 11ty in charge of file watching maintains a source of truth for build triggers, rather than having competing watchers when using separate processes. Even though esbuild does support [incremental builds](https://esbuild.github.io/api/#incremental), the amount of files being processed is so small that it would be overkill to use this feature and means I'm not concerned about the uneccessary builds that happen while I'm not working on those assets. A nice perk from this overall setup meant converting my JavaScript to TypeScript just by renaming my source file and esbuild did the rest.
+
+All in all, its nice to know that extending 11ty is supported by a rich community of examples, plugins, and documentation. If anything needs to change in the future, I'm confident I could find a way forward.
+
+_P.S._
+
+During discovery for this post, I found [eleventy-plugin-esbuild by jamshop](https://github.com/jamshop/eleventy-plugin-esbuild) as a pre-built solution for what I ended up doing myself. The core differences with this implementation is the use of the synchronous version of esbuild's processing and manages its own build cache as [custom global data](https://www.11ty.dev/docs/data-global-custom/).
