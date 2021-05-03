@@ -12,7 +12,7 @@ tags:
 
 ---
 
-I was planning a feature that needed some kind of background process on the front-end, which led me to exploring [Web Workers](http://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) in a production use case for the first time. As part of building this feature, I wanted to be able to share the Worker through a common library that each app depended on. This requirement is not address by most articles that talk about Workers; usually showing examples of code defined in a separate file that is referenced by that file's name when creating a Worker instance.
+I was planning a feature that needed some kind of background process on the front-end, which led me to exploring [Web Workers](http://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) in a production use case for the first time. As part of building this feature, I wanted to be able to share the Worker through a common library that each app depended on. This requirement is not addressed by most articles that talk about Workers; usually showing examples of code defined in a separate file that is referenced by that file's name when creating a Worker instance.
 
 Based on the [inline web worker example from HTML5 Rocks](https://www.html5rocks.com/en/tutorials/workers/basics/#toc-inlineworkers), I created a [tagged template helper](http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) to generate a Worker instance:
 
