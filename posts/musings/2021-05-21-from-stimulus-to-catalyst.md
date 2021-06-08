@@ -16,6 +16,8 @@ tags:
 
 // Stimulus is a good idea for organizing JS sprinkles
 
+// Stimulus is an evolution of Backbone Views, while Catalyst is a revolution for hybrid components and interactive interfaces.
+
 // GitHub's catalyst is a custom elements helper library inspired by the Stimulus API while leveraging the native web platform.
 
 // Custom elements are more portable than stimulus controllers since they can be defined / registered individually
@@ -28,7 +30,7 @@ tags:
 // Can potentially integrate into other view layers much more seamlessly than stimulus controllers
 // use a copy-to-clipboard element within a React feature without worrying about re-implementing that functionality, communicate through events
 
-// Downside: composing behaviors on a single element, following single responsibility principle, allowed by multiple values to data-controller. No such ability for custom elements, other than extending the element classes or wrapping different elements with other custom elements
+// Downside: composing behaviors on a single element, following single responsibility principle, allowed by multiple values to data-controller. No such ability for custom elements, other than extending the element classes or wrapping different elements with other custom elements. This could be done with polymorphic protocol delegation (OoO fancy) since we have TypeScript and classes available to us.
 
 // Not meant for replacing React, Vue, Svelte, Glimmer components in this use case
 
