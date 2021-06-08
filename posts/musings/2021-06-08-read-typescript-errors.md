@@ -2,7 +2,6 @@
 layout: musing
 title: How to read TypeScript errors
 description: My strategy for reading and understanding verbose compiler output
-draft: true
 categories:
 - musings
 - musing
@@ -15,7 +14,18 @@ tags:
 
 At some point when writing code, everyone runs into errors. These errors can occur at runtime, build time, or as feedback in editors while the code is being written. When seeing TypeScript errors for the first time, they can range from helpful to WTF.
 
-// Add example of long, convoluted TypeScript error trace
+```bash
+Type '{ children: string; onClick: (event: MouseEvent<HTMLAnchorElement, MouseEvent>) => void; fontSize: string; pb: string; mr: string; to: string; exact: true; activeClassName: string; }' is not assignable to type 'IntrinsicAttributes & NavLinkProps<unknown> & RefAttributes<NavLink<unknown>> & { theme?: StyleClosetTheme | undefined; } & { ...; } & Pick<...> & { ...; }'.
+  Property 'fontSize' does not exist on type 'IntrinsicAttributes & NavLinkProps<unknown> & RefAttributes<NavLink<unknown>> & { theme?: StyleClosetTheme | undefined; } & { ...; } & Pick<...> & { ...; }'.  TS2322
+
+     97 |   <ActiveLink
+  >  98 |     fontSize="2"
+        |     ^
+     99 |     pb="4"
+    100 |     mr="9"
+    101 |     to="/"
+```
+The above error is only a couple lines but has verbose and truncated type output.
 
 **Get it in realtime.**
 
@@ -38,5 +48,7 @@ I hope these tips are helpful the next time the red squiggle of doom appears in 
 
 Other resources:
 
-["Deciphering TypeScript's React errors"](https://medium.com/innovation-and-technology/deciphering-typescripts-react-errors-8704cc9ef402) goes in-depth into specific errors seen in a React codebase.
+- [Deciphering TypeScript's React errors](https://medium.com/innovation-and-technology/deciphering-typescripts-react-errors-8704cc9ef402): goes in-depth into specific errors seen in a React codebase.
+- [TypeScript in Visual Studio Code](https://code.visualstudio.com/Docs/languages/typescript): shows how to use the TS feedback and features in the popular editor.
+- [coc.nvim quick start](https://github.com/neoclide/coc.nvim#quick-start): provides set up instructions for using this vim plugin with TypeScript support out of the box.
 

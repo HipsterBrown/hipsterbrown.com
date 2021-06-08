@@ -115,11 +115,13 @@
 
       & + pre {
         margin-top: -1em;
-      }
 
-      code {
-        font-size: 1.1rem;
       }
+    }
+
+    code {
+      font-size: 1.1rem;
+      white-space: pre-wrap;
     }
 
     blockquote + p {

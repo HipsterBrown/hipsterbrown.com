@@ -19,5 +19,9 @@
     "eleventy-google-fonts": "^0.0.5",
     "esbuild": "^0.8.57",
     "esbuild-sass-plugin": "^1.0.11"
+  },
+  "volta": {
+    "node": "14.17.0",
+    "npm": "7.16.0"
   }
 }
