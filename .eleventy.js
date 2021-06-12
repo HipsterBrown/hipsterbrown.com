@@ -29,6 +29,7 @@ module.exports = config => {
   config.on("afterBuild", () => {
     return esbuild.build({
       entryPoints: ["sass/app.scss", "js/app.ts"],
+      bundle: true,
       outdir: "_site/assets",
       minify: process.env.ELEVENTY_ENV === "production",
       sourcemap: process.env.ELEVENTY_ENV !== "production",

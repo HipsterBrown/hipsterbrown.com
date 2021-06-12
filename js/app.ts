@@ -1,3 +1,4 @@
+import "./random-word-element";
 /* globals document, window */
 
 interface Mods {
@@ -8,9 +9,6 @@ interface Mods {
   MenuMod: {
     mq: MediaQueryList;
     listen(isMobile: boolean): void;
-  };
-  SwitchMod: {
-    switcher(): void;
   };
   TextFitMod: {
     sizer(): void;
@@ -23,7 +21,7 @@ interface Mods {
 
 var HipWeb: Mods = {} as Mods;
 
-HipWeb.ScrollMod = (function () {
+HipWeb.ScrollMod = (function() {
   let lastScroll = 0;
   const navbar = document.getElementById("navbar");
 
@@ -55,7 +53,7 @@ HipWeb.ScrollMod = (function () {
   };
 })();
 
-HipWeb.MenuMod = (function () {
+HipWeb.MenuMod = (function() {
   const mq = window.matchMedia("screen and (min-width: 710px)");
   const stache = document.getElementById("break");
   const nav = document.getElementById("navbar");
@@ -72,7 +70,7 @@ HipWeb.MenuMod = (function () {
     }
   }
 
-  mq.addListener(function (event: MediaQueryListEvent) {
+  mq.addListener(function(event: MediaQueryListEvent) {
     matchListener(!event.matches);
   });
 
@@ -87,36 +85,7 @@ HipWeb.MenuMod = (function () {
   };
 })();
 
-HipWeb.SwitchMod = (function () {
-  const hipArray = [
-    "ironic",
-    "authentic",
-    "vintage",
-    "classic",
-    "hip",
-    "confident"
-  ];
-  const headSpan = document.querySelector("span.hip-feel") as HTMLSpanElement;
-
-  function spanSwitch(el: HTMLSpanElement, arr: string[]) {
-    var span = el;
-    var newWord = arr[Math.floor(Math.random() * arr.length)];
-
-    if (span) {
-      span.textContent = newWord;
-    }
-  }
-
-  function loader() {
-    spanSwitch(headSpan, hipArray);
-  }
-
-  return {
-    switcher: loader
-  };
-})();
-
-HipWeb.TextFitMod = (function () {
+HipWeb.TextFitMod = (function() {
   const heading = document.querySelectorAll(
     "article h1"
   ) as NodeListOf<HTMLHeadingElement>;
@@ -137,7 +106,7 @@ HipWeb.TextFitMod = (function () {
   };
 })();
 
-HipWeb.ArchiveShowMod = (function () {
+HipWeb.ArchiveShowMod = (function() {
   const arrow = document.querySelector("span.arrow") as HTMLSpanElement;
 
   function listControl() {
@@ -176,16 +145,15 @@ HipWeb.ArchiveShowMod = (function () {
   };
 })();
 
-HipWeb.init = function () {
+HipWeb.init = function() {
   HipWeb.ScrollMod.listen();
 
   HipWeb.MenuMod.listen(!HipWeb.MenuMod.mq.matches);
 
-  HipWeb.SwitchMod.switcher();
-
   HipWeb.TextFitMod.sizer();
 
   HipWeb.ArchiveShowMod.listen();
+
 };
 
 document.addEventListener("DOMContentLoaded", HipWeb.init);
