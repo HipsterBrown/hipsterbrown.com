@@ -9,7 +9,7 @@ tags:
 
 {% for post in collections.musings limit: 5 %}
 <article>
-  <div class="container thin">
+  <fit-text class="container thin">
     <h1>
       <a
         href="{% if post.data.external == true %}{{post.data.external_url}}{% else %}{{ post.url }}{% endif %}"
@@ -23,7 +23,7 @@ tags:
         Categories: <em>{{ post.data.tags | join: ', ' }}</em>
       </p>
     </section>
-  </div>
+  </fit-text>
 </article>
 {% endfor %}
 <section id="archives">

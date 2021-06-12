@@ -1,5 +1,6 @@
-import "./random-word-element";
 /* globals document, window */
+import "./random-word-element";
+import "./fit-text-element";
 
 interface Mods {
   ScrollMod: {
@@ -85,27 +86,6 @@ HipWeb.MenuMod = (function() {
   };
 })();
 
-HipWeb.TextFitMod = (function() {
-  const heading = document.querySelectorAll(
-    "article h1"
-  ) as NodeListOf<HTMLHeadingElement>;
-
-  function sizingLoop() {
-    heading.forEach(head => {
-      const textLength = head.textContent?.length || 0;
-      if (textLength > 36) {
-        head.style.fontSize = "2em";
-      } else if (textLength > 48) {
-        head.style.fontSize = "1.8em";
-      }
-    });
-  }
-
-  return {
-    sizer: sizingLoop
-  };
-})();
-
 HipWeb.ArchiveShowMod = (function() {
   const arrow = document.querySelector("span.arrow") as HTMLSpanElement;
 
@@ -149,8 +129,6 @@ HipWeb.init = function() {
   HipWeb.ScrollMod.listen();
 
   HipWeb.MenuMod.listen(!HipWeb.MenuMod.mq.matches);
-
-  HipWeb.TextFitMod.sizer();
 
   HipWeb.ArchiveShowMod.listen();
 
