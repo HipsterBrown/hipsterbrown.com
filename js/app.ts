@@ -11,12 +11,6 @@ interface Mods {
     mq: MediaQueryList;
     listen(isMobile: boolean): void;
   };
-  TextFitMod: {
-    sizer(): void;
-  };
-  ArchiveShowMod: {
-    listen(): void;
-  };
   init(): void;
 }
 
@@ -86,52 +80,10 @@ HipWeb.MenuMod = (function() {
   };
 })();
 
-HipWeb.ArchiveShowMod = (function() {
-  const arrow = document.querySelector("span.arrow") as HTMLSpanElement;
-
-  function listControl() {
-    if (arrow) {
-      arrow.addEventListener("click", reveal);
-      arrow.addEventListener("keydown", reveal);
-    }
-  }
-
-  function reveal(e: MouseEvent | KeyboardEvent) {
-    if ("key" in e && !["Enter", " "].includes(e.key)) {
-      return;
-    }
-    e.preventDefault();
-    const target = e.target as HTMLSpanElement;
-
-    if (!target) return;
-
-    target.classList.toggle("open");
-
-    if (target.classList.contains("open")) {
-      target.innerHTML = "&#8744;";
-      target.setAttribute("aria-expanded", "true");
-    } else {
-      target.innerHTML = "&#8743;";
-      target.setAttribute("aria-expanded", "false");
-    }
-
-    document.querySelectorAll("article.archive").forEach(article => {
-      article.classList.toggle("hide");
-    });
-  }
-
-  return {
-    listen: listControl
-  };
-})();
-
 HipWeb.init = function() {
   HipWeb.ScrollMod.listen();
 
   HipWeb.MenuMod.listen(!HipWeb.MenuMod.mq.matches);
-
-  HipWeb.ArchiveShowMod.listen();
-
 };
 
 document.addEventListener("DOMContentLoaded", HipWeb.init);

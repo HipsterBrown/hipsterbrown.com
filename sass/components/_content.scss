@@ -3,12 +3,12 @@
 
   @media screen and (max-width: 900px) {
     &.musings {
-      font-size: .6rem;
+      font-size: 0.6rem;
     }
   }
 
   @media screen and (max-width: 530px) {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   article {
@@ -70,11 +70,12 @@
       }
     }
 
-    h2,h3 {
+    h2,
+    h3 {
       text-indent: -2em;
 
       @media screen and (max-width: 450px) {
-        text-indent: -.5em;
+        text-indent: -0.5em;
       }
 
       @media screen and (max-width: 360px) {
@@ -115,7 +116,6 @@
 
       & + pre {
         margin-top: -1em;
-
       }
     }
 
@@ -129,7 +129,7 @@
     }
 
     strong {
-      padding: .1em .3em;
+      padding: 0.1em 0.3em;
       border-radius: 4px;
       font-weight: normal;
     }
@@ -161,6 +161,16 @@
     img {
       border: none;
       border-radius: 0px;
+    }
+  }
+
+  nav {
+    font-size: 1.2rem;
+    font-weight: 200;
+    padding: 1rem 0;
+
+    a:hover {
+      text-decoration: underline;
     }
   }
 }

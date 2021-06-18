@@ -1,11 +1,13 @@
 class FitTextElement extends HTMLElement {
     connectedCallback() {
-        const textLength = this.heading.textContent?.length || 0;
-        if (textLength > 48) {
-            this.heading.style.fontSize = "1.8em";
-        }
-        if (textLength > 36) {
-            this.heading.style.fontSize = "2em";
+        if (this.heading) {
+            const textLength = this.heading.textContent?.length || 0;
+            if (textLength > 48) {
+                this.heading.style.fontSize = "1.8em";
+            }
+            if (textLength > 36) {
+                this.heading.style.fontSize = "2em";
+            }
         }
     }
 

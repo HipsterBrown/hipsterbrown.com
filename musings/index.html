@@ -3,43 +3,41 @@ layout: default
 title: Hip Musings
 description: Where is my mind?
 icon: Icon-Musings
-tags:
-  - musings
+pagination:
+  data: collections.musings
+  size: 5
+  alias: posts
 ---
 
-{% for post in collections.musings limit: 5 %}
-<article>
-  <fit-text class="container thin">
-    <h1>
-      <a
-        href="{% if post.data.external == true %}{{post.data.external_url}}{% else %}{{ post.url }}{% endif %}"
-        >{{ post.data.title }}</a
-      >
-    </h1>
-    <section class="excerpt full clearfix">
-      <p>{{post.data.description}}</p>
-      <p class="half">{{ post.date | date: "%e %b, %Y" }}</p>
-      <p class="tags half t-right">
-        Categories: <em>{{ post.data.tags | join: ', ' }}</em>
-      </p>
-    </section>
-  </fit-text>
-</article>
-{% endfor %}
-<section id="archives">
-  <h1 class="t-center">
-    Archives
-    <span class="arrow" role="button" tabindex="0" aria-expanded="false" aria-controls="archive-content"
-      >&#8743;</span
-    >
-  </h1>
-  <div id="archive-content">
-    {% for post in collections.musings offset:5 %}
-    <article class="archive hide">
-      <div class="container thin">
-        <h1><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
-      </div>
-    </article>
-    {% endfor %}
-  </div>
-</section>
+{% if posts %}
+  {% for post in posts %}
+  <article>
+    <fit-text class="container thin">
+      <h1>
+        <a
+          href="{% if post.data.external == true %}{{post.data.external_url}}{% else %}{{ post.url }}{% endif %}"
+          >{{ post.data.title }}</a
+        >
+      </h1>
+      <section class="excerpt full clearfix">
+        <p>{{post.data.description}}</p>
+        <p class="half">{{ post.date | date: "%e %b, %Y" }}</p>
+        <p class="tags half t-right">
+          Categories: <em>{{ post.data.tags | join: ', ' }}</em>
+        </p>
+      </section>
+    </fit-text>
+  </article>
+  {% endfor %}
+{% endif %}
+
+{% if pagination.pages %}
+  <nav class="container thin">
+      {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}" class="el-left">&lt; Previous Page</a>
+      {% endif %}
+      {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}" class="el-right">Next Page &gt;</a>
+      {% endif %}
+  </nav>
+{% endif %}
