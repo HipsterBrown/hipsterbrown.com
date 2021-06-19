@@ -1,4 +1,4 @@
-#navbar {
+scroll-nav {
   font-size: 1rem;
   background: $navblue;
   position: fixed;
@@ -6,7 +6,7 @@
   height: $nav-height;
   width: 100%;
   z-index: 130;
-  @include transition(all .2s ease-in-out);
+  @include transition(all 0.2s ease-in-out);
 
   &.scrolled {
     font-size: 1rem;
@@ -38,7 +38,7 @@
   }
 
   @media screen and (max-width: 710px) {
-    font-size: .8rem;
+    font-size: 0.8rem;
     height: auto;
     @include transform(translateY(-14rem));
   }
@@ -51,7 +51,7 @@
     width: 5rem;
     height: 5rem;
     border-radius: 10px;
-    @include transition(all .25s ease-in-out);
+    @include transition(all 0.25s ease-in-out);
 
     @media screen and (max-width: 710px) {
       @include span-columns(12 of 12);
@@ -86,7 +86,8 @@
       }
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background: $linkblue;
 
       svg > #icon-logo > #inner {
