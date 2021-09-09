@@ -17,6 +17,7 @@
     "@jamshop/eleventy-plugin-svg": "^2.0.0",
     "@tsconfig/recommended": "^1.0.1",
     "eleventy-google-fonts": "^0.0.5",
+    "eleventy-plugin-embed-twitter": "^1.3.2",
     "esbuild": "^0.8.57",
     "esbuild-sass-plugin": "^1.0.11"
   },

@@ -9,15 +9,17 @@ categories:
 tags:
 - dev
 - components
-
 ---
 
-Recently, I've started to form the opinion client-side JS libraries, like Vue, React, Svelte, Ember, Angular, etc, have grown in adoption and popularity due to component-driven view architecture more than any other feature they offer. I believe this core abstraction is key to why larger frameworks, like NextJS, Nuxt, Gatsby, and SvelteKit,  are built on top of those libraries with a target of static site generation or server-side rendering.
+Recently, I've started to form the opinion client-side JS libraries, like Vue, React, Svelte, Ember, Angular, etc, have grown in adoption and popularity due to component-driven view architecture more than any other feature they offer. I believe this core abstraction is key to why larger frameworks, like NextJS, Nuxt, Gatsby, and SvelteKit, are built on top of those libraries with a target of static site generation or server-side rendering.
 
-For context, I currently working on a front end platform team that supports teams using Rails and/or React to develop client-side features, depending on the experience of the team and requirements of the feature. Before adopting React, we used a Rails component abstraction heavily inspired by [`komponent`](https://github.com/komposable/komponent) to create a shared gem of design system components, as well as reusable ones within each application. We still have this abstraction and are starting to adopt [ViewComponent](https://viewcomponent.org) in its place. While our 
+For context, I currently working on a front end platform team that supports teams using Rails and/or React to develop client-side features, depending on the experience of the team and requirements of the feature. Before adopting React, we used a Rails component abstraction heavily inspired by [`komponent`](https://github.com/komposable/komponent) to create a shared gem of design system components, as well as reusable ones within each application. We still have this abstraction and are starting to adopt [ViewComponent](https://viewcomponent.org) in its place. While our home-grown approach did not reach a critical level of usage, that was mostly due to lack of documentation and surrounding tooling expected by devs who have used component-driven frameworks in the past, i.e. [Storybook](https://storybook.js.org/); both of those last points are addressed by ViewComponent and the community around it.
 
+With that in mind, the more I used this server-side component system, the more I wondered how many other teams chose to build features using a client-side JS framework for that framework's component model, consciously or not.
 
----------------------
+https://twitter.com/hipsterbrown/status/1433792423973605397?s=20
+
+---
 
 ### Research
 
@@ -36,7 +38,6 @@ Other examples of server-driven component workflows:
 
 Codebases using ViewComponent: https://opensourcerails.org/search/by-gem/view_component
 Design System components built with ViewComponent: https://primer.style/view-components/
-
 
 Workflow tooling:
 
