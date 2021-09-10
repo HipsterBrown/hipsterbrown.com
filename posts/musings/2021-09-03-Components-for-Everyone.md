@@ -80,14 +80,16 @@ Lastly, we get to the curious case of server-rendered component systems for Node
 
 There is active development in this space with the advent of tools like [Astro](https://astro.build/) and [Slinkity](https://slinkity.dev/) that aim to take a framework-agnostic approach to introduce components into modern, HTML-first static sites. Astro does a great job [comparing itself to existing tools](https://docs.astro.build/comparing-astro-vs-other-tools) and Slinkity is building on the shoulders of the awesome [Eleventy](https://www.11ty.dev/) ecosystem (slight bias given this site is currently built with Eleventy).
 
-Previously, it seemed like NodeJS devs didn't invest in a server-side component framework because existing client-side libraries could be worked into the SSR pipeline; why reinvent the wheel? There is less of a context switch in terms of syntax when compared to the workflows of other web languages, so the friction lies in the [uncanny vallye](https://crystallize.com/blog/frontend-performance-react-ssr-and-the-uncanny-valley) of managing a client-side component system in a traditional server application.
+Previously, it seemed like NodeJS devs didn't invest in a server-side component framework because existing client-side libraries could be worked into the SSR pipeline; why reinvent the wheel? There is less of a context switch in terms of syntax when compared to the workflows of other web languages, so the friction lies in the [uncanny valley](https://crystallize.com/blog/frontend-performance-react-ssr-and-the-uncanny-valley) of managing a client-side component system in a traditional server application.
 
-Who knows where the future is headed in this use case? Could we see some type of [mustache.js](https://github.com/janl/mustache.js/) extension or [Handlebars](https://handlebarsjs.com/) helper for rendering a JavaScript class in a template? That could be pretty neat!
+Who knows where the future is headed in this use case? Could there be some type of [mustache.js](https://github.com/janl/mustache.js/) extension or [Handlebars](https://handlebarsjs.com/) helper for rendering a JavaScript class in a template? That could be pretty neat!
 
 
 ## Summary
 
-_Something about the state of the world across server application frameworks and where we can continue to push forward._
+This is not a post to bash or denigrate client-side component frameworks; I love developing front end applications with JavaScript and will continue to do so. But choosing to build with that stack comes with additional complexity that not every team is ready to handle, so there should be useful alternatives for server-rendered ecosystems and take advantage of that environment. I hope we see more tools like [Storybook Server](https://www.npmjs.com/package/@storybook/server) being used to develop those server components in isolation and generate documentation for easier discoverability.
+
+If I missed something, like an example implementation or assumed detail, please reach out on [Twitter](https://twitter.com/hipsterbronw) to help me correct it here.
 
 \* I purposely left out more complete frameworks like Ember and Angular since they focus on shipping full client-side applications out of the box.
 
