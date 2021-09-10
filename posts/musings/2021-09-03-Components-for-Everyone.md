@@ -13,50 +13,50 @@ tags:
 
 _TL;DR This is not about web components / custom elements, rather why component-driven architecture for traditional server-rendered apps could be a better solution than adopting a client-side framework._
 
-## Theory
+## Background
 
-Recently, I've started to form the opinion client-side JS libraries, like Vue, React, Svelte, Ember, Angular, etc, have grown in adoption and popularity due to component-driven view architecture more than any other feature they offer. I believe this core abstraction is key to why larger frameworks, like NextJS, Nuxt, Gatsby, and SvelteKit, are built on top of those libraries with a target of static site generation or server-side rendering.
+Recently, I've started to form the opinion client-side JS libraries, like Vue, React, Svelte, etc\*, have grown in adoption and popularity due to component-driven view architecture more than any other feature they offer. I believe this core abstraction is key to why larger frameworks, like NextJS, Nuxt, Gatsby, and SvelteKit, are built on top of those libraries with a target of static site generation (SSG) or server-side rendering (SSR).
 
-For context, I currently working on a front end platform team that supports teams using Rails and/or React to develop client-side features, depending on the experience of the team and requirements of the feature. Before adopting React, we used a Rails component abstraction heavily inspired by [`komponent`](https://github.com/komposable/komponent) to create a shared gem of design system components, as well as reusable ones within each application. We still have this abstraction and are starting to adopt [ViewComponent](https://viewcomponent.org) in its place. While our home-grown approach did not reach a critical level of usage, that was mostly due to lack of documentation and surrounding tooling expected by devs who have used component-driven frameworks in the past, i.e. [Storybook](https://storybook.js.org/); both of those last points are addressed by ViewComponent and the community around it.
+For context, I've been using React for ~6 years (starting as the view layer replacement for a [Backbone](https://backbonejs.org/) app) and currently work on a front end platform team that supports product squads using Rails and/or React to develop client-side features, depending on the experience of the team and requirements of the feature. Before adopting React a couple of years ago, we used a Ruby component abstraction heavily inspired by [`komponent`](https://github.com/komposable/komponent). This Component class allowed us to create a shared gem of design system components\*\* for use across our production Rails applications. Even with React in active use, we still have this Ruby abstraction and are starting to adopt [ViewComponent](https://viewcomponent.org) in its place to resolve issues around lack of documentation and surrounding tooling expected by devs who have used component-driven frameworks in the past, i.e. [Storybook](https://storybook.js.org/); both of those last points are addressed by ViewComponent and the community around it.
 
-With that in mind, I wondered how many other teams chose to build features using a client-side JS framework for that framework's component model, consciously or not. Because the more I used this server-side component system, the more I recognized the things I liked about building React components. 
+With that in mind, I wondered how many other teams chose to build features using a client-side JS framework for that framework's component model, consciously or not. Because the more I used this server-side component system, the more I recognized the things I liked about building React components without the need to context switch between Ruby and JavaScript in a single feature. 
 
-So I did some [lazy web](https://www.urbandictionary.com/define.php?term=lazyweb) research on Twitter to see if other folks thought about this subject as well. If so, where are they seeing this workflow in other frameworks?
+So I did some [lazy web](https://www.urbandictionary.com/define.php?term=lazyweb) research on Twitter to see if other folks thought about this subject; if so, where are they seeing this workflow in other frameworks?
 
 https://twitter.com/hipsterbrown/status/1433792423973605397?s=20
 
-No one provided any other examples, while some mentioned using [SSR](https://www.netlify.com/blog/2020/12/02/next.js-should-i-use-ssr-or-ssg/) only with one of the popular JS libraries I mentioned previously. But there was enough engagement to continue exploring the wider web.
+No one provided any other examples, while some mentioned using SSR-only with one of the popular JS libraries I mentioned previously. But there was enough engagement to continue exploring the wider web.
 
-## Workflow expectations:
+## Workflow
 
-<br />
+When I refer to "component-driven view architecture", I am including the surrounding ecosystem of patterns and tooling as motivation for its accession:
 
-- storybook (or some type of isolated development playground)
-- Unit testing
-- Packaging (can they ship as a reusable resource/gem/pub)
-- Sidecar assets (?)
+- isolated development playground (Storybook / Pattern Lab)
+- unit testing
+- packaging (ship as a reusable resource/gem/pub)
+- sidecar assets (easily scope styles and behavior)
 
-<br />
+Each of those values can help scale the efficiency of teams building user interfaces, no matter the platform technology. Taking a look at open source design system components from large Rails shops like [Primer](https://primer.style/) from GitHub and [Polaris](https://polaris.shopify.com/components/get-started) from Shopify, the alternative to using JS components is usually collection of CSS classes, which can lead to inconsistent usage when applying them to markup. [Primer ViewComponents](https://primer.style/view-components/) are still fairly new when compared to the CSS and React implementations of that design system but solves the job of providing reusable pieces of UI in a familiar interface to Rubyists, including an interactive [Storybook](https://primer.style/view-components/stories/?path=/story/primer-button-group--button-group) using [`@storybook/server`](https://github.com/storybookjs/storybook/tree/next/app/server)!
 
-## Language implementations
+Although I continue to mention the benefits in terms of design system components, they can also be appreciated within a single app codebase to share common functionality across features. 
+
+## Implementations
 
 **Ruby / Rails**
 
-I have mentioned ViewComponent already, as the inspiration / motivation for this post. The docs do a great job explaining the philosophy behind the framework:
+I have mentioned ViewComponent several times already, as the inspiration / motivation for this post. The docs do a great job explaining the philosophy behind the framework:
 
 > Traditional Rails templates have an implicit interface, making it hard to reason about their dependencies. This can lead to subtle bugs when rendering the same template in different contexts.
 
 [ViewComponent Data Flow](https://viewcomponent.org/#data-flow)
 
-Codebases using ViewComponent: [https://opensourcerails.org/search/by-gem/view_component](https://opensourcerails.org/search/by-gem/view_component)
-
-Design System components built with ViewComponent: [https://primer.style/view-components/](https://primer.style/view-components/)
+It has been growing in popularity since [its introduction by GitHub](https://github.blog/2020-12-15-encapsulating-ruby-on-rails-views/); looking at the open source projects using ViewComponent: [https://opensourcerails.org/search/by-gem/view_component](https://opensourcerails.org/search/by-gem/view_component)
 
 But that's not the only solution on the block, especially when looking to build a static site. [Bridgetown](https://www.bridgetownrb.com/) bills itself as "a fast, scalable, modular, and thoroughly forward-looking framework for building websites and frontend applications" and a modern successor to [Jekyll](https://jekyllrb.com/). Although it also [supports ViewComponent](https://www.bridgetownrb.com/release/embracing-ruby-in-0.21/), the Bridgetown team is the first place I've seen an implementation of [components for the Liquid templating language](https://www.bridgetownrb.com/docs/components/liquid). [Liquid component](https://github.com/bridgetownrb/liquid-component) does not go as far as ViewComponent in providing a Ruby class as the interface for a component, but uses YAML front matter well to document and describe pieces of reusable view logic.
 
 **PHP / Laravel**
 
-Even though it appears there has been a concept of "components" in Laravel's Blade templates system since [version 5.4](https://laravel.com/docs/5.4/blade#components-and-slots), they are more comparable to partials with support for slots until [version 7](https://laravel.com/docs/7.x/blade#components). This current iteration of Blade component is backed by a PHP class with an associated template (or an [inline component view](https://laravel.com/docs/8.x/blade#inline-component-views)), which is more similar to ViewComponent. These components are rendered using a familiar kebab-case, HTML tag-like syntax: `<x-alert>`.
+It appears there has been a concept of "components" in Laravel's Blade templates system since [version 5.4](https://laravel.com/docs/5.4/blade#components-and-slots); however they are more comparable to partials with support for slots until [version 7](https://laravel.com/docs/7.x/blade#components). This current iteration of Blade component is backed by a PHP class with an associated template (or an [inline component view](https://laravel.com/docs/8.x/blade#inline-component-views)), which is more similar to ViewComponent. These components are rendered using a familiar kebab-case, HTML tag-like syntax: `<x-alert>`.
 
 **Python / Django**
 
@@ -84,3 +84,11 @@ Previously, it seemed like NodeJS devs didn't invest in a server-side component 
 
 Who knows where the future is headed in this use case? Could we see some type of [mustache.js](https://github.com/janl/mustache.js/) extension or [Handlebars](https://handlebarsjs.com/) helper for rendering a JavaScript class in a template? That could be pretty neat!
 
+
+## Summary
+
+_Something about the state of the world across server application frameworks and where we can continue to push forward._
+
+\* I purposely left out more complete frameworks like Ember and Angular since they focus on shipping full client-side applications out of the box.
+
+\*\* This was created before my time at the company but is explained well in this Rails Conf talk from 2018: [https://www.youtube.com/watch?v=Egumr5KiTNI](https://www.youtube.com/watch?v=Egumr5KiTNI)
