@@ -15,28 +15,30 @@ _TL;DR This is not about web components / custom elements, rather why component-
 
 ## Background
 
-Recently, I've started to form the opinion client-side JS libraries, like Vue, React, Svelte, etc\*, have grown in adoption and popularity due to component-driven view architecture more than any other feature they offer. I believe this core abstraction is key to why larger frameworks, like NextJS, Nuxt, Gatsby, and SvelteKit, are built on top of those libraries with a target of static site generation (SSG) or server-side rendering (SSR).
+Recently, I've started to form the opinion that client-side JS libraries, like Vue, React, Svelte, etc\*, have grown in adoption due to component-driven view architecture more than any other feature they offer. I believe this core abstraction is key to why larger frameworks, like NextJS, Nuxt, Gatsby, and SvelteKit, are built atop those libraries with a targets of static site generation (SSG) or server-side rendering (SSR).
 
-For context, I've been using React for ~6 years (starting as the view layer replacement for a [Backbone](https://backbonejs.org/) app) and currently work on a front end platform team that supports product squads using Rails and/or React to develop client-side features, depending on the experience of the team and requirements of the feature. Before adopting React a couple of years ago, we used a Ruby component abstraction heavily inspired by [`komponent`](https://github.com/komposable/komponent). This Component class allowed us to create a shared gem of design system components\*\* for use across our production Rails applications. Even with React in active use, we still have this Ruby abstraction and are starting to adopt [ViewComponent](https://viewcomponent.org) in its place to resolve issues around lack of documentation and surrounding tooling expected by devs who have used component-driven frameworks in the past, i.e. [Storybook](https://storybook.js.org/); both of those last points are addressed by ViewComponent and the community around it.
+For context, I've been using React for ~6 years (starting as the view layer replacement for a [Backbone](https://backbonejs.org/) app) and currently work on a front end platform team that supports product squads using Rails and/or React to develop client-side features, depending on the experience of the team and requirements of the feature. Before adopting React a couple of years ago, [engineers at the company developed a Ruby component abstraction](https://betterment.engineering/how-we-develop-design-components-in-rails-ab2d3dac44d3) that allowed them to create a shared gem of design system components\*\* for use across the production Rails applications. Even with React in active use, we still have this Ruby abstraction and are starting to adopt [ViewComponent](https://viewcomponent.org) in its place to resolve issues around lack of documentation and surrounding tooling expected by devs who have used component-driven frameworks in the past, i.e. [Storybook](https://storybook.js.org/).
 
-With that in mind, I wondered how many other teams chose to build features using a client-side JS framework for that framework's component model, consciously or not. Because the more I used this server-side component system, the more I recognized the things I liked about building React components without the need to context switch between Ruby and JavaScript in a single feature. 
+With that in mind, I wondered how many other teams chose to build features using a client-side JS framework primarily for built-in component model, consciously or not. The more I used a server-side component system, the more I recognized the things I liked about building React components, without the need to context switch between Ruby and JavaScript in a single feature. 
 
-So I did some [lazy web](https://www.urbandictionary.com/define.php?term=lazyweb) research on Twitter to see if other folks thought about this subject; if so, where are they seeing this workflow in other frameworks?
+This led to some [lazy web](https://www.urbandictionary.com/define.php?term=lazyweb) research on Twitter to see if other folks thought about this subject; if so, where are they seeing this workflow in other frameworks?
 
 https://twitter.com/hipsterbrown/status/1433792423973605397?s=20
 
-No one provided any other examples, while some mentioned using SSR-only with one of the popular JS libraries I mentioned previously. But there was enough engagement to continue exploring the wider web.
+While no one provided any other examples, outside of using SSR-only with one of the popular JS libraries I mentioned previously, there was enough engagement to continue exploring the wider web.
 
 ## Workflow
 
-When I refer to "component-driven view architecture", I am including the surrounding ecosystem of patterns and tooling as motivation for its accession:
+Before diving into the various language implementations I found, I want to break down the core advantages the component model offers application devs. When I refer to "component-driven view architecture", I am including the surrounding ecosystem of patterns and tooling as motivation for its accession:
 
 - isolated development playground (Storybook / Pattern Lab)
-- unit testing
+- unit testing (quickly verify UI logic without spinning up a browser)
 - packaging (ship as a reusable resource/gem/pub)
 - sidecar assets (easily scope styles and behavior)
 
-Each of those values can help scale the efficiency of teams building user interfaces, no matter the platform technology. Taking a look at open source design system components from large Rails shops like [Primer](https://primer.style/) from GitHub and [Polaris](https://polaris.shopify.com/components/get-started) from Shopify, the alternative to using JS components is usually collection of CSS classes, which can lead to inconsistent usage when applying them to markup. [Primer ViewComponents](https://primer.style/view-components/) are still fairly new when compared to the CSS and React implementations of that design system but solves the job of providing reusable pieces of UI in a familiar interface to Rubyists, including an interactive [Storybook](https://primer.style/view-components/stories/?path=/story/primer-button-group--button-group) using [`@storybook/server`](https://github.com/storybookjs/storybook/tree/next/app/server)!
+Each of those values can help scale the efficiency of teams building user interfaces, no matter the platform technology.
+
+Taking a look at open source design system components from large Rails shops like [Primer](https://primer.style/) from GitHub and [Polaris](https://polaris.shopify.com/components/get-started) from Shopify, the alternative to using JS components is usually collection of CSS classes; this can lead to inconsistent usage when applying them to markup and a worse developer experience. The [Primer ViewComponents gem](https://primer.style/view-components/) is still fairly new when compared to the CSS and React implementations of that design system but solves the job of providing reusable pieces of UI in a familiar interface to Rubyists, including an interactive [Storybook](https://primer.style/view-components/stories/?path=/story/primer-button-group--button-group) using [`@storybook/server`](https://github.com/storybookjs/storybook/tree/next/app/server)!
 
 Although I continue to mention the benefits in terms of design system components, they can also be appreciated within a single app codebase to share common functionality across features. 
 
@@ -87,9 +89,9 @@ Who knows where the future is headed in this use case? Could there be some type 
 
 ## Summary
 
-This is not a post to bash or denigrate client-side component frameworks; I love developing front end applications with JavaScript and will continue to do so. But choosing to build with that stack comes with additional complexity that not every team is ready to handle, so there should be useful alternatives for server-rendered ecosystems and take advantage of that environment. I hope we see more tools like [Storybook Server](https://www.npmjs.com/package/@storybook/server) being used to develop those server components in isolation and generate documentation for easier discoverability.
+This post is not meant to denigrate client-side component frameworks; I love developing front end applications with JavaScript and will continue to do so. But choosing to build with that stack comes with additional complexity that not every team is ready to handle, so there should be useful alternatives for server-rendered ecosystems and take advantage of that environment. I hope we see more tools like [Storybook Server](https://www.npmjs.com/package/@storybook/server) being used to develop those server components in isolation and generate documentation for easier discoverability. There should be a rich collection of accessible, open source component libraries, similar to [Headless UI](https://headlessui.dev/) or [Radix UI](https://www.radix-ui.com/docs/primitives/overview/introduction), so apps can ship features that are enjoyed by everyone by default.
 
-If I missed something, like an example implementation or assumed detail, please reach out on [Twitter](https://twitter.com/hipsterbronw) to help me correct it here.
+If I missed something, like an example implementation or assumed detail, please reach out on [Twitter](https://twitter.com/hipsterbronw) to help me correct it here. I'll continue to shape these thoughts, put them into practice through personal and professional projects, and follow up with more articles to share any lessons learned.
 
 \* I purposely left out more complete frameworks like Ember and Angular since they focus on shipping full client-side applications out of the box.
 
