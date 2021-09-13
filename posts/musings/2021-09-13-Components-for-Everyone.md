@@ -1,7 +1,6 @@
 ---
 layout: musing
 title: Components for Everyone
-draft: true
 description: With the adoption of component-driven architecture in JS frameworks, how can server-side applications take advantage of a similar workflow in their native languages?
 categories:
 - musings
