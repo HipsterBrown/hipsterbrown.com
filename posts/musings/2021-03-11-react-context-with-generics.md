@@ -48,6 +48,7 @@ const MyContext = React.createContext<MyContextData<ItemWithID>>(null);
 
 The generic type argument for `MyContextData` will use the constrained `ItemWithId` type as a placeholder. Then we can create our `Provider` component to accept an `Item` generic:
 
+{% raw %}
 ```tsx
 type MyProviderProps<Item extends ItemWithId> = {
   itemList: Item[];
@@ -61,6 +62,7 @@ function MyProvider <Item extends ItemWithId>(
   return <MyContext.Provider value={{ itemList, selectedItems }}>{children}</MyContext.Provider>;
 }
 ```
+{% endraw %}
 
 To get the correct generic usage for the hook that consumes that Context object, some overrides need to happen:
 
