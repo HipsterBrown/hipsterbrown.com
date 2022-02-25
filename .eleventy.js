@@ -52,6 +52,7 @@ module.exports = (config) => {
   config.addWatchTarget("./js/");
   config.addPassthroughCopy("css");
   config.addPassthroughCopy("images");
+  config.addPassthroughCopy("videos");
   config.setFrontMatterParsingOptions({
     excerpt: true,
   });
