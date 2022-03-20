@@ -17,6 +17,6 @@
   &:active {
     background: $base-body-color;
     box-shadow: 0 0 0 2px darken($alt-body-color, 30);
-    @include transform(translateY(2px));
+    transform: translateY(2px);
   }
 }

@@ -1,4 +1,4 @@
 /* globals document, window */
-import "./random-word-element";
-import "./fit-text-element";
-import './scroll-nav-element';
+import "./_elements/random-word-element";
+import "./_elements/fit-text-element";
+import "./_elements/scroll-nav-element";

@@ -32,7 +32,7 @@ header {
 
     @media screen and (max-width: 530px) {
       top: 0;
-      @include transform(none);
+      transform: none;
       margin: 0;
       padding: 0 0 2em;
     }
@@ -74,7 +74,7 @@ header {
 
     @media screen and (max-width: 530px) {
       top: 0;
-      @include transform(none);
+      transform: none;
     }
 
     span.hip-feel {
@@ -89,7 +89,7 @@ header {
 
     @media screen and (max-width: 530px) {
       top: 0;
-      @include transform(none);
+      transform: none;
     }
   }
 

@@ -29,7 +29,7 @@ footer {
     li {
       opacity: 0.8;
       padding-top: 1rem;
-      @include transition(all .3s ease-in-out);
+      transition: all .3s ease-in-out;
 
       @media screen and (max-width: 530px) {
         margin: 0;

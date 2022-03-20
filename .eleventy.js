@@ -1,12 +1,15 @@
+const path = require("path");
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const {
   createInlineCss,
 } = require("eleventy-google-fonts/eleventy-google-fonts");
 const esbuild = require("esbuild");
-const { sassPlugin } = require("esbuild-sass-plugin");
+const sass = require("sass");
 const pluginSvg = require("@jamshop/eleventy-plugin-svg");
 const embedTwitter = require("eleventy-plugin-embed-twitter");
+const neat = require("bourbon-neat");
+const bourbon = require("bourbon");
 
 function getCategory(name) {
   return (collection) => {
@@ -27,14 +30,13 @@ function getCategory(name) {
 }
 
 module.exports = (config) => {
-  config.on("afterBuild", () => {
+  config.on("eleventy.after", () => {
     return esbuild.build({
-      entryPoints: ["sass/app.scss", "js/app.ts"],
+      entryPoints: ["js/app.ts"],
       bundle: true,
       outdir: "_site/assets",
       minify: process.env.ELEVENTY_ENV === "production",
       sourcemap: process.env.ELEVENTY_ENV !== "production",
-      plugins: [sassPlugin()],
     });
   });
   config.addPlugin(pluginRSS);
@@ -48,8 +50,22 @@ module.exports = (config) => {
 
   config.addLiquidShortcode("eleventyGoogleFonts", createInlineCss);
 
+  config.addTemplateFormats("scss");
   config.addWatchTarget("./sass/");
+  config.addExtension("scss", {
+    outputFileExtension: "css",
+    compile: async function (input, inputPath) {
+      const { dir } = path.parse(inputPath);
+      const result = sass.compileString(input, {
+        loadPaths: [dir || "."].concat(bourbon.includePaths, neat.includePaths),
+        style:
+          process.env.ELEVENTY_ENV === "production" ? "compressed" : "expanded",
+      });
+      return async () => result.css;
+    },
+  });
   config.addWatchTarget("./js/");
+  config.addPassthroughCopy("js");
   config.addPassthroughCopy("css");
   config.addPassthroughCopy("images");
   config.addPassthroughCopy("videos");
