@@ -1,41 +1,41 @@
 .full {
-  @include span-columns(12 of 12);
+  @include grid-column(12);
 }
 
 .quart {
-  @include span-columns(3 of 12);
+  @include grid-column(3);
 
   @media screen and (max-width: 530px) {
-    @include span-columns(12 of 12);
+    @include grid-column(12);
   }
 }
 
 .three-quart {
-  @include span-columns(8 of 12);
+  @include grid-column(8);
 
   @media screen and (max-width: 530px) {
-    @include span-columns(12 of 12);
+    @include grid-column(12);
   }
 }
 
 .half {
-  @include span-columns(6 of 12);
+  @include grid-column(6);
 
   @media screen and (max-width: 530px) {
-    @include span-columns(12 of 12);
+    @include grid-column(12);
   }
 }
 
 .third {
-  @include span-columns(4 of 12);
+  @include grid-column(4);
 
   @media screen and (max-width: 530px) {
-    @include span-columns(12 of 12);
+    @include grid-column(12);
   }
 }
 
 .container {
-  @include clearfix;
+  @include grid-container;
   display: block;
   width: 85%;
   margin: 0 auto;
@@ -113,5 +113,5 @@
 }
 
 .clearfix {
-  @include clearfix;
+  @include grid-container;
 }

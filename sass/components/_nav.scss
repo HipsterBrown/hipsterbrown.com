@@ -2,19 +2,19 @@ scroll-nav {
   font-size: 1rem;
   background: $navblue;
   position: fixed;
-  @include clearfix;
+  @include grid-container();
   height: $nav-height;
   width: 100%;
   z-index: 130;
-  @include transition(all 0.2s ease-in-out);
+  transition: all 0.2s ease-in-out;
 
   &.scrolled {
     font-size: 1rem;
-    @include transform(translateY(-5rem));
+    transform: translateY(-5rem);
 
     &:hover {
       font-size: 1rem;
-      @include transform(translateY(0rem));
+      transform: translateY(0rem);
     }
 
     #home-link {
@@ -23,7 +23,7 @@ scroll-nav {
     }
 
     @media screen and (max-width: 710px) {
-      @include transform(translateY(0rem));
+      transform: translateY(0rem);
 
       #home-link {
         display: flex;
@@ -34,29 +34,28 @@ scroll-nav {
   }
 
   &.open {
-    @include transform(translateY(0rem));
+    transform: translateY(0rem);
   }
 
   @media screen and (max-width: 710px) {
     font-size: 0.8rem;
     height: auto;
-    @include transform(translateY(-14rem));
+    transform: translateY(-14rem);
   }
 
   #home-link {
-    @include span-columns(1 of 12);
+    @include grid-column(1);
     @extend %vertical-align;
     margin-left: 1%;
-    //padding: .5em 5em .5em 1em;
     width: 5rem;
     height: 5rem;
     border-radius: 10px;
-    @include transition(all 0.25s ease-in-out);
+    transition: all 0.25s ease-in-out;
 
     @media screen and (max-width: 710px) {
-      @include span-columns(12 of 12);
+      @include grid-column(12);
       top: 0;
-      @include transform(none);
+      transform: none;
       margin: 0;
       border-radius: 0;
       height: 4rem;
@@ -101,21 +100,24 @@ scroll-nav {
   }
 
   nav {
-    @include span-columns(10 of 12);
-    @extend %vertical-align;
+    @include grid-column(11);
+    align-items: center;
+    display: flex;
+    float: none;
+    height: 100%;
 
     @media screen and (max-width: 710px) {
-      @include span-columns(12 of 12);
       position: static;
-      @include transform(none);
+      transform: none;
     }
 
     ul {
-      @include fill-parent();
-      @include clearfix();
+      @include grid-container();
+      width: 100%;
 
       li {
-        @include span-columns(3.33 of 10);
+        @include grid-column(3.33 of 10);
+        margin-left: 18px;
         text-align: center;
 
         @media screen and (max-width: 710px) {
