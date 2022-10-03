@@ -1,8 +1,8 @@
 header {
   font-size: 1rem;
-  height: 20em + $nav-height;
+  height: calc(20em + var(--nav-height));
   padding-bottom: 2em;
-  padding-top: $nav-height;
+  padding-top: var(--nav-height);
 
   @media screen and (max-width: 900px) {
     font-size: .8rem;
@@ -22,12 +22,7 @@ header {
     height: auto;
   }
 
-  @media screen and (max-width: 360px) {
-    font-size: .5rem;
-  }
-
   figure.icon-container {
-    @extend %vertical-align;
     text-align: center;
 
     @media screen and (max-width: 530px) {
@@ -43,14 +38,14 @@ header {
 
       &.logo {
         #icon-logo > #inner {
-          stroke: $dark-gray;
+          stroke: var(--dark-gray);
 
           path#Head {
             stroke-width: 8px;
           }
 
           path#Stache {
-            fill: $dark-gray;
+            fill: var(--dark-gray);
           }
         }
       }
@@ -62,14 +57,13 @@ header {
     }
 
     figcaption {
-      font-family: $logo-font;
-      font-weight: 800;
+      font-family: var(--logo-font);
       font-size: 2em;
+      font-weight: 800;
     }
   }
 
   h1 {
-    @extend %vertical-align;
     text-align: center;
 
     @media screen and (max-width: 530px) {
@@ -78,13 +72,12 @@ header {
     }
 
     span.hip-feel {
-      color: $hip-dark-tan;
-      border-bottom: 3px solid $hip-dark-tan;
+      color: var(--hip-dark-tan);
+      border-bottom: 3px solid var(--hip-dark-tan);
     }
   }
 
   h2 {
-    @extend %vertical-align;
     text-align: center;
 
     @media screen and (max-width: 530px) {
@@ -102,4 +95,22 @@ header {
       }
     }
   }
+}
+
+.page--header {
+	align-items:center;
+	display:grid;
+	grid-template-columns: 35% 65%;
+
+	@media screen and (max-width: 530px) {
+		grid-auto-rows: auto;
+		grid-template-columns: 100%;
+	}
+}
+
+.post--header {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	justify-content: center;
 }

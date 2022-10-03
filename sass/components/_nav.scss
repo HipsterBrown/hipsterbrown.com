@@ -1,12 +1,14 @@
 scroll-nav {
+		align-items: center;
+  background: var(--navblue);
+		display: grid;
   font-size: 1rem;
-  background: $navblue;
+		grid-template-columns: 80px auto 80px;
+  height: var(--nav-height);
   position: fixed;
-  @include grid-container();
-  height: $nav-height;
+  transition: all 0.2s ease-in-out;
   width: 100%;
   z-index: 130;
-  transition: all 0.2s ease-in-out;
 
   &.scrolled {
     font-size: 1rem;
@@ -39,71 +41,16 @@ scroll-nav {
 
   @media screen and (max-width: 710px) {
     font-size: 0.8rem;
+				grid-auto-rows: auto;
+				grid-template-columns: 100%;
     height: auto;
     transform: translateY(-14rem);
   }
 
-  #home-link {
-    @include grid-column(1);
-    @extend %vertical-align;
-    margin-left: 1%;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 10px;
-    transition: all 0.25s ease-in-out;
-
-    @media screen and (max-width: 710px) {
-      @include grid-column(12);
-      top: 0;
-      transform: none;
-      margin: 0;
-      border-radius: 0;
-      height: 4rem;
-    }
-
-    svg {
-      width: 90%;
-      height: 90%;
-
-      @media screen and (max-width: 710px) {
-        display: block;
-        width: auto;
-        height: 4.5em;
-        margin: auto;
-      }
-
-      > #icon-logo > #inner {
-        stroke: $linkblue;
-
-        path#Head {
-          stroke-width: 8px;
-        }
-
-        path#Stache {
-          fill: $linkblue;
-        }
-      }
-    }
-
-    &:hover,
-    &:focus {
-      background: $linkblue;
-
-      svg > #icon-logo > #inner {
-        stroke: $navblue;
-
-        path#Stache {
-          fill: $navblue;
-        }
-      }
-    }
-  }
 
   nav {
-    @include grid-column(11);
-    align-items: center;
-    display: flex;
-    float: none;
+				align-items: center;
+				display: flex;
     height: 100%;
 
     @media screen and (max-width: 710px) {
@@ -112,22 +59,29 @@ scroll-nav {
     }
 
     ul {
-      @include grid-container();
+						display: grid;
+						grid-template-columns: repeat(3, 1fr);
       width: 100%;
 
+						@media screen and (max-width: 710px) {
+								grid-template-columns: 100%;
+								grid-template-rows: repeat(3, 1fr);
+						}
+
       li {
-        @include grid-column(3.33 of 10);
-        margin-left: 18px;
         text-align: center;
 
-        @media screen and (max-width: 710px) {
-          width: 100%;
-        }
-
         a {
-          font-family: $serif;
+										border-radius: .5em;
+          font-family: var(--serif);
           font-size: 1.3em;
-          @include hover-effect($navblue, $linkblue);
+										padding: 1em 2em;
+										transition: color .15s ease-in, background .35s ease-in-out;
+
+										&:hover {
+												background: var(--linkblue);
+												color: var(--navblue);
+										}
 
           &:focus {
             text-decoration: underline;
@@ -151,7 +105,7 @@ scroll-nav {
     width: 4.5em;
 
     &:focus {
-      outline: 1px solid $linkblue;
+      outline: 1px solid var(--linkblue);
     }
 
     svg {
@@ -159,4 +113,58 @@ scroll-nav {
       height: 90%;
     }
   }
+}
+
+#home-link {
+		border-radius: 10px;
+		height: 5rem;
+		margin-left: 1%;
+		transition: all 0.25s ease-in-out;
+		width: 5rem;
+
+		@media screen and (max-width: 710px) {
+				top: 0;
+				transform: none;
+				margin: 0;
+				border-radius: 0;
+				height: 4rem;
+				width: 100%;
+		}
+
+		svg {
+				width: 90%;
+				height: 90%;
+
+				@media screen and (max-width: 710px) {
+						display: block;
+						width: auto;
+						height: 4.5em;
+						margin: auto;
+				}
+
+				> #icon-logo > #inner {
+						stroke: var(--linkblue);
+
+						path#Head {
+								stroke-width: 8px;
+						}
+
+						path#Stache {
+								fill: var(--linkblue);
+						}
+				}
+		}
+
+		&:hover,
+		&:focus {
+				background: var(--linkblue);
+
+				svg > #icon-logo > #inner {
+						stroke: var(--navblue);
+
+						path#Stache {
+								fill: var(--navblue);
+						}
+				}
+		}
 }

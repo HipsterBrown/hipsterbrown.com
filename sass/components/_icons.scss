@@ -12,16 +12,16 @@ svg.icon {
 
 .icon-twitter {
   path {
-    fill: $dark-gray;
+    fill: var(--dark-gray);
   }
 }
 
 .icon-github {
   path#Head {
-    fill: $dark-gray;
+    fill: var(--dark-gray);
   }
 
   path#Eye---Left, path#Eye---Right {
-    fill: $dark-gray;
+    fill: var(--dark-gray);
   }
 }

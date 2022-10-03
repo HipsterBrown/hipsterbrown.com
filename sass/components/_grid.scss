@@ -1,41 +1,41 @@
 .full {
-  @include grid-column(12);
+		width: 100%;
 }
 
 .quart {
-  @include grid-column(3);
+  width: 25%;
 
   @media screen and (max-width: 530px) {
-    @include grid-column(12);
+    width: 100%;
   }
 }
 
 .three-quart {
-  @include grid-column(8);
+  width: 75%;
 
   @media screen and (max-width: 530px) {
-    @include grid-column(12);
+    width: 100%;
   }
 }
 
 .half {
-  @include grid-column(6);
+	width: 50%;
 
   @media screen and (max-width: 530px) {
-    @include grid-column(12);
+			width: 100%;;
   }
 }
 
 .third {
-  @include grid-column(4);
+	width: 33.33%;
 
   @media screen and (max-width: 530px) {
-    @include grid-column(12);
+			width: 100%;
   }
 }
 
 .container {
-  @include grid-container;
+  // @include grid-container;
   display: block;
   width: 85%;
   margin: 0 auto;
@@ -104,14 +104,14 @@
 
 .el-right {
   float: right;
-  margin-left: $img-margin;
+  margin-left: var(--img-margin);
 }
 
 .el-left {
   float: left;
-  margin-right: $img-margin;
+  margin-right: var(--img-margin);
 }
 
 .clearfix {
-  @include grid-container;
+  // @include grid-container;
 }

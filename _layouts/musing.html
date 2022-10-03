@@ -5,16 +5,16 @@ highlight: true
 
 {% include "header.html" %}
 
-<header>
-  <h1 class="full">{% if draft %} [DRAFT] {% endif %} {{ title }}</h1>
-  <p class="t-center">{{ page.date | date: "%e %b, %Y" }}</p>
+<header class="post--header">
+	<h1 class="full">{% if draft %} [DRAFT] {% endif %} {{ title }}</h1>
+	<p class="t-center">{{ page.date | date: "%e %b, %Y" }}</p>
 </header>
 <section id="main" tabindex="-1" class="main content no-border">
-  <article>
-    <div class="container thin">
-      {{ content }}
-    </div>
-  </article>
+	<article>
+		<div class="container thin">
+			{{ content }}
+		</div>
+	</article>
 </section>
 
 {% include "footer.html" %}

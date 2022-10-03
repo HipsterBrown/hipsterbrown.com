@@ -15,20 +15,20 @@
     padding: 2em 0;
 
     &:nth-of-type(odd) {
-      background: $base-body-color;
+      background: var(--base-body-color);
 
       strong {
-        color: $base-body-color;
-        background: $base-strong-highlight;
+        color: var(--base-body-color);
+        background: var(--base-strong-highlight);
       }
     }
 
     &:nth-of-type(even) {
-      background: $alt-body-color;
+      background: var(--alt-body-color);
 
       strong {
-        color: $base-strong-highlight;
-        background: $alt-strong-highlight;
+        color: var(--base-strong-highlight);
+        background: var(--alt-strong-highlight);
       }
     }
 
@@ -55,17 +55,17 @@
     }
 
     h1 {
-      color: $linkblue;
+      color: var(--linkblue);
       font-size: 3em;
       margin: 0 auto 1em;
       width: auto;
       text-align: center;
 
       a {
-        border-bottom: 3px solid $linkblue;
+        border-bottom: 3px solid var(--linkblue);
 
         &:focus {
-          outline: 1px solid $linkblue;
+          outline: 1px solid var(--linkblue);
         }
       }
     }
@@ -85,7 +85,7 @@
     }
 
     h2 {
-      color: $linkblue;
+      color: var(--linkblue);
       font-size: 1.9em;
     }
 
@@ -135,13 +135,13 @@
     }
 
     img {
-      border: 8px solid $linkblue;
+      border: 8px solid var(--linkblue);
       border-radius: 6px;
-      margin-top: $img-margin;
-      margin-bottom: $img-margin;
+      margin-top: var(--img-margin);
+      margin-bottom: var(--img-margin);
 
       &:hover {
-        border-color: lighten($linkblue, 12%);
+        border-color: color(var(--linkblue) l(12%));
       }
 
       &.no-border {
@@ -151,7 +151,7 @@
     }
 
     svg {
-      border: 8px solid $linkblue;
+      border: 8px solid var(--linkblue);
       height: auto;
       width: 100%;
     }
