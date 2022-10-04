@@ -11,17 +11,17 @@ svg.icon {
 }
 
 .icon-twitter {
-  path {
+  & path {
     fill: var(--dark-gray);
   }
 }
 
 .icon-github {
-  path#Head {
+  & path#Head {
     fill: var(--dark-gray);
   }
 
-  path#Eye---Left, path#Eye---Right {
+  & path#Eye---Left, & path#Eye---Right {
     fill: var(--dark-gray);
   }
 }

@@ -14,17 +14,17 @@ pagination:
   <article>
     <fit-text class="container thin">
       <h1>
-        <a
-          href="{% if post.data.external == true %}{{post.data.external_url}}{% else %}{{ post.url }}{% endif %}"
-          >{{ post.data.title }}</a
-        >
+        <a href="{% if post.data.external == true %}{{post.data.external_url}}{% else %}{{ post.url }}{% endif %}">{{
+          post.data.title }}</a>
       </h1>
       <section class="excerpt full clearfix">
         <p>{{post.data.description}}</p>
-        <p class="half">{{ post.date | date: "%e %b, %Y" }}</p>
-        <p class="tags half t-right">
-          Categories: <em>{{ post.data.tags | join: ', ' }}</em>
-        </p>
+        <div class="post--meta">
+          <p>{{ post.date | date: "%e %b, %Y" }}</p>
+          <p class="tags t-right">
+            Categories: <em>{{ post.data.tags | join: ', ' }}</em>
+          </p>
+        </div>
       </section>
     </fit-text>
   </article>
@@ -32,12 +32,12 @@ pagination:
 {% endif %}
 
 {% if pagination.pages %}
-  <nav class="container thin">
-      {% if pagination.href.previous %}
-        <a href="{{ pagination.href.previous }}" class="el-left">&lt; Previous Page</a>
-      {% endif %}
-      {% if pagination.href.next %}
-        <a href="{{ pagination.href.next }}" class="el-right">Next Page &gt;</a>
-      {% endif %}
-  </nav>
+<nav class="container thin">
+  {% if pagination.href.previous %}
+  <a href="{{ pagination.href.previous }}" class="el-left">&lt; Previous Page</a>
+  {% endif %}
+  {% if pagination.href.next %}
+  <a href="{{ pagination.href.next }}" class="el-right">Next Page &gt;</a>
+  {% endif %}
+</nav>
 {% endif %}

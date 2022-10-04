@@ -22,7 +22,7 @@ header {
     height: auto;
   }
 
-  figure.icon-container {
+  & figure.icon-container {
     text-align: center;
 
     @media screen and (max-width: 530px) {
@@ -32,38 +32,38 @@ header {
       padding: 0 0 2em;
     }
 
-    svg {
+    & svg {
       width: 14em;
       height: 12em;
 
       &.logo {
-        #icon-logo > #inner {
+        & #icon-logo > #inner {
           stroke: var(--dark-gray);
 
-          path#Head {
+          & path#Head {
             stroke-width: 8px;
           }
 
-          path#Stache {
+          & path#Stache {
             fill: var(--dark-gray);
           }
         }
       }
 
       //Bio Icon
-      path#Chest {
+      & path#Chest {
         stroke-width: 5px;
       }
     }
 
-    figcaption {
+    & figcaption {
       font-family: var(--logo-font);
       font-size: 2em;
       font-weight: 800;
     }
   }
 
-  h1 {
+  & h1 {
     text-align: center;
 
     @media screen and (max-width: 530px) {
@@ -71,13 +71,13 @@ header {
       transform: none;
     }
 
-    span.hip-feel {
+    & span.hip-feel {
       color: var(--hip-dark-tan);
       border-bottom: 3px solid var(--hip-dark-tan);
     }
   }
 
-  h2 {
+  & h2 {
     text-align: center;
 
     @media screen and (max-width: 530px) {
@@ -89,8 +89,8 @@ header {
   //Bio Page specific styles for header
 
   &.bio {
-    figure.icon-container {
-      svg {
+    & figure.icon-container {
+      & svg {
         height: 14em;
       }
     }

@@ -1,5 +1,6 @@
 footer {
   font-size: 1rem;
+  padding: 2rem 0;
 
   @media screen and (max-width: 868px) {
     font-size: .8rem;
@@ -10,22 +11,22 @@ footer {
     text-align: center;
   }
 
-  aside.copy {
-    p {
+  & aside.copy {
+    & p {
       font-size: 1.2em;
       font-weight: 300;
     }
   }
 
-  ul.social {
+  & ul.social {
     text-align: center;
 
-    h2 {
+    & h2 {
       padding: 0 0 .15em;
       text-decoration: underline;
     }
 
-    li {
+    & li {
       opacity: 0.8;
       padding-top: 1rem;
       transition: all .3s ease-in-out;

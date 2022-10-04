@@ -11,13 +11,13 @@
     font-size: 0.8rem;
   }
 
-  article {
+  & article {
     padding: 2em 0;
 
     &:nth-of-type(odd) {
       background: var(--base-body-color);
 
-      strong {
+      & strong {
         color: var(--base-body-color);
         background: var(--base-strong-highlight);
       }
@@ -26,17 +26,17 @@
     &:nth-of-type(even) {
       background: var(--alt-body-color);
 
-      strong {
+      & strong {
         color: var(--base-strong-highlight);
         background: var(--alt-strong-highlight);
       }
     }
 
-    ol {
+    & ol {
       list-style-type: decimal;
       padding-left: 1.2em;
 
-      li {
+      & li {
         font-size: 1.2em;
         font-weight: 300;
         line-height: 1.5em;
@@ -44,24 +44,24 @@
       }
     }
 
-    ul {
+    & ul {
       list-style-type: disc;
       padding-left: 1.2em;
 
-      li {
+      & li {
         font-size: 1.2em;
         font-weight: 300;
       }
     }
 
-    h1 {
+    & h1 {
       color: var(--linkblue);
       font-size: 3em;
       margin: 0 auto 1em;
       width: auto;
       text-align: center;
 
-      a {
+      & a {
         border-bottom: 3px solid var(--linkblue);
 
         &:focus {
@@ -70,8 +70,8 @@
       }
     }
 
-    h2,
-    h3 {
+    & h2,
+    & h3 {
       text-indent: -2em;
 
       @media screen and (max-width: 450px) {
@@ -84,21 +84,21 @@
       }
     }
 
-    h2 {
+    & h2 {
       color: var(--linkblue);
       font-size: 1.9em;
     }
 
-    h3 {
-      @extend h2;
+    & h3 {
+      color: var(--linkblue);
       font-size: 1.6em;
     }
 
-    pre {
+    & pre {
       margin-bottom: 1em;
     }
 
-    p {
+    & p {
       font-size: 1.2em;
       font-weight: 300;
       line-height: 1.6em;
@@ -109,7 +109,7 @@
         font-size: 1.3em;
       }
 
-      a {
+      & a {
         text-decoration: underline;
         word-wrap: break-word;
       }
@@ -119,22 +119,22 @@
       }
     }
 
-    code {
+    & code {
       font-size: 1.1rem;
       white-space: pre-wrap;
     }
 
-    blockquote + p {
+    & blockquote + p {
       margin-top: -1em;
     }
 
-    strong {
+    & strong {
       padding: 0.1em 0.3em;
       border-radius: 4px;
       font-weight: normal;
     }
 
-    img {
+    & img {
       border: 8px solid var(--linkblue);
       border-radius: 6px;
       margin-top: var(--img-margin);
@@ -150,7 +150,7 @@
       }
     }
 
-    svg {
+    & svg {
       border: 8px solid var(--linkblue);
       height: auto;
       width: 100%;
@@ -158,19 +158,24 @@
   }
 
   &.no-border {
-    img {
+    & img {
       border: none;
       border-radius: 0px;
     }
   }
 
-  nav {
+  & nav {
     font-size: 1.2rem;
     font-weight: 200;
     padding: 1rem 0;
 
-    a:hover {
+    & a:hover {
       text-decoration: underline;
     }
   }
+}
+
+.post--meta {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 }
