@@ -19,7 +19,13 @@ footer {
   }
 
   & ul.social {
+    flex-direction: row;
+    gap: 0.5rem;
     text-align: center;
+
+    @media screen and (max-width: 860px) {
+      flex-direction: column;
+    }
 
     & h2 {
       padding: 0 0 .15em;
@@ -28,7 +34,6 @@ footer {
 
     & li {
       opacity: 0.8;
-      padding-top: 1rem;
       transition: all .3s ease-in-out;
 
       @media screen and (max-width: 530px) {
