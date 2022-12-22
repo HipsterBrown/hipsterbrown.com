@@ -11,7 +11,7 @@
   "author": "HipsterBrown",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.16",
+    "@11ty/eleventy": "^2.0.0-canary.23",
     "@11ty/eleventy-plugin-rss": "^1.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@jamshop/eleventy-plugin-svg": "^2.0.0",
