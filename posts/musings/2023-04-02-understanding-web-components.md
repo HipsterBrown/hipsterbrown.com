@@ -43,21 +43,32 @@ It took many years of gradually increased support, education, and adoption for m
 
 ### Low-level Behaviors
 
-If you've come from a world of jQuery plugins and Stimulus controllers, you may have heard the term "client-side behavior" to refer to reusable logic for adding interactivity to existing HTML.
+If you've come from a world of [jQuery plugins](https://learn.jquery.com/plugins/) and [Stimulus controllers](https://stimulus.hotwired.dev/), you may have heard the term "client-side behavior" to refer to reusable logic for adding interactivity to existing HTML. This is often related to "progressive enhancement", as the initial HTML should still work while allowing for additional functionality when the behavior was available. 
 
 <!-- raw custom element API -->
+The fact that the core API for building custom elements doesn't require any visual output is probably a source of confusion when folks think about Web Components, but one of its greatest strengths as well. It reminds me of [BackboneJS Views](https://backbonejs.org/#View)
+
+> A View is an atomic chunk of user interface. It often renders the data from a specific model, or number of models — but views can also be data-less chunks of UI that stand alone
+
+Both of these APIs involve extending some base class (`Backbone.View` vs `HTMLElement`), have access to events, and can react to lifecycle methods. The key advantage for custom elements is the declarative nature of applying them to the HTML document; Backbone Views are initialized manually within JS and are configured to select matching elements at that time. Once a custom element is registered under a tag name, it will be initialized as soon as it appears in the DOM!
 
 <!-- GitHub Elements -->
+A significant example of applying this ability to a large scale application can be found with GitHub: ["How we use Web Components at GitHub"](https://github.blog/2021-05-04-how-we-use-web-components-at-github/)
+
+> We chose to use Web Components because our codebase was already structured into component-like behaviors. Still, as the GitHub monolith grew in size, we saw the need to implement better encapsulations before the front-end became unmanageable – and Web Components fit the bill. Web Components offered better portability and encapsulation than our existing JavaScript behaviors
 
 <!-- Catalyst -->
-
-<!-- is-land by 11ty -->
-
-<!-- spicy-section -->
-
-<!-- details-utils -->
+The linked post mentions [Catalyst](https://catalyst.rocks/) as their library for adding Stimulus-like conventions to these "controller" elements that lean on TypeScript and decorators for the developer experience. Although their open-source [github-elements collection](https://github.com/github/github-elements) does not use Catalyst, it can be extremely handy for teams that are familiar with this pattern and starting to learn about Web Components.
 
 <!-- Turbo Frames & Streams -->
+Along the lines of Stimulus, it is part of a group of related libraries under the "HTML Over The Wire" (HOTWire) moniker. Another key member of this group is Turbo, which makes heavy use of Web Components to encapsulate the behavior of [Turbo Frames](https://turbo.hotwired.dev/reference/frames) and [Turbo Streams](https://turbo.hotwired.dev/reference/streams). Neither of these elements provide any UI and are generally sprinkled throughout templates to create dynamic, client-side experiences defined on the server.
+
+<!-- is-land by 11ty -->
+The [`<is-land>` element](https://github.com/11ty/is-land) leans into the progressive enhancement angle of this layer; adding additional control over when client-side behaviors, including other custom elements, are initialized and fallback content before that before is available.
+
+<!-- spicy-section -->
+Even [community standards groups](https://open-ui.org/) are using "headless" Web Components to trial new elements to be built into the browser, see [`<spicy-sections>`](https://github.com/tabvengers/spicy-sections) to help prove out an extensible "tabs" element. This core building block is so minimal and just enough for starting the adoption of Web Components.
+
 
 ### UI Components
 
