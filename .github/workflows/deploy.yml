@@ -8,7 +8,6 @@ on:
 env:
   DOKKU_HOST: 'hipsterbrown.com'
   DOKKU_APP_NAME: 'hipsterbrown.com'
-  DOKKU_REMOTE_BRANCH: 'master'
 
 jobs:
   deploy:
