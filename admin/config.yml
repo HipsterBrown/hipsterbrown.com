@@ -3,6 +3,7 @@ backend:
   name: github
   repo: hipsterbrown/hipsterbrown.com
   branch: main
+  base_url: https://auth.hipsterbrown.com/
 media_folder: "images/uploads"
 collections:
   - name: "musings"
