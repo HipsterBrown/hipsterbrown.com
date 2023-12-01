@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>{{ title }}</title>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/images/Logo.png" />
-    <link
-      rel="alternate"
-      type="application/atom+xml"
-      title="RSS Feed for HipsterBrown's Musings"
-      href="/feed.xml"
-    />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/sass/app.css" />
-    {% if highlight %}
-      <link rel="stylesheet" href="/css/prism-a11y-dark.css" />
-    {% endif %}
-    {% if page.url == "/" %}
-      {% eleventyGoogleFonts "https://fonts.googleapis.com/css?family=Playfair+Display:900&display=swap" %}
-    {% endif %}
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>{{ title }}</title>
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/png" href="/images/Logo.png" />
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed for HipsterBrown's Musings" href="/feed.xml" />
 
-    <!-- Typekit -->
-    <script type="text/javascript" src="https://use.typekit.net/vrt0cty.js"></script>
-    <script type="text/javascript">
-      try {
-        Typekit.load();
-      } catch (e) {}
-    </script>
-    {% if env.mode == "production" %}
-      <script async defer data-website-id="c9d25820-7fc0-45ab-ac3c-11192b71ca31" src="https://stats.hipsterbrown.com/script.js"></script>
-    {% endif %}
-  </head>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/sass/app.css" />
+  {% if highlight %}
+  <link rel="stylesheet" href="/css/prism-a11y-dark.css" />
+  {% endif %}
+  {% if page.url == "/" %}
+  {% eleventyGoogleFonts "https://fonts.googleapis.com/css?family=Playfair+Display:900&display=swap" %}
+  {% endif %}
 
-  <body>
-    <a class="skip-main" href="#main" tabindex="0">Skip to main content</a>
-    <scroll-nav>
-      <a href="/" aria-label="home" id="home-link">{% svg "Icon-Logo" %}</a>
-      <nav>
-        <ul>
-          <li id="empathy">
-            <a href="https://more-empathy.online">Empathy</a>
-          </li>
-          <li id="projects">
-            <a href="https://github.com/HipsterBrown">Projects</a>
-          </li>
-          <li id="musings"><a href="/musings/">Musings</a></li>
-        </ul>
-      </nav>
-      <a href="/faq/" aria-label="FAQ" id="break">{% svg "Icon-Little-Stache" %}</a>
-    </scroll-nav>
+  <!-- Typekit -->
+  <script type="text/javascript" src="https://use.typekit.net/vrt0cty.js"></script>
+  <script type="text/javascript">
+    try {
+      Typekit.load();
+    } catch (e) { }
+  </script>
+  {% if env.mode == "production" %}
+  <script async defer data-website-id="c9d25820-7fc0-45ab-ac3c-11192b71ca31"
+    src="https://stats.hipsterbrown.com/script.js"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  {% endif %}
+</head>
+
+<body>
+  <a class="skip-main" href="#main" tabindex="0">Skip to main content</a>
+  <scroll-nav>
+    <a href="/" aria-label="home" id="home-link">{% svg "Icon-Logo" %}</a>
+    <nav>
+      <ul>
+        <li id="empathy">
+          <a href="https://more-empathy.online">Empathy</a>
+        </li>
+        <li id="projects">
+          <a href="https://github.com/HipsterBrown">Projects</a>
+        </li>
+        <li id="musings"><a href="/musings/">Musings</a></li>
+      </ul>
+    </nav>
+    <a href="/faq/" aria-label="FAQ" id="break">{% svg "Icon-Little-Stache" %}</a>
+  </scroll-nav>

@@ -1,0 +1,26 @@
+# local_backend: true
+backend:
+  name: github
+  repo: hipsterbrown/hipsterbrown.com
+  branch: main
+media_folder: "images/uploads"
+collections:
+  - name: "musings"
+    label: "Musings"
+    folder: "posts/musings"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields:
+      - 'date'
+      - 'title'
+      - 'slug'
+    editor:
+      preview: false
+    fields:
+      - { name: "layout", label: "Layout", widget: "hidden", default: "musing" }
+      - { name: "draft", label: "Draft", widget: "boolean" }
+      - { name: "title", label: "Title", widget: "string", required: true }
+      - { name: "description", label: "Description", widget: "string", required: true }
+      - { name: "categories", label: "Categories", widget: "list", default: ["musings", "musing"]}
+      - { name: "tags", label: "Tags", widget: "list" }
+      - { name: "body", label: "Body", widget: "markdown" }

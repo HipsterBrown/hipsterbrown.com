@@ -73,6 +73,7 @@ module.exports = (config) => {
   config.addPassthroughCopy("css");
   config.addPassthroughCopy("images");
   config.addPassthroughCopy("videos");
+  config.addPassthroughCopy("admin/config.yml");
   config.setFrontMatterParsingOptions({
     excerpt: true,
   });
