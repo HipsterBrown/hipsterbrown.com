@@ -12,9 +12,10 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     sortable_fields:
-      - 'date'
-      - 'title'
-      - 'slug'
+      fields:
+        - 'date'
+        - 'title'
+        - 'slug'
     editor:
       preview: false
     fields:

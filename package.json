@@ -6,7 +6,7 @@
   "repository": "https://github.com/hipsterbrown/hipsterbrown.com",
   "scripts": {
     "start": "eleventy --serve",
-    "start:editor-proxy": "decap-server",
+    "start:editor-proxy": "static-cms-proxy-server",
     "build": "ELEVENTY_ENV=production eleventy"
   },
   "author": "HipsterBrown",
@@ -16,20 +16,18 @@
     "@11ty/eleventy-plugin-rss": "^1.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@jamshop/eleventy-plugin-svg": "^2.0.0",
+    "@staticcms/proxy-server": "^4.0.4",
     "@tsconfig/recommended": "^1.0.1",
     "cssnano": "^5.1.13",
-    "decap-cms-app": "^3.0.12",
-    "decap-server": "^3.0.1",
     "eleventy-google-fonts": "^0.0.5",
     "eleventy-plugin-embed-twitter": "^1.3.2",
-    "esbuild": "^0.19.5",
+    "esbuild": "^0.20.1",
     "postcss": "^8.4.17",
     "postcss-import": "^15.0.0",
     "postcss-preset-env": "^7.8.2",
     "postcss-scss": "^4.0.5"
   },
-  "volta": {
-    "node": "18.10.0",
-    "npm": "8.19.2"
+  "dependencies": {
+    "@staticcms/core": "^4.1.2"
   }
 }

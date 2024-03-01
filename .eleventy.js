@@ -33,7 +33,7 @@ function getCategory(name) {
 module.exports = (config) => {
   config.on("eleventy.after", () => {
     return esbuild.build({
-      entryPoints: ["js/app.ts"],
+      entryPoints: ["js/*.ts"],
       bundle: true,
       outdir: "_site/assets",
       minify: process.env.ELEVENTY_ENV === "production",
