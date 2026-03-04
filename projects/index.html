@@ -1,26 +1,34 @@
 ---
 layout: default
-title: In The Projects
-description: Welcome to the projects (page)
-icon: Icon-Projects
-category: projects
-tags:
-- projects
+title: Projects
 permalink: /projects/index.html
 eleventyExcludeFromCollections: true
 ---
-{% for post in collections.projects %}
-  <article>
-    <div class="container">
-      <h1><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
-      <aside class="img-container half">
-        <a href="{{ post.url }}">
-          <img src="{{ post.data.img_excerpt }}" alt="Project Image Except" class="img-excerpt">
-        </a>
-      </aside>
-      <section class="excerpt half">
-        <p>{{post.data.page.excerpt}}</p>
-      </section>
+
+<div class="sec-header" style="margin-bottom: 32px;">
+  <span class="sec-title">Projects</span>
+  <span class="sec-rule"></span>
+</div>
+
+{% for project in collections.projects %}
+<div style="padding: 24px 0; border-bottom: 1px solid var(--border2);">
+  <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+    <div>
+      <a href="{{ project.url }}" style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-1); letter-spacing: -0.02em; text-decoration: none; display: block; margin-bottom: 6px;">{{ project.data.title }}</a>
+      {% if project.data.description %}
+      <p style="margin: 0 0 10px; font-size: 14px; color: var(--text-2); font-family: var(--font-body);">{{ project.data.description }}</p>
+      {% endif %}
+      {% if project.data.stack %}
+      <div>
+        {% for tech in project.data.stack %}
+        <span class="stack-pill">{{ tech }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
-  </article>
+    {% if project.data.status %}
+    <span class="badge badge-{{ project.data.status }}" style="flex-shrink: 0;">{{ project.data.status }}</span>
+    {% endif %}
+  </div>
+</div>
 {% endfor %}
