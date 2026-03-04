@@ -6,9 +6,9 @@ backend:
   base_url: https://auth.hipsterbrown.com/
 media_folder: "images/uploads"
 collections:
-  - name: "musings"
-    label: "Musings"
-    folder: "posts/musings"
+  - name: "training-data"
+    label: "Training Data"
+    folder: "training-data"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     sortable_fields:
@@ -19,10 +19,20 @@ collections:
     editor:
       preview: false
     fields:
-      - { name: "layout", label: "Layout", widget: "hidden", default: "musing" }
-      - { name: "draft", label: "Draft", widget: "boolean" }
+      - { name: "draft", label: "Draft", widget: "boolean", default: false }
       - { name: "title", label: "Title", widget: "string", required: true }
       - { name: "description", label: "Description", widget: "string", required: true }
-      - { name: "categories", label: "Categories", widget: "list", default: ["musings", "musing"]}
+      - name: "type"
+        label: "Type"
+        widget: "select"
+        required: true
+        options:
+          - { label: "Long Form", value: "long-form" }
+          - { label: "TIL", value: "til" }
+          - { label: "Link", value: "link" }
+          - { label: "Note", value: "note" }
+          - { label: "Talk", value: "talk" }
+          - { label: "Video", value: "video" }
+          - { label: "Audio", value: "audio" }
       - { name: "tags", label: "Tags", widget: "list" }
       - { name: "body", label: "Body", widget: "markdown" }
