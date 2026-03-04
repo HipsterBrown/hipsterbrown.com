@@ -82,7 +82,6 @@ module.exports = (config) => {
     dynamicPartials: true,
   });
 
-  config.addCollection("musings", getCategory("musing"));
   config.addCollection("faq", getCategory("faq"));
   config.addCollection("bio", getCategory("bio"));
   config.addCollection("empathy", getCategory("empathy"));
