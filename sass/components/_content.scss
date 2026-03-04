@@ -35,6 +35,7 @@
 .note-title { font-family: var(--font-display); font-size: 12px; font-weight: 600; color: var(--text-1); letter-spacing: -0.02em; margin-bottom: 4px; }
 .note-body { font-family: var(--font-body); font-size: 12px; line-height: 1.5; color: var(--text-2); }
 .note-meta { font-family: var(--font-mono); font-size: 9px; color: var(--text-3); margin-top: 6px; }
+.note-empty { border-left-color: var(--border); }
 
 .badge {
   font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; padding: 3px 9px; border-radius: 20px;

@@ -72,6 +72,11 @@
         {% endif %}
       {% endif %}
     {% endfor %}
+    {% if note_count == 0 %}
+    <div class="note-card note-empty">
+      <div class="note-body">No quick notes yet.</div>
+    </div>
+    {% endif %}
   </div>
 </div>
 
