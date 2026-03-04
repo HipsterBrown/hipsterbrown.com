@@ -19,6 +19,7 @@ class ThemeToggleElement extends HTMLElement {
     document.documentElement.dataset.theme = theme;
     this.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
     this.dataset.currentTheme = theme;
+    this.textContent = theme === 'dark' ? '☾' : '☀';
   }
 }
 
