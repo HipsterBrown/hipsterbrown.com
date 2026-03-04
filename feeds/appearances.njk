@@ -1,36 +1,34 @@
 ---
-permalink: feed.xml
+permalink: feeds/appearances.xml
 metadata:
-  title: HipsterBrown's Training Data
+  title: HipsterBrown — Appearances
   url: https://hipsterbrown.com
+  feedUrl: https://hipsterbrown.com/feeds/appearances.xml
   author:
     name: Nicholas Hehr
     email: headhipster@hipsterbrown.com
-  feedUrl: https://hipsterbrown.com/feed.xml
-  feed:
-    subtitle: A collection of thoughts and explorations from the mind of HipsterBrown.
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ metadata.title }}</title>
-  <subtitle>{{ metadata.feed.subtitle }}</subtitle>
-  <link href="{{ metadata.feed.url }}" rel="self"/>
+  <link href="{{ metadata.feedUrl }}" rel="self"/>
   <link href="{{ metadata.url }}"/>
-  <updated>{{ collections.trainingData | getNewestCollectionItemDate | dateToRfc822 }}</updated>
   <id>{{ metadata.url }}</id>
   <author>
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
   {%- for post in collections.trainingData %}
+  {%- if post.data.type == "talk" or post.data.type == "video" or post.data.type == "audio" %}
   {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
     <title>{{ post.data.title }}</title>
     <link href="{{ absolutePostUrl }}"/>
     <updated>{{ post.date | dateToRfc822 }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    {% if post.data.type %}<category term="{{ post.data.type }}"/>{% endif %}
+    <category term="{{ post.data.type }}"/>
     <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
   </entry>
+  {%- endif %}
   {%- endfor %}
 </feed>
