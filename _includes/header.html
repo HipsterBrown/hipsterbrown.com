@@ -24,18 +24,21 @@
 
 <body>
   <a class="skip-main" href="#main" tabindex="0">Skip to main content</a>
-  <scroll-nav>
-    <a href="/" aria-label="home" id="home-link">{% svg "Icon-Logo" %}</a>
-    <nav>
-      <ul>
-        <li id="empathy">
-          <a href="https://more-empathy.online">Empathy</a>
-        </li>
-        <li id="projects">
-          <a href="https://github.com/HipsterBrown">Projects</a>
-        </li>
-        <li id="musings"><a href="/musings/">Musings</a></li>
-      </ul>
-    </nav>
-    <a href="/faq/" aria-label="FAQ" id="break">{% svg "Icon-Little-Stache" %}</a>
-  </scroll-nav>
+  <nav class="site-nav">
+    <a href="/" class="site-logo">HipsterBrown</a>
+    <ul class="nav-links">
+      <li {% if page.url contains '/projects' %}class="nav-active"{% endif %}>
+        <a href="/projects/">Projects</a>
+      </li>
+      <li {% if page.url contains '/training-data' %}class="nav-active"{% endif %}>
+        <a href="/training-data/">Training Data</a>
+      </li>
+      <li {% if page.url contains '/demos' %}class="nav-active"{% endif %}>
+        <a href="/demos/">Demos</a>
+      </li>
+      <li {% if page.url contains '/speaking' %}class="nav-active"{% endif %}>
+        <a href="/speaking/">Speaking</a>
+      </li>
+    </ul>
+    <theme-toggle aria-label="Toggle dark mode" role="button" tabindex="0"></theme-toggle>
+  </nav>
