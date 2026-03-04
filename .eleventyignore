@@ -3,3 +3,4 @@ _drafts/
 .heroku/
 sass/components/
 sass/bitters/
+.plans/
