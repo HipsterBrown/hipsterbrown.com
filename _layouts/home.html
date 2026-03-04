@@ -1,6 +1,6 @@
 {% include "header.html" %}
 
-<section style="padding: 60px 48px 52px; display: grid; grid-template-columns: 3fr 2fr; gap: 48px; border-bottom: 1px solid var(--border);">
+<section class="home-hero">
   <div>
     <div style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 22px;">
       <span class="live-dot"></span>
@@ -38,8 +38,7 @@
       <span class="sec-rule"></span>
       <a href="/training-data/" class="sec-all">All posts →</a>
     </div>
-    {% assign recent = collections.trainingData | reverse %}
-    {% for post in recent limit: 5 %}
+    {% for post in collections.trainingData reversed limit: 5 %}
     <a href="{{ post.url }}" class="post-item">
       <div>
         <div class="post-cat cat-{{ post.data.type }}">{{ post.data.type | default: "post" }}</div>
@@ -57,9 +56,8 @@
       <span class="sec-title">Quick Notes</span>
       <span class="sec-rule"></span>
     </div>
-    {% assign all_notes = collections.trainingData | reverse %}
     {% assign note_count = 0 %}
-    {% for post in all_notes %}
+    {% for post in collections.trainingData reversed %}
       {% if note_count < 5 %}
         {% if post.data.type == "til" or post.data.type == "link" or post.data.type == "note" %}
         <div class="note-card note-{{ post.data.type }}">

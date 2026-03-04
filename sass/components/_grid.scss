@@ -1,3 +1,16 @@
+.home-hero {
+  padding: 60px 48px 52px;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 48px;
+  border-bottom: 1px solid var(--border);
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+}
+
 .content-grid {
   display: grid; grid-template-columns: 1fr 300px; border-bottom: 1px solid var(--border);
   @media (max-width: 900px) { grid-template-columns: 1fr; }
