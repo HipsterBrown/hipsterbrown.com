@@ -39,7 +39,7 @@
 
 .badge {
   font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; padding: 3px 9px; border-radius: 20px;
-  &.badge-building    { background: color-mix(in srgb, var(--green) 12%, transparent); color: var(--green); }
+  &.badge-building    { background: color-mix(in srgb, var(--green) 18%, transparent); color: var(--green); }
   &.badge-wip,
   &.badge-in-progress { background: color-mix(in srgb, var(--brick) 12%, transparent); color: var(--brick); }
   &.badge-ongoing     { background: color-mix(in srgb, var(--amber) 12%, transparent); color: var(--amber); }
