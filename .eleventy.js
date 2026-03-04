@@ -88,6 +88,48 @@ module.exports = (config) => {
   config.addCollection("projects", getCategory("project"));
   config.addCollection("empathy", getCategory("empathy"));
 
+  // Unified Training Data stream
+  config.addCollection("trainingData", (collection) =>
+    collection
+      .getFilteredByGlob("training-data/*.md")
+      .reverse()
+      .filter((post) =>
+        process.env.ELEVENTY_ENV !== "production" || !post.data.draft
+      )
+  );
+
+  // Per-type collections (for RSS feeds)
+  const TRAINING_DATA_TYPES = [
+    "long-form", "til", "link", "note", "talk", "video", "audio",
+  ];
+
+  TRAINING_DATA_TYPES.forEach((type) => {
+    config.addCollection(`trainingData_${type}`, (collection) =>
+      collection
+        .getFilteredByGlob("training-data/*.md")
+        .reverse()
+        .filter((post) => !post.data.draft)
+        .filter((post) => post.data.type === type)
+    );
+  });
+
+  // RSS feed aggregates
+  config.addCollection("feed_longform", (collection) =>
+    collection
+      .getFilteredByGlob("training-data/*.md")
+      .reverse()
+      .filter((post) => !post.data.draft)
+      .filter((post) => ["long-form", "til"].includes(post.data.type))
+  );
+
+  config.addCollection("feed_appearances", (collection) =>
+    collection
+      .getFilteredByGlob("training-data/*.md")
+      .reverse()
+      .filter((post) => !post.data.draft)
+      .filter((post) => ["talk", "video", "audio"].includes(post.data.type))
+  );
+
   return {
     dir: {
       includes: "_includes",
