@@ -1,117 +1,29 @@
-.full {
-		width: 100%;
+.content-grid {
+  display: grid; grid-template-columns: 1fr 300px; border-bottom: 1px solid var(--border);
+  @media (max-width: 900px) { grid-template-columns: 1fr; }
 }
 
-.quart {
-  width: 25%;
-
-  @media screen and (max-width: 530px) {
-    width: 100%;
-  }
+.main-col {
+  padding: 40px 48px; border-right: 1px solid var(--border);
+  @media (max-width: 900px) { border-right: none; padding: 32px 20px; }
 }
 
-.three-quart {
-  width: 75%;
-
-  @media screen and (max-width: 530px) {
-    width: 100%;
-  }
+.side-col {
+  padding: 40px 28px; background: var(--bg2);
+  @media (max-width: 900px) { padding: 32px 20px; }
 }
 
-.half {
-	width: 50%;
+.sec-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
 
-  @media screen and (max-width: 530px) {
-			width: 100%;;
-  }
+.sec-title {
+  font-family: var(--font-display); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); white-space: nowrap;
 }
 
-.third {
-	width: 33.33%;
+.sec-rule { flex: 1; height: 1px; background: var(--border); }
 
-  @media screen and (max-width: 530px) {
-			width: 100%;
-  }
-}
-
-.container {
-  // @include grid-container;
-  display: block;
-  width: 85%;
-  margin: 0 auto;
-
-  @media screen and (max-width: 710px) {
-    width: 90%;
-  }
-
-  @media screen and (max-width: 450px) {
-    width: 95%;
-  }
-
-  &.thin {
-    width: 60%;
-
-    @media screen and (max-width: 710px) {
-      width: 70%;
-    }
-
-    @media screen and (max-width: 450px) {
-      width: 85%;
-    }
-  }
-}
-
-.img-container {
-  text-align: center;
-}
-
-.t-right {
-  text-align: right;
-}
-
-.t-center {
-  text-align: center;
-}
-
-.t-left {
-  text-align: left;
-}
-
-.img-half {
-  width: 49%;
-  @media screen and (max-width: 530px) {
-    width: 100%;
-  }
-}
-
-.img-quart {
-  width: 22%;
-  @media screen and (max-width: 530px) {
-    width: 100%;
-  }
-}
-
-.img-three-quart {
-  width: 75%;
-  @media screen and (max-width: 530px) {
-    width: 100%;
-  }
-}
-
-.img-full {
-  width: 100%;
-}
-
-.el-right {
-  float: right;
-  margin-left: var(--img-margin);
-}
-
-.el-left {
-  float: left;
-  margin-right: var(--img-margin);
-}
-
-.clearfix {
-  // @include grid-container;
+.sec-all {
+  font-family: var(--font-mono); font-size: 10px; color: var(--text-3);
+  white-space: nowrap; transition: color 0.2s; text-decoration: none;
+  &:hover { color: var(--green); }
 }

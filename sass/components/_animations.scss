@@ -1,5 +1,10 @@
-@keyframes open {
-  to {
-    transform: rotate(180deg);
-  }
+@keyframes pulsate {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--green) 50%, transparent); }
+  50%       { box-shadow: 0 0 0 5px color-mix(in srgb, var(--green) 0%, transparent); }
+}
+
+.live-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green); flex-shrink: 0;
+  animation: pulsate 2.4s ease-in-out infinite;
 }
