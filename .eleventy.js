@@ -85,7 +85,6 @@ module.exports = (config) => {
   config.addCollection("musings", getCategory("musing"));
   config.addCollection("faq", getCategory("faq"));
   config.addCollection("bio", getCategory("bio"));
-  config.addCollection("projects", getCategory("project"));
   config.addCollection("empathy", getCategory("empathy"));
 
   // Unified Training Data stream
