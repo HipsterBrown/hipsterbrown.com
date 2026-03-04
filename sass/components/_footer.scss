@@ -19,3 +19,8 @@
 }
 
 .footer-copy { font-family: var(--font-mono); font-size: 10px; color: var(--text-3); }
+
+.footer-ornament {
+  text-align: center; font-family: var(--font-mono); font-size: 8px;
+  color: var(--text-3); padding: 4px 0; letter-spacing: 0.2em;
+}
