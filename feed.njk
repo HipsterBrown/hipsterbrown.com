@@ -1,7 +1,7 @@
 ---
 permalink: feed.xml
 metadata:
-  title: HipsterBrown's Musings
+  title: HipsterBrown's Training Data
   url: https://hipsterbrown.com
   author:
     name: Nicholas Hehr
@@ -16,13 +16,13 @@ metadata:
   <subtitle>{{ metadata.feed.subtitle }}</subtitle>
   <link href="{{ metadata.feed.url }}" rel="self"/>
   <link href="{{ metadata.url }}"/>
-  <updated>{{ collections.musings | getNewestCollectionItemDate | dateToRfc822 }}</updated>
+  <updated>{{ collections.trainingData | getNewestCollectionItemDate | dateToRfc822 }}</updated>
   <id>{{ metadata.url }}</id>
   <author>
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
-  {%- for post in collections.musings %}
+  {%- for post in collections.trainingData %}
   {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
     <title>{{ post.data.title }}</title>
