@@ -1,43 +1,11 @@
 ---
-layout: default
-title: Hip Musings
-description: Where is my mind?
-icon: Icon-Musings
-pagination:
-  data: collections.musings
-  size: 5
-  alias: posts
+permalink: /musings/index.html
+eleventyExcludeFromCollections: true
 ---
-
-{% if posts %}
-  {% for post in posts %}
-  <article>
-    <fit-text class="container thin">
-      <h1>
-        <a href="{% if post.data.external == true %}{{post.data.external_url}}{% else %}{{ post.url }}{% endif %}">{{
-          post.data.title }}</a>
-      </h1>
-      <section class="excerpt full clearfix">
-        <p>{{post.data.description}}</p>
-        <div class="post--meta">
-          <p>{{ post.date | date: "%e %b, %Y" }}</p>
-          <p class="tags t-right">
-            Categories: <em>{{ post.data.tags | join: ', ' }}</em>
-          </p>
-        </div>
-      </section>
-    </fit-text>
-  </article>
-  {% endfor %}
-{% endif %}
-
-{% if pagination.pages %}
-<nav class="container thin">
-  {% if pagination.href.previous %}
-  <a href="{{ pagination.href.previous }}" class="el-left">&lt; Previous Page</a>
-  {% endif %}
-  {% if pagination.href.next %}
-  <a href="{{ pagination.href.next }}" class="el-right">Next Page &gt;</a>
-  {% endif %}
-</nav>
-{% endif %}
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Redirecting to Training Data</title>
+<link rel="canonical" href="/training-data/">
+<meta http-equiv="refresh" content="0; url=/training-data/">
+<script>location="/training-data/"</script>
+<p>This page has moved. <a href="/training-data/">Go to Training Data →</a></p>
