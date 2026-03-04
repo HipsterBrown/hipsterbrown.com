@@ -1,0 +1,26 @@
+---
+layout: default
+title: Quick Notes
+permalink: /training-data/notes/index.html
+eleventyExcludeFromCollections: true
+---
+
+<div class="sec-header" style="margin-bottom: 32px;">
+  <span class="sec-title">Quick Notes</span>
+  <span class="sec-rule"></span>
+  <a href="/training-data/" class="sec-all">All posts →</a>
+</div>
+
+{% assign notes = collections.trainingData | reverse %}
+{% for post in notes %}
+  {% if post.data.type == "til" or post.data.type == "link" or post.data.type == "note" %}
+  <a href="{{ post.url }}" style="text-decoration: none; display: block;">
+    <div class="note-card note-{{ post.data.type }}" style="margin-bottom: 12px;">
+      <div class="note-type">{{ post.data.type }}</div>
+      <div class="note-title">{{ post.data.title }}</div>
+      {% if post.data.description %}<div class="note-body">{{ post.data.description }}</div>{% endif %}
+      <div class="note-meta">{{ post.date | date: "%b %e, %Y" }}</div>
+    </div>
+  </a>
+  {% endif %}
+{% endfor %}
