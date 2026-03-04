@@ -52,4 +52,4 @@ jobs:
           git config user.name "GitHub Actions"
           git add -A
           git commit -m "deploy: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git push --force ssh://dokku@${{ env.DOKKU_HOST }}:${{ env.DOKKU_APP_NAME }} HEAD:master
+          git push --force ssh://dokku@${{ env.DOKKU_HOST }}:22/${{ env.DOKKU_APP_NAME }} HEAD:main
