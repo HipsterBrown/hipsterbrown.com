@@ -14,17 +14,7 @@
   {% if highlight %}
   <link rel="stylesheet" href="/css/prism-a11y-dark.css" />
   {% endif %}
-  {% if page.url == "/" %}
-  {% eleventyGoogleFonts "https://fonts.googleapis.com/css?family=Playfair+Display:900&display=swap" %}
-  {% endif %}
-
-  <!-- Typekit -->
-  <script type="text/javascript" src="https://use.typekit.net/vrt0cty.js"></script>
-  <script type="text/javascript">
-    try {
-      Typekit.load();
-    } catch (e) { }
-  </script>
+  {% eleventyGoogleFonts "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" %}
   {% if env.mode == "production" %}
   <script async defer data-website-id="c9d25820-7fc0-45ab-ac3c-11192b71ca31"
     src="https://stats.hipsterbrown.com/script.js"></script>
