@@ -1,10 +1,22 @@
 ---
-layout: default
-permalink: "{{ categories }}/{{ title | slug }}/"
+permalink: "{{ categories | join: '/' }}/{{ page.fileSlug }}/"
+highlight: true
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
 
-<div class="post">
-{{ content }}
-</div>
+{% include "header.html" %}
+
+<header class="post-header">
+  <div class="container">
+    {% if type %}<span class="post-type-badge type-{{ type }}">{{ type }}</span>{% endif %}
+    <h1>{% if draft %} [DRAFT] {% endif %}{{ title }}</h1>
+    <p class="mono" style="color: var(--text-3); margin-top: 8px;">{{ page.date | date: "%B %e, %Y" }}</p>
+  </div>
+</header>
+
+<main id="main" tabindex="-1" class="container" style="padding-top: 40px; padding-bottom: 60px;">
+  <div class="prose">
+    {{ content }}
+  </div>
+</main>
+
+{% include "footer.html" %}
