@@ -3,17 +3,27 @@
   padding: 0 48px; height: var(--nav-height);
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0; background: var(--bg); z-index: 100;
+  gap: 16px;
   @media (max-width: 768px) { padding: 0 20px; }
 }
 
 .site-logo {
   font-family: var(--font-display); font-size: 16px; font-weight: 800;
   color: var(--text-1); letter-spacing: -0.03em; text-transform: uppercase;
-  text-decoration: none;
+  text-decoration: none; flex-shrink: 0;
 }
 
 .nav-links {
-  display: flex; gap: 28px; list-style: none; align-items: center; margin: 0; padding: 0;
+  display: flex; gap: 28px; list-style: none; align-items: center;
+  margin: 0; padding: 0;
+  @media (max-width: 600px) {
+    gap: 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+    li { flex-shrink: 0; }
+  }
   a {
     font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em;
     color: var(--text-2); text-decoration: none; transition: color 0.2s;
