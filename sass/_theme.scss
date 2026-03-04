@@ -1,58 +1,73 @@
 :root {
-	// Colors
-	///////////////////////////////////////////////////////////////////////////////
-	--navblue: #b8fef7;
-	--linkblue: #093C4F;
-	--dark-gray: #333;
-	--medium-gray: #999;
-	--light-gray: #DDD;
-	--light-red: #FBE3E4;
-	--light-yellow: #FFF6BF;
-	--light-green: #E6EFC2;
-	--hip-tan: #ECDFC8;
-	--hip-dark-tan: #7F7150;
-	--hip-darker-tan: #BFB199;
-	--hip-dark-brown: #564A36;
+  --bg:       #F7F3EC;
+  --bg2:      #EDE8DF;
+  --bg3:      #E4DDD2;
+  --surface:  #DDD6C9;
+  --border:   rgba(26, 21, 16, 0.10);
+  --border2:  rgba(26, 21, 16, 0.06);
+  --ink:      #1A1510;
+  --green:    #2D6A4F;
+  --brick:    #C24D2C;
+  --amber:    #8B6914;
+  --text-1:   #1A1510;
+  --text-2:   #5A5248;
+  --text-3:   #9A9088;
 
-	// Typography
-	///////////////////////////////////////////////////////////////////////////////
-	--sans-serif: 'museo-sans', helvetica, sans-serif;
-	--serif: 'museo', georgia, serif;
-	--logo-font: 'Playfair Display', serif;
+  --font-display: 'Syne', sans-serif;
+  --font-serif:   'Instrument Serif', serif;
+  --font-body:    'Epilogue', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
 
-	--base-font-family: var(--sans-serif);
-	--header-font-family: var(--serif);
+  --nav-height:         64px;
+  --base-border-radius: 4px;
+}
 
-	// Sizes
-	///////////////////////////////////////////////////////////////////////////////
-	--base-font-size: 1em;
-	--base-line-height: calc(var(--base-font-size) * 1.5);
-	--base-border-radius: 4px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #161210;
+    --bg2:      #1E1916;
+    --bg3:      #26201C;
+    --surface:  #2E2822;
+    --border:   rgba(240, 230, 215, 0.08);
+    --border2:  rgba(240, 230, 215, 0.05);
+    --ink:      #F0EBE3;
+    --green:    #4DB87A;
+    --brick:    #E8673C;
+    --amber:    #C9A84C;
+    --text-1:   #F0EBE3;
+    --text-2:   #9A8F85;
+    --text-3:   #5A524A;
+  }
+}
 
-	--img-margin: .5em;
-	--nav-height: 6em;
+[data-theme="dark"] {
+  --bg:       #161210;
+  --bg2:      #1E1916;
+  --bg3:      #26201C;
+  --surface:  #2E2822;
+  --border:   rgba(240, 230, 215, 0.08);
+  --border2:  rgba(240, 230, 215, 0.05);
+  --ink:      #F0EBE3;
+  --green:    #4DB87A;
+  --brick:    #E8673C;
+  --amber:    #C9A84C;
+  --text-1:   #F0EBE3;
+  --text-2:   #9A8F85;
+  --text-3:   #5A524A;
+}
 
-
-	// Body Color
-	--base-body-color: var(--hip-tan);
-	--alt-body-color: var(--hip-darker-tan);
-
-	//  Font Colors
-	--base-font-color: var(--dark-gray);
-	--base-accent-color: var(--navblue);
-	--base-strong-highlight: var(--hip-dark-brown);
-	--alt-strong-highlight: var(--base-body-color);
-
-	//  Text Link Colors
-	--base-link-color: var(--linkblue);
-	--hover-link-color: color(var(--linkblue), lightness(15%));
-
-	// Border color
-	--base-border-color: var(--hip-dark-tan);
-	--dark-accent-color: var(--hip-dark-brown);
-
-	// Flash Colors
-	--error-color: var(--light-red);
-	--notice-color: var(--light-yellow);
-	--success-color: var(--light-green);
+[data-theme="light"] {
+  --bg:       #F7F3EC;
+  --bg2:      #EDE8DF;
+  --bg3:      #E4DDD2;
+  --surface:  #DDD6C9;
+  --border:   rgba(26, 21, 16, 0.10);
+  --border2:  rgba(26, 21, 16, 0.06);
+  --ink:      #1A1510;
+  --green:    #2D6A4F;
+  --brick:    #C24D2C;
+  --amber:    #8B6914;
+  --text-1:   #1A1510;
+  --text-2:   #5A5248;
+  --text-3:   #9A9088;
 }
