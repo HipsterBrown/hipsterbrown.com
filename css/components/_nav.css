@@ -70,16 +70,28 @@
 
 theme-toggle {
   font-family: var(--font-mono);
-  font-size: var(--text-base);
-  color: var(--text-3);
+  font-size: var(--text-lg);
+  color: var(--text-2);
   cursor: pointer;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   line-height: 1;
   user-select: none;
   transition: color 0.2s;
+  padding: var(--space-2);
+  border-radius: var(--base-border-radius);
+  min-width: 2.5rem;
+  min-height: 2.5rem;
 
   &:hover {
+    color: var(--amber);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 2px;
     color: var(--amber);
   }
 }

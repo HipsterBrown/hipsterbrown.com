@@ -1,18 +1,27 @@
 class ThemeToggleElement extends HTMLElement {
-  private STORAGE_KEY = 'hipsterbrown-theme';
+  private static STORAGE_KEY = 'hipsterbrown-theme';
 
   connectedCallback() {
-    const stored = localStorage.getItem(this.STORAGE_KEY);
+    const stored = localStorage.getItem(ThemeToggleElement.STORAGE_KEY);
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = stored ?? (prefersDark ? 'dark' : 'light');
     this.applyTheme(theme);
 
-    this.addEventListener('click', () => {
-      const current = document.documentElement.dataset.theme ?? 'light';
-      const next = current === 'dark' ? 'light' : 'dark';
-      this.applyTheme(next);
-      localStorage.setItem(this.STORAGE_KEY, next);
+    this.addEventListener('click', () => this.toggle());
+
+    this.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.toggle();
+      }
     });
+  }
+
+  private toggle() {
+    const current = document.documentElement.dataset.theme ?? 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    this.applyTheme(next);
+    localStorage.setItem(ThemeToggleElement.STORAGE_KEY, next);
   }
 
   private applyTheme(theme: string) {
