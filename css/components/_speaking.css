@@ -52,3 +52,10 @@
 .speaking-link-recording {
   color: var(--amber);
 }
+
+.speaking-detail-links {
+  margin-bottom: var(--space-6);
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}

@@ -161,6 +161,11 @@
   margin: 2px 2px 2px 0;
 }
 
+.page-body {
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-10);
+}
+
 .post-body {
   padding-top: var(--space-10);
   padding-bottom: var(--space-16);

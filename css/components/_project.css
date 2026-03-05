@@ -37,3 +37,41 @@
 .project-status {
   flex-shrink: 0;
 }
+
+.project-header-badge {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+}
+
+.project-header-desc {
+  color: var(--text-2);
+  font-size: var(--text-lg);
+  margin-top: var(--space-2);
+  font-family: var(--font-body);
+}
+
+.project-header-stack {
+  margin-top: var(--space-4);
+}
+
+.project-header-links {
+  margin-top: var(--space-5);
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.project-link-live {
+  color: var(--green);
+}
+
+.project-link-source {
+  color: var(--text-3);
+}
+
+.project-screenshot {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: var(--space-8);
+  border: 1px solid var(--border);
+}

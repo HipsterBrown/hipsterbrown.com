@@ -7,31 +7,31 @@ permalink: "/projects/{{ page.fileSlug }}/"
 <header class="post-header">
   <div class="container">
     {% if status %}
-    <span class="badge badge-{{ status }}" style="margin-bottom: 16px; display: inline-block;">{{ status }}</span>
+    <span class="badge badge-{{ status }} project-header-badge">{{ status }}</span>
     {% endif %}
     <h1>{{ title }}</h1>
     {% if description %}
-    <p style="color: var(--text-2); font-size: 18px; margin-top: 8px; font-family: var(--font-body);">{{ description }}</p>
+    <p class="project-header-desc">{{ description }}</p>
     {% endif %}
     {% if stack %}
-    <div style="margin-top: 16px;">
+    <div class="project-header-stack">
       {% for tech in stack %}
       <span class="stack-pill">{{ tech }}</span>
       {% endfor %}
     </div>
     {% endif %}
     {% if live_link or repo %}
-    <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap;">
-      {% if live_link %}<a href="{{ live_link }}" class="mono" style="color: var(--green);">Live →</a>{% endif %}
-      {% if repo %}<a href="{{ repo }}" class="mono" style="color: var(--text-3);">Source →</a>{% endif %}
+    <div class="project-header-links">
+      {% if live_link %}<a href="{{ live_link }}" class="mono project-link-live">Live →</a>{% endif %}
+      {% if repo %}<a href="{{ repo }}" class="mono project-link-source">Source →</a>{% endif %}
     </div>
     {% endif %}
   </div>
 </header>
 
-<main id="main" tabindex="-1" class="container" style="padding-top: 40px; padding-bottom: 60px;">
+<main id="main" tabindex="-1" class="container post-body">
   {% if img_excerpt %}
-  <img src="{{ img_excerpt }}" alt="{{ title }} screenshot" style="max-width: 100%; border-radius: 8px; margin-bottom: 32px; border: 1px solid var(--border);">
+  <img src="{{ img_excerpt }}" alt="{{ title }} screenshot" class="project-screenshot">
   {% endif %}
   <div class="prose">
     {{ content }}

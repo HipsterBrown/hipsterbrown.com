@@ -8,16 +8,16 @@ permalink: "/speaking/{{ page.fileSlug }}/"
   <div class="container">
     <span class="post-type-badge type-talk">Talk</span>
     <h1>{{ title }}</h1>
-    {% if event %}<p class="mono" style="color: var(--text-3); margin-top: 8px;">{{ event }} · {{ page.date | date: "%B %Y" }}</p>{% endif %}
+    {% if event %}<p class="mono post-meta">{{ event }} · {{ page.date | date: "%B %Y" }}</p>{% endif %}
   </div>
 </header>
 
-<main id="main" tabindex="-1" class="container" style="padding-top: 40px; padding-bottom: 60px;">
+<main id="main" tabindex="-1" class="container post-body">
   <div class="prose">
     {% if description %}<p>{{ description }}</p>{% endif %}
-    <div style="margin-bottom: 24px; display: flex; gap: 16px; flex-wrap: wrap;">
-      {% if recording_url %}<a href="{{ recording_url }}" class="mono" style="color: var(--amber);">Watch recording →</a>{% endif %}
-      {% if slides_url %}<a href="{{ slides_url }}" class="mono" style="color: var(--text-3);">View slides →</a>{% endif %}
+    <div class="speaking-detail-links">
+      {% if recording_url %}<a href="{{ recording_url }}" class="mono speaking-link speaking-link-recording">Watch recording →</a>{% endif %}
+      {% if slides_url %}<a href="{{ slides_url }}" class="mono speaking-link">View slides →</a>{% endif %}
     </div>
     {{ content }}
   </div>
