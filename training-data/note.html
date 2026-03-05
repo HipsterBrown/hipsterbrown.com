@@ -1,0 +1,12 @@
+---
+layout: content-type
+title: Notes
+contentType: note
+rssUrl: /feeds/note.xml
+tagline: Short thoughts and observations.
+eleventyExcludeFromCollections: true
+permalink: "/training-data/note/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
+pagination:
+  data: collections.trainingData_note
+  size: 20
+---

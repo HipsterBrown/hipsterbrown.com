@@ -1,0 +1,12 @@
+---
+layout: content-type
+title: TIL
+contentType: til
+rssUrl: /feeds/til.xml
+tagline: Today I learned — quick discoveries worth sharing.
+eleventyExcludeFromCollections: true
+permalink: "/training-data/til/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
+pagination:
+  data: collections.trainingData_til
+  size: 20
+---

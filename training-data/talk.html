@@ -1,0 +1,12 @@
+---
+layout: content-type
+title: Talks
+contentType: talk
+rssUrl: /feeds/talk.xml
+tagline: Conference talks and presentations.
+eleventyExcludeFromCollections: true
+permalink: "/training-data/talk/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
+pagination:
+  data: collections.trainingData_talk
+  size: 20
+---
