@@ -24,6 +24,7 @@ eleventyExcludeFromCollections: true
   <a href="{{ post.url }}" class="post-item" data-post-type="{{ post.data.type | default: 'long-form' }}">
     <div>
       <div class="post-cat cat-{{ post.data.type }}">{{ post.data.type | default: "post" }}</div>
+      {% if post.data.draft %}<span class="draft-badge">Draft</span>{% endif %}
       <div class="post-title">{{ post.data.title }}</div>
       {% if post.data.description %}
       <div class="post-summary">{{ post.data.description }}</div>

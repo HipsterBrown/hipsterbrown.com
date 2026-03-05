@@ -209,6 +209,24 @@ type-filter [aria-current="true"] {
   display: none;
 }
 
+.draft-badge {
+  display: none;
+}
+
+.dev-mode .draft-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--amber);
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: var(--space-2);
+  vertical-align: middle;
+}
+
 .dev-mode .draft-banner {
   display: block;
   background: var(--amber);
