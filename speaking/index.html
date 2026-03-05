@@ -5,33 +5,33 @@ permalink: /speaking/index.html
 eleventyExcludeFromCollections: true
 ---
 
-<div class="sec-header" style="margin-bottom: 32px;">
+<div class="sec-header mb-8">
   <span class="sec-title">Speaking</span>
   <span class="sec-rule"></span>
 </div>
 
 {% for entry in collections.speaking reversed %}
-<div style="padding: 24px 0; border-bottom: 1px solid var(--border2);">
-  <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+<div class="speaking-item">
+  <div class="speaking-item-inner">
     <div>
-      <span class="post-type-badge type-talk" style="margin-bottom: 10px; display: inline-block;">
+      <span class="post-type-badge type-talk">
         {{ entry.data.type | default: "talk" }}
       </span>
       <div>
-        <a href="{{ entry.url }}" style="font-family: var(--font-serif); font-size: 19px; color: var(--text-1); text-decoration: none; line-height: 1.3; letter-spacing: -0.01em; display: block; margin-bottom: 4px;">{{ entry.data.title }}</a>
+        <a href="{{ entry.url }}" class="speaking-title">{{ entry.data.title }}</a>
       </div>
       {% if entry.data.event %}
-      <div class="mono" style="color: var(--text-3); margin-top: 4px;">{{ entry.data.event }}</div>
+      <div class="mono speaking-event">{{ entry.data.event }}</div>
       {% endif %}
-      <div style="margin-top: 10px; display: flex; gap: 16px; flex-wrap: wrap;">
+      <div class="speaking-links">
         {% if entry.data.slides_url %}
-        <a href="{{ entry.data.slides_url }}" class="mono" style="font-size: 10px; color: var(--text-3);">Slides →</a>
+        <a href="{{ entry.data.slides_url }}" class="speaking-link">Slides →</a>
         {% endif %}
         {% if entry.data.recording_url %}
-        <a href="{{ entry.data.recording_url }}" class="mono" style="font-size: 10px; color: var(--amber);">Recording →</a>
+        <a href="{{ entry.data.recording_url }}" class="speaking-link speaking-link-recording">Recording →</a>
         {% endif %}
         {% if entry.data.event_url %}
-        <a href="{{ entry.data.event_url }}" class="mono" style="font-size: 10px; color: var(--text-3);">Event →</a>
+        <a href="{{ entry.data.event_url }}" class="speaking-link">Event →</a>
         {% endif %}
       </div>
     </div>
