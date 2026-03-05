@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html {% if env.mode != "production" %}class="dev-mode"{% endif %}>
 
 <head>
   <meta charset="utf-8" />
@@ -32,12 +32,6 @@
       </li>
       <li {% if page.url contains '/training-data' %}class="nav-active"{% endif %}>
         <a href="/training-data/">Training Data</a>
-      </li>
-      <li {% if page.url contains '/demos' %}class="nav-active"{% endif %}>
-        <a href="/demos/">Demos</a>
-      </li>
-      <li {% if page.url contains '/speaking' %}class="nav-active"{% endif %}>
-        <a href="/speaking/">Speaking</a>
       </li>
     </ul>
     <theme-toggle aria-label="Toggle dark mode" role="button" tabindex="0"></theme-toggle>
