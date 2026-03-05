@@ -10,3 +10,7 @@ css/main.min.css
 css/main.css
 js/app.min.js
 assets/
+CLAUDE.md
+.devcontainer/
+.plans/
+.playwright-cli/
