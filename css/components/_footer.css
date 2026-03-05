@@ -74,9 +74,5 @@
   width: auto;
   display: block;
   margin: 0 auto;
-  opacity: 0.35;
-}
-
-[data-theme="dark"] .footer-ornament svg {
-  filter: invert(1);
+  color: var(--text-3);
 }
