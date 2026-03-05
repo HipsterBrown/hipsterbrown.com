@@ -205,6 +205,24 @@ type-filter [aria-current="true"] {
   border-color: var(--border);
 }
 
+.draft-banner {
+  display: none;
+}
+
+.dev-mode .draft-banner {
+  display: block;
+  background: var(--amber);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: var(--space-2) var(--space-4);
+  width: 100%;
+}
+
 .prose {
   max-width: 680px;
 
