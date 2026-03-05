@@ -41,3 +41,11 @@ a.skip-main {
     padding: 0 20px;
   }
 }
+
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+
+.block-link {
+  text-decoration: none;
+  display: block;
+}

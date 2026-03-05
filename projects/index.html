@@ -5,18 +5,18 @@ permalink: /projects/index.html
 eleventyExcludeFromCollections: true
 ---
 
-<div class="sec-header" style="margin-bottom: 32px;">
+<div class="sec-header mb-8">
   <span class="sec-title">Projects</span>
   <span class="sec-rule"></span>
 </div>
 
 {% for project in collections.projects %}
-<div style="padding: 24px 0; border-bottom: 1px solid var(--border2);">
-  <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+<div class="project-item">
+  <div class="project-item-inner">
     <div>
-      <a href="{{ project.url }}" style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-1); letter-spacing: -0.02em; text-decoration: none; display: block; margin-bottom: 6px;">{{ project.data.title }}</a>
+      <a href="{{ project.url }}" class="project-title">{{ project.data.title }}</a>
       {% if project.data.description %}
-      <p style="margin: 0 0 10px; font-size: 14px; color: var(--text-2); font-family: var(--font-body);">{{ project.data.description }}</p>
+      <p class="project-desc">{{ project.data.description }}</p>
       {% endif %}
       {% if project.data.stack %}
       <div>
@@ -27,7 +27,7 @@ eleventyExcludeFromCollections: true
       {% endif %}
     </div>
     {% if project.data.status %}
-    <span class="badge badge-{{ project.data.status }}" style="flex-shrink: 0;">{{ project.data.status }}</span>
+    <span class="badge badge-{{ project.data.status }} project-status">{{ project.data.status }}</span>
     {% endif %}
   </div>
 </div>
