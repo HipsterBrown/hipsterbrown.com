@@ -322,6 +322,34 @@ type-filter [aria-current="true"] {
   text-decoration: none;
 }
 
+.empty-state {
+  padding: var(--space-12) 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.empty-state-glyph {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.empty-state-heading {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--text-1);
+  letter-spacing: -0.01em;
+}
+
+.empty-state-body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-2);
+  max-width: 36ch;
+  line-height: 1.6;
+}
+
 .prose {
   max-width: 680px;
 

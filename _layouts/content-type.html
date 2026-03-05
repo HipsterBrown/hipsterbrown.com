@@ -37,6 +37,32 @@ layout: default
     <div class="post-date">{{ post.date | date: "%b %Y" }}</div>
   </a>
   {% endfor %}
+  {% assign itemCount = pagination.items | size %}
+  {% if itemCount == 0 %}
+  <div class="empty-state">
+    {% if contentType == "til" %}
+    <div class="empty-state-glyph">🔬</div>
+    <p class="empty-state-heading">The lab notebook is empty — for now.</p>
+    <p class="empty-state-body">TILs are the small discoveries that don't make it into a full post. Sooner or later, something will surprise me enough to write it down.</p>
+    {% elsif contentType == "link" %}
+    <div class="empty-state-glyph">🔖</div>
+    <p class="empty-state-heading">The reading pile hasn't been catalogued yet.</p>
+    <p class="empty-state-body">Links are things I found worth sharing. The bookmarks exist — the annotations are still in my head.</p>
+    {% elsif contentType == "note" %}
+    <div class="empty-state-glyph">📋</div>
+    <p class="empty-state-heading">Short thoughts still bouncing around upstairs.</p>
+    <p class="empty-state-body">Notes are the half-formed ideas that deserve a home but not a full essay. They'll land here when they're ready.</p>
+    {% elsif contentType == "talk" %}
+    <div class="empty-state-glyph">🎙️</div>
+    <p class="empty-state-heading">The stage is set. The mic is warm.</p>
+    <p class="empty-state-body">Past talks live in the <a href="/speaking/" class="speaking-link">Speaking</a> section for now. When the archives migrate here, this page will have plenty to say.</p>
+    {% else %}
+    <div class="empty-state-glyph">✦</div>
+    <p class="empty-state-heading">Nothing here yet.</p>
+    <p class="empty-state-body">Check back soon.</p>
+    {% endif %}
+  </div>
+  {% endif %}
 </div>
 
 {% assign pageCount = pagination.pages | size %}
