@@ -11,6 +11,7 @@ css/main.css
 js/app.min.js
 assets/
 CLAUDE.md
+.claude/
 .devcontainer/
 .plans/
 .playwright-cli/
