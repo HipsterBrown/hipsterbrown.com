@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html {% if env.mode != "production" %}class="dev-mode"{% endif %}>
+<html {% if env.mode !="production" %}class="dev-mode" {% endif %}>
 
 <head>
   <meta charset="utf-8" />
@@ -15,7 +15,9 @@
   {% if highlight %}
   <link rel="stylesheet" href="/css/prism-a11y-dark.css" />
   {% endif %}
-  {% eleventyGoogleFonts "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" %}
+  {% eleventyGoogleFonts
+  "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+  %}
   {% if env.mode == "production" %}
   <script async defer data-website-id="c9d25820-7fc0-45ab-ac3c-11192b71ca31"
     src="https://stats.hipsterbrown.com/script.js"></script>
@@ -28,11 +30,11 @@
   <nav class="site-nav">
     <a href="/" class="site-logo">HipsterBrown</a>
     <ul class="nav-links">
-      <li {% if page.url contains '/projects' %}class="nav-active"{% endif %}>
-        <a href="/projects/">Projects</a>
-      </li>
-      <li {% if page.url contains '/training-data' %}class="nav-active"{% endif %}>
+      <li {% if page.url contains '/training-data' %}class="nav-active" {% endif %}>
         <a href="/training-data/">Training Data</a>
+      </li>
+      <li {% if page.url contains '/projects' %}class="nav-active" {% endif %}>
+        <a href="/projects/">Projects</a>
       </li>
     </ul>
     <theme-toggle aria-label="Toggle dark mode" role="button" tabindex="0"></theme-toggle>
