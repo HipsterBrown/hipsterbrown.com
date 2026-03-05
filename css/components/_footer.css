@@ -66,9 +66,17 @@
 
 .footer-ornament {
   text-align: center;
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--text-3);
-  padding: var(--space-1) 0;
-  letter-spacing: 0.2em;
+  padding: var(--space-2) 0;
+}
+
+.footer-ornament svg {
+  height: 1.5rem;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.35;
+}
+
+[data-theme="dark"] .footer-ornament svg {
+  filter: invert(1);
 }
