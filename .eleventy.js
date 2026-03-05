@@ -51,11 +51,12 @@ module.exports = (config) => {
 
   config.addLiquidShortcode("eleventyGoogleFonts", createInlineCss);
 
-  config.addTemplateFormats("scss");
-  config.addWatchTarget("./sass/");
-  config.addExtension("scss", {
+  config.addTemplateFormats("css");
+  config.addWatchTarget("./css/");
+  config.addExtension("css", {
     outputFileExtension: "css",
     compile: async function(input, inputPath) {
+      if (!inputPath.endsWith("/css/app.css")) return;
       const compiler = postcss([
         postcssImport(),
         postcssPresetEnv({ stage: 0 }),
@@ -63,14 +64,13 @@ module.exports = (config) => {
       ].filter(Boolean))
       const result = await compiler.process(input, {
         from: inputPath,
-        parser: require("postcss-scss")
       })
       return async () => result.css;
     },
   });
   config.addWatchTarget("./js/");
   config.addPassthroughCopy("js");
-  config.addPassthroughCopy("css");
+  config.addPassthroughCopy({ "css/prism-a11y-dark.css": "css/prism-a11y-dark.css" });
   config.addPassthroughCopy("images");
   config.addPassthroughCopy("videos");
   config.addPassthroughCopy("admin/config.yml");
