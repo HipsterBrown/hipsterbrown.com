@@ -1,36 +1,12 @@
 ---
-layout: default
+layout: content-type
 title: Training Data
-permalink: /training-data/index.html
+contentType: all
+rssUrl: /feed.xml
+tagline: Writing, notes, links, and talks — everything I've learned and shared.
 eleventyExcludeFromCollections: true
+permalink: "/training-data/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
+pagination:
+  data: collections.trainingData
+  size: 20
 ---
-
-<div class="sec-header mb-6">
-  <span class="sec-title">Training Data</span>
-  <span class="sec-rule"></span>
-</div>
-
-<type-filter class="type-filter-bar">
-  <button data-filter="all" aria-current="true" class="filter-btn">All</button>
-  <button data-filter="long-form" class="filter-btn">Long Form</button>
-  <button data-filter="til" class="filter-btn">TIL</button>
-  <button data-filter="link" class="filter-btn">Link</button>
-  <button data-filter="note" class="filter-btn">Note</button>
-  <button data-filter="talk" class="filter-btn">Talk</button>
-</type-filter>
-
-<div data-post-list>
-  {% for post in collections.trainingData %}
-  <a href="{{ post.url }}" class="post-item" data-post-type="{{ post.data.type | default: 'long-form' }}">
-    <div>
-      <div class="post-cat cat-{{ post.data.type }}">{{ post.data.type | default: "post" }}</div>
-      {% if post.data.draft %}<span class="draft-badge">Draft</span>{% endif %}
-      <div class="post-title">{{ post.data.title }}</div>
-      {% if post.data.description %}
-      <div class="post-summary">{{ post.data.description }}</div>
-      {% endif %}
-    </div>
-    <div class="post-date">{{ post.date | date: "%b %Y" }}</div>
-  </a>
-  {% endfor %}
-</div>
