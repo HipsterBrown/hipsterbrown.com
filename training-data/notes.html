@@ -5,7 +5,7 @@ permalink: /training-data/notes/index.html
 eleventyExcludeFromCollections: true
 ---
 
-<div class="sec-header" style="margin-bottom: 32px;">
+<div class="sec-header mb-8">
   <span class="sec-title">Quick Notes</span>
   <span class="sec-rule"></span>
   <a href="/training-data/" class="sec-all">All posts →</a>
@@ -14,8 +14,8 @@ eleventyExcludeFromCollections: true
 {% assign notes = collections.trainingData | reverse %}
 {% for post in notes %}
   {% if post.data.type == "til" or post.data.type == "link" or post.data.type == "note" %}
-  <a href="{{ post.url }}" style="text-decoration: none; display: block;">
-    <div class="note-card note-{{ post.data.type }}" style="margin-bottom: 12px;">
+  <a href="{{ post.url }}" class="block-link">
+    <div class="note-card note-{{ post.data.type }} mb-3">
       <div class="note-type">{{ post.data.type }}</div>
       <div class="note-title">{{ post.data.title }}</div>
       {% if post.data.description %}<div class="note-body">{{ post.data.description }}</div>{% endif %}

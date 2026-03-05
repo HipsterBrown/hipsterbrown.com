@@ -5,12 +5,12 @@ permalink: /training-data/index.html
 eleventyExcludeFromCollections: true
 ---
 
-<div class="sec-header" style="margin-bottom: 24px;">
+<div class="sec-header mb-6">
   <span class="sec-title">Training Data</span>
   <span class="sec-rule"></span>
 </div>
 
-<type-filter style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px;">
+<type-filter class="type-filter-bar">
   <button data-filter="all" aria-current="true" class="filter-btn">All</button>
   <button data-filter="long-form" class="filter-btn">Long Form</button>
   <button data-filter="til" class="filter-btn">TIL</button>
@@ -33,28 +33,3 @@ eleventyExcludeFromCollections: true
   </a>
   {% endfor %}
 </div>
-
-<style>
-  .filter-btn {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    padding: 5px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-2);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .filter-btn:hover {
-    color: var(--text-1);
-    border-color: var(--border);
-  }
-
-  type-filter [aria-current="true"] {
-    background: var(--surface);
-    color: var(--text-1);
-    border-color: var(--border);
-  }
-</style>

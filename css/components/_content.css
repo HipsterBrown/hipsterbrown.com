@@ -161,6 +161,35 @@
   margin: 2px 2px 2px 0;
 }
 
+.type-filter-bar {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-8);
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding: var(--space-1) var(--space-4);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  color: var(--text-1);
+}
+
+type-filter [aria-current="true"] {
+  background: var(--surface);
+  color: var(--text-1);
+  border-color: var(--border);
+}
+
 .prose {
   max-width: 680px;
 
