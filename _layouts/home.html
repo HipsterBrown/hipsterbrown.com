@@ -2,37 +2,29 @@
 
 <section class="home-hero">
   <div>
-    <div
-      style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 22px;">
+    <div class="hero-status">
       <span class="live-dot"></span>
       Senior Developer Advocate · Viam Robotics
     </div>
-    <h1
-      style="font-family: var(--font-serif); font-size: clamp(36px, 4vw, 62px); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: var(--text-1); margin-bottom: 18px;">
+    <h1 class="hero-headline">
       Building where<br>
       web meets the<br>
-      <em style="font-style: italic; color: var(--green);">physical world.</em>
+      <em>physical world.</em>
     </h1>
-    <p
-      style="font-family: var(--font-body); font-size: 16px; line-height: 1.7; color: var(--text-2); max-width: 440px; margin: 0;">
+    <p class="hero-body">
       I'm Nick Hehr. I make things, break things, and teach what I learn. My work sits at the intersection of web
       technologies, embedded systems, and physical AI.
     </p>
   </div>
   <div>
-    <div
-      style="background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; margin-top: 8px;">
-      <div
-        style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+    <div class="bench-card">
+      <div class="bench-header">
         On the bench
-        <span style="flex: 1; height: 1px; background: var(--border); display: block;"></span>
+        <span class="bench-header-rule"></span>
       </div>
       {% for item in bench %}
-      <div
-        style="display: flex; align-items: center; justify-content: space-between; padding: 9px 0; {% unless forloop.last %}border-bottom: 1px solid var(--border2);{% endunless %}">
-        <span
-          style="font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--text-1); letter-spacing: -0.02em;">{{
-          item.name }}</span>
+      <div class="bench-row">
+        <span class="bench-row-name">{{ item.name }}</span>
         <span class="badge badge-{{ item.status }}">{{ item.status }}</span>
       </div>
       {% endfor %}
