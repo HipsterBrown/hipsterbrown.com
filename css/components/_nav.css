@@ -2,14 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 48px;
+  padding: 0 var(--space-12);
   height: var(--nav-height);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   background: var(--bg);
   z-index: 100;
-  gap: 16px;
+  gap: var(--space-4);
 
   @media (max-width: 768px) {
     padding: 0 20px;
@@ -18,7 +18,7 @@
 
 .site-logo {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: var(--text-base);
   font-weight: 800;
   color: var(--text-1);
   letter-spacing: -0.03em;
@@ -36,7 +36,7 @@
   padding: 0;
 
   @media (max-width: 600px) {
-    gap: 16px;
+    gap: var(--space-4);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -52,7 +52,7 @@
 
   a {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-sm);
     letter-spacing: 0.05em;
     color: var(--text-2);
     text-decoration: none;
@@ -70,7 +70,7 @@
 
 theme-toggle {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--text-base);
   color: var(--text-3);
   cursor: pointer;
   display: block;

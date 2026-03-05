@@ -1,5 +1,5 @@
 .site-footer {
-  padding: 24px 48px;
+  padding: var(--space-6) var(--space-12);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,15 +7,15 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 16px;
-    padding: 24px 20px;
+    gap: var(--space-4);
+    padding: var(--space-6) 20px;
     text-align: center;
   }
 }
 
 .footer-logo {
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 800;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -32,7 +32,7 @@
 
   a {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-xs);
     letter-spacing: 0.05em;
     color: var(--text-3);
     text-decoration: none;
@@ -46,15 +46,15 @@
 
 .footer-copy {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-xs);
   color: var(--text-3);
 }
 
 .footer-ornament {
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-xs);
   color: var(--text-3);
-  padding: 4px 0;
+  padding: var(--space-1) 0;
   letter-spacing: 0.2em;
 }
