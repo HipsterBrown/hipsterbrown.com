@@ -21,7 +21,8 @@ svg.icon {
     fill: var(--dark-gray);
   }
 
-  & path#Eye---Left, & path#Eye---Right {
+  & path#Eye---Left,
+  & path#Eye---Right {
     fill: var(--dark-gray);
   }
 }

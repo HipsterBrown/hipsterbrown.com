@@ -1,30 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html {% if env.mode !="production" %}class="dev-mode" {% endif %}>
 
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>{{ title }}</title>
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="{{ metadata.url }}{{ page.url }}" />
   <link rel="icon" type="image/png" href="/images/Logo.png" />
   <link rel="alternate" type="application/atom+xml" title="RSS Feed for HipsterBrown's Musings" href="/feed.xml" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/sass/app.css" />
+  <link rel="stylesheet" href="/css/app.css" />
   {% if highlight %}
   <link rel="stylesheet" href="/css/prism-a11y-dark.css" />
   {% endif %}
-  {% if page.url == "/" %}
-  {% eleventyGoogleFonts "https://fonts.googleapis.com/css?family=Playfair+Display:900&display=swap" %}
-  {% endif %}
-
-  <!-- Typekit -->
-  <script type="text/javascript" src="https://use.typekit.net/vrt0cty.js"></script>
-  <script type="text/javascript">
-    try {
-      Typekit.load();
-    } catch (e) { }
-  </script>
+  {% eleventyGoogleFonts
+  "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+  %}
   {% if env.mode == "production" %}
   <script async defer data-website-id="c9d25820-7fc0-45ab-ac3c-11192b71ca31"
     src="https://stats.hipsterbrown.com/script.js"></script>
@@ -34,18 +27,12 @@
 
 <body>
   <a class="skip-main" href="#main" tabindex="0">Skip to main content</a>
-  <scroll-nav>
-    <a href="/" aria-label="home" id="home-link">{% svg "Icon-Logo" %}</a>
-    <nav>
-      <ul>
-        <li id="empathy">
-          <a href="https://more-empathy.online">Empathy</a>
-        </li>
-        <li id="projects">
-          <a href="https://github.com/HipsterBrown">Projects</a>
-        </li>
-        <li id="musings"><a href="/musings/">Musings</a></li>
-      </ul>
-    </nav>
-    <a href="/faq/" aria-label="FAQ" id="break">{% svg "Icon-Little-Stache" %}</a>
-  </scroll-nav>
+  <nav class="site-nav">
+    <a href="/" class="site-logo">HipsterBrown</a>
+    <ul class="nav-links">
+      <li {% if page.url contains '/training-data' %}class="nav-active" {% endif %}>
+        <a href="/training-data/">Training Data</a>
+      </li>
+    </ul>
+    <theme-toggle aria-label="Toggle dark mode" role="button" tabindex="0"></theme-toggle>
+  </nav>

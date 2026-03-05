@@ -1,33 +1,41 @@
 ---
-permalink: "{{ categories | join: '/' }}/{{ page.fileSlug }}/"
+permalink: "/projects/{{ page.fileSlug }}/"
 ---
 
 {% include "header.html" %}
 
-  <header class="container">
-    <h1 class="full">{{ title }}</h1>
-    <h2 class="full">{{description}}</h2>
-  </header>
-  <section id="main" tabindex="-1" class="main content">
-    <article>
-      <div class="container">
-        {% if page.img_excerpt %}
-          <aside class="img-container quart">
-          {% if page.live_link %}
-            <a href="{{ live_link }}">
-              <img src="{{ img_excerpt }}" alt="Project Screenshot" />
-              <p class="t-center">
-                Live Project
-              </p>
-            </a>
-          {% else %}
-            <img src="{{ img_excerpt }}" alt="Project Screenchot" />
-          {% endif %}
-          </aside>
-        {% endif %}
-        {{ content }}
-      </div>
-    </article>
-  </section>
+<header class="post-header">
+  <div class="container">
+    {% if status %}
+    <span class="badge badge-{{ status }} project-header-badge">{{ status }}</span>
+    {% endif %}
+    <h1>{{ title }}</h1>
+    {% if description %}
+    <p class="project-header-desc">{{ description }}</p>
+    {% endif %}
+    {% if stack %}
+    <div class="project-header-stack">
+      {% for tech in stack %}
+      <span class="stack-pill">{{ tech }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if live_link or repo %}
+    <div class="project-header-links">
+      {% if live_link %}<a href="{{ live_link }}" class="mono project-link-live">Live →</a>{% endif %}
+      {% if repo %}<a href="{{ repo }}" class="mono project-link-source">Source →</a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</header>
+
+<main id="main" tabindex="-1" class="container post-body">
+  {% if img_excerpt %}
+  <img src="{{ img_excerpt }}" alt="{{ title }} screenshot" class="project-screenshot">
+  {% endif %}
+  <div class="prose">
+    {{ content }}
+  </div>
+</main>
 
 {% include "footer.html" %}

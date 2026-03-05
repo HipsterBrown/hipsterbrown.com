@@ -1,8 +1,12 @@
 ---
-layout: default
+layout: content-type
 title: Training Data
-permalink: /training-data/index.html
+contentType: all
+rssUrl: /feed.xml
+tagline: Writing, notes, links, and talks — everything I've learned and shared.
 eleventyExcludeFromCollections: true
+permalink: "/training-data/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
+pagination:
+  data: collections.trainingData
+  size: 20
 ---
-<h1>Training Data</h1>
-<p>Coming soon.</p>

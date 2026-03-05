@@ -5,16 +5,18 @@ highlight: true
 
 {% include "header.html" %}
 
-<header class="post--header">
-	<h1 class="full">{% if draft %} [DRAFT] {% endif %} {{ title }}</h1>
-	<p class="t-center">{{ page.date | date: "%e %b, %Y" }}</p>
+<header class="post-header">
+  <div class="container">
+    {% if type %}<span class="post-type-badge type-{{ type }}">{{ type }}</span>{% endif %}
+    <h1>{{ title }}</h1>
+    <p class="mono post-meta">{{ page.date | date: "%B %e, %Y" }}</p>
+  </div>
 </header>
-<section id="main" tabindex="-1" class="main content no-border">
-	<article>
-		<div class="container thin">
-			{{ content }}
-		</div>
-	</article>
-</section>
+
+<main id="main" tabindex="-1" class="container post-body">
+  <div class="prose">
+    {{ content }}
+  </div>
+</main>
 
 {% include "footer.html" %}

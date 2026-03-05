@@ -1,13 +1,26 @@
 ---
-layout: default
+permalink: "/speaking/{{ page.fileSlug }}/"
 ---
-<article class="container thin">
-  <h1>{{ title }}</h1>
-  {% if event %}<p class="event">{{ event }}</p>{% endif %}
-  {% if description %}<p>{{ description }}</p>{% endif %}
-  <div class="links">
-    {% if recording_url %}<a href="{{ recording_url }}">Watch recording</a>{% endif %}
-    {% if slides_url %}<a href="{{ slides_url }}">View slides</a>{% endif %}
+
+{% include "header.html" %}
+
+<header class="post-header">
+  <div class="container">
+    <span class="post-type-badge type-talk">Talk</span>
+    <h1>{{ title }}</h1>
+    {% if event %}<p class="mono post-meta">{{ event }} · {{ page.date | date: "%B %Y" }}</p>{% endif %}
   </div>
-  {{ content }}
-</article>
+</header>
+
+<main id="main" tabindex="-1" class="container post-body">
+  <div class="prose">
+    {% if description %}<p>{{ description }}</p>{% endif %}
+    <div class="speaking-detail-links">
+      {% if recording_url %}<a href="{{ recording_url }}" class="mono speaking-link speaking-link-recording">Watch recording →</a>{% endif %}
+      {% if slides_url %}<a href="{{ slides_url }}" class="mono speaking-link">View slides →</a>{% endif %}
+    </div>
+    {{ content }}
+  </div>
+</main>
+
+{% include "footer.html" %}

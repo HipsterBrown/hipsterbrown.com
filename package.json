@@ -24,8 +24,7 @@
     "esbuild": "0.27.3",
     "postcss": "8.5.8",
     "postcss-import": "^16.1.1",
-    "postcss-preset-env": "11.2.0",
-    "postcss-scss": "^4.0.9"
+    "postcss-preset-env": "11.2.0"
   },
   "dependencies": {
     "@staticcms/core": "^4.3.0"

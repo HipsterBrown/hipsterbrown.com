@@ -4,5 +4,38 @@ title: Speaking
 permalink: /speaking/index.html
 eleventyExcludeFromCollections: true
 ---
-<h1>Speaking</h1>
-<p>Talks, videos, and podcast appearances. Coming soon.</p>
+
+<div class="sec-header mb-8">
+  <span class="sec-title">Speaking</span>
+  <span class="sec-rule"></span>
+</div>
+
+{% for entry in collections.speaking reversed %}
+<div class="speaking-item">
+  <div class="speaking-item-inner">
+    <div>
+      <span class="post-type-badge type-talk">
+        {{ entry.data.type | default: "talk" }}
+      </span>
+      <div>
+        <a href="{{ entry.url }}" class="speaking-title">{{ entry.data.title }}</a>
+      </div>
+      {% if entry.data.event %}
+      <div class="mono speaking-event">{{ entry.data.event }}</div>
+      {% endif %}
+      <div class="speaking-links">
+        {% if entry.data.slides_url %}
+        <a href="{{ entry.data.slides_url }}" class="speaking-link">Slides →</a>
+        {% endif %}
+        {% if entry.data.recording_url %}
+        <a href="{{ entry.data.recording_url }}" class="speaking-link speaking-link-recording">Recording →</a>
+        {% endif %}
+        {% if entry.data.event_url %}
+        <a href="{{ entry.data.event_url }}" class="speaking-link">Event →</a>
+        {% endif %}
+      </div>
+    </div>
+    <span class="post-date">{{ entry.date | date: "%b %Y" }}</span>
+  </div>
+</div>
+{% endfor %}

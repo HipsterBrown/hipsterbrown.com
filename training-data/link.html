@@ -1,0 +1,13 @@
+---
+layout: content-type
+title: Links
+contentType: link
+rssUrl: /feeds/links.xml
+tagline: Things worth reading, watching, and sharing.
+eleventyExcludeFromCollections: true
+permalink: "/training-data/link/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
+pagination:
+  data: collections.trainingData_link
+  size: 20
+  generatePageOnEmptyData: true
+---
