@@ -32,7 +32,7 @@
 
   a {
     font-family: var(--font-mono);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     letter-spacing: 0.05em;
     color: var(--text-3);
     text-decoration: none;
@@ -46,7 +46,7 @@
 
 .footer-copy {
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   color: var(--text-3);
 }
 
