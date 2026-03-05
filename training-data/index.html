@@ -20,7 +20,7 @@ eleventyExcludeFromCollections: true
 </type-filter>
 
 <div data-post-list>
-  {% for post in collections.trainingData reversed %}
+  {% for post in collections.trainingData %}
   <a href="{{ post.url }}" class="post-item" data-post-type="{{ post.data.type | default: 'long-form' }}">
     <div>
       <div class="post-cat cat-{{ post.data.type }}">{{ post.data.type | default: "post" }}</div>
@@ -46,7 +46,12 @@ eleventyExcludeFromCollections: true
     cursor: pointer;
     transition: all 0.2s;
   }
-  .filter-btn:hover { color: var(--text-1); border-color: var(--border); }
+
+  .filter-btn:hover {
+    color: var(--text-1);
+    border-color: var(--border);
+  }
+
   type-filter [aria-current="true"] {
     background: var(--surface);
     color: var(--text-1);

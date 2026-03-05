@@ -1,7 +1,7 @@
 class TypeFilterElement extends HTMLElement {
   connectedCallback() {
     this.addEventListener('click', (e) => {
-      const btn = (e.target as HTMLElement).closest('[data-filter]');
+      const btn = (e.target as HTMLButtonElement)
       if (!btn) return;
       const filter = (btn as HTMLElement).dataset.filter!;
       this.querySelectorAll('[data-filter]').forEach(b => b.removeAttribute('aria-current'));
@@ -10,7 +10,10 @@ class TypeFilterElement extends HTMLElement {
       if (!list) return;
       list.querySelectorAll('[data-post-type]').forEach(item => {
         const el = item as HTMLElement;
-        el.hidden = filter !== 'all' && el.dataset.postType !== filter;
+        el.removeAttribute("hidden")
+        if (filter !== 'all' && el.dataset.postType !== filter) {
+          el.setAttribute('hidden', '')
+        }
       });
     });
   }

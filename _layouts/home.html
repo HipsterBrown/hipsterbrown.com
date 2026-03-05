@@ -2,28 +2,37 @@
 
 <section class="home-hero">
   <div>
-    <div style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 22px;">
+    <div
+      style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 22px;">
       <span class="live-dot"></span>
       Senior Developer Advocate · Viam Robotics
     </div>
-    <h1 style="font-family: var(--font-serif); font-size: clamp(36px, 4vw, 62px); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: var(--text-1); margin-bottom: 18px;">
+    <h1
+      style="font-family: var(--font-serif); font-size: clamp(36px, 4vw, 62px); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: var(--text-1); margin-bottom: 18px;">
       Building where<br>
       web meets the<br>
       <em style="font-style: italic; color: var(--green);">physical world.</em>
     </h1>
-    <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.7; color: var(--text-2); max-width: 440px; margin: 0;">
-      I'm Nick Hehr. I make things, break things, and teach what I learn. My work sits at the intersection of web technologies, embedded systems, and physical AI.
+    <p
+      style="font-family: var(--font-body); font-size: 16px; line-height: 1.7; color: var(--text-2); max-width: 440px; margin: 0;">
+      I'm Nick Hehr. I make things, break things, and teach what I learn. My work sits at the intersection of web
+      technologies, embedded systems, and physical AI.
     </p>
   </div>
   <div>
-    <div style="background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; margin-top: 8px;">
-      <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+    <div
+      style="background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; margin-top: 8px;">
+      <div
+        style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
         On the bench
         <span style="flex: 1; height: 1px; background: var(--border); display: block;"></span>
       </div>
       {% for item in bench %}
-      <div style="display: flex; align-items: center; justify-content: space-between; padding: 9px 0; {% unless forloop.last %}border-bottom: 1px solid var(--border2);{% endunless %}">
-        <span style="font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--text-1); letter-spacing: -0.02em;">{{ item.name }}</span>
+      <div
+        style="display: flex; align-items: center; justify-content: space-between; padding: 9px 0; {% unless forloop.last %}border-bottom: 1px solid var(--border2);{% endunless %}">
+        <span
+          style="font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--text-1); letter-spacing: -0.02em;">{{
+          item.name }}</span>
         <span class="badge badge-{{ item.status }}">{{ item.status }}</span>
       </div>
       {% endfor %}
@@ -38,7 +47,7 @@
       <span class="sec-rule"></span>
       <a href="/training-data/" class="sec-all">All posts →</a>
     </div>
-    {% for post in collections.trainingData reversed limit: 5 %}
+    {% for post in collections.trainingData limit: 5 %}
     <a href="{{ post.url }}" class="post-item">
       <div>
         <div class="post-cat cat-{{ post.data.type }}">{{ post.data.type | default: "post" }}</div>
@@ -57,27 +66,26 @@
       <span class="sec-rule"></span>
     </div>
     {% assign note_count = 0 %}
-    {% for post in collections.trainingData reversed %}
-      {% if note_count < 5 %}
-        {% if post.data.type == "til" or post.data.type == "link" or post.data.type == "note" %}
-        <div class="note-card note-{{ post.data.type }}">
-          <div class="note-type">{{ post.data.type }}</div>
-          <div class="note-title">{{ post.data.title }}</div>
-          {% if post.data.description %}
-          <div class="note-body">{{ post.data.description }}</div>
-          {% endif %}
-          <div class="note-meta">{{ post.date | date: "%b %e, %Y" }}</div>
-        </div>
-        {% assign note_count = note_count | plus: 1 %}
-        {% endif %}
+    {% for post in collections.trainingData %}
+    {% if note_count < 5 %} {% if post.data.type=="til" or post.data.type=="link" or post.data.type=="note" %} <div
+      class="note-card note-{{ post.data.type }}">
+      <div class="note-type">{{ post.data.type }}</div>
+      <div class="note-title">{{ post.data.title }}</div>
+      {% if post.data.description %}
+      <div class="note-body">{{ post.data.description }}</div>
       {% endif %}
-    {% endfor %}
-    {% if note_count == 0 %}
-    <div class="note-card note-empty">
-      <div class="note-body">No quick notes yet.</div>
-    </div>
-    {% endif %}
+      <div class="note-meta">{{ post.date | date: "%b %e, %Y" }}</div>
   </div>
+  {% assign note_count = note_count | plus: 1 %}
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+  {% if note_count == 0 %}
+  <div class="note-card note-empty">
+    <div class="note-body">No quick notes yet.</div>
+  </div>
+  {% endif %}
+</div>
 </div>
 
 {% include "footer.html" %}
