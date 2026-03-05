@@ -14,13 +14,27 @@
 }
 
 .footer-logo {
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  color: var(--text-3);
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+}
+
+.footer-logo svg {
+  height: 2rem;
+  width: auto;
+  display: block;
+}
+
+.footer-logo svg path,
+.footer-logo svg g {
+  fill: var(--text-1);
+  stroke: var(--text-1);
 }
 
 .footer-links {
