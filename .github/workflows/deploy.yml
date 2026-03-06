@@ -46,6 +46,7 @@ jobs:
 
       - name: Push artifact to Dokku
         run: |
+          cp CHECKS _site/
           cd _site
           git init
           git config user.email "deploy@github-actions"
