@@ -6,3 +6,5 @@ sass/bitters/
 .plans/
 posts/musings/
 posts/projects/
+.claude/
+CLAUDE.md
