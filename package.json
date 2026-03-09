@@ -6,7 +6,7 @@
   "repository": "https://github.com/hipsterbrown/hipsterbrown.com",
   "scripts": {
     "start": "eleventy --serve",
-    "start:editor-proxy": "static-cms-proxy-server",
+    "start:editor-proxy": "decap-server",
     "build": "ELEVENTY_ENV=production eleventy"
   },
   "author": "HipsterBrown",
@@ -16,7 +16,7 @@
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "@jamshop/eleventy-plugin-svg": "^2.0.0",
-    "@staticcms/proxy-server": "^4.0.4",
+    "decap-server": "^3.5.2",
     "@tsconfig/recommended": "1.0.13",
     "cssnano": "7.1.2",
     "eleventy-google-fonts": "^0.1.0",
@@ -26,7 +26,5 @@
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "11.2.0"
   },
-  "dependencies": {
-    "@staticcms/core": "^4.3.0"
-  }
+  "dependencies": {}
 }

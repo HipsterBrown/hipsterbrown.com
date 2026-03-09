@@ -1,1 +1,1 @@
-import "./_elements/static-cms-element";
+// DecapCMS is loaded via script tag in admin/index.html
