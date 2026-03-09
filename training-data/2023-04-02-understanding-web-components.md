@@ -3,6 +3,7 @@ title: How I stopped worrying and started working with Web Components
 type: long-form
 description: After a few false starts, this is my current perception of web component as an extensible format and target for composable pieces of UI.
 draft: true
+date: 2023-04-02T00:00:00.000Z
 tags:
 - dev
 - components

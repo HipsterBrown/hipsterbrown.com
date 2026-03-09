@@ -1,4 +1,5 @@
 ---
+date: 2013-05-13T00:00:00.000Z
 title: Hello World
 type: long-form
 description: My Hello World for Hipsterbrown.com

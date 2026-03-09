@@ -1,4 +1,5 @@
 ---
+date: 2013-07-13T00:00:00.000Z
 title: Stop Practicing, Start Performing
 type: long-form
 description: Practice makes perfect but what do you have to show for it at the end of the day. Why not put that work to good use and make something useful.

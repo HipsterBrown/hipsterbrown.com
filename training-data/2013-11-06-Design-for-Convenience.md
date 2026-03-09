@@ -1,4 +1,5 @@
 ---
+date: 2013-11-06T00:00:00.000Z
 title: Design for Convenience - A Pebble App Design
 type: long-form
 description: Pebble apps started off as fun and cheap tricks for a few minutes of amusement—now that the platform is evolving, it's time for those apps to start evolving and adding convenience for its users.

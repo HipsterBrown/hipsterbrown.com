@@ -1,4 +1,5 @@
 ---
+date: 2013-10-09T00:00:00.000Z
 title: Free Is Nice
 type: long-form
 description: There is a considerable amount of free stuff on the Internet— videos, pictures, apps, books, and tons of information. I've definitely viewed and downloaded my fair share of content, but I haven't really given much back in return. So I while procrastinating on a personal project, I came up with two things people might like to use. So now I'm putting them out on the web for free, along with a brief explanation of the process behind their creation.

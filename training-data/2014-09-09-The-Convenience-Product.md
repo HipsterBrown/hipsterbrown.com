@@ -1,4 +1,5 @@
 ---
+date: 2014-09-09T00:00:00.000Z
 title: The Convenience Product (Problem?)
 type: long-form
 description: An look at tech items of convenience and how they evolve over time.

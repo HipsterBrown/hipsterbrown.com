@@ -1,4 +1,5 @@
 ---
+date: 2013-08-23T00:00:00.000Z
 title: An Early Easter Egg Hunt
 type: long-form
 description: Just a quick post about something neat I pushed to the site.

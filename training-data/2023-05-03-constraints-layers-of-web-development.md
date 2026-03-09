@@ -3,6 +3,7 @@ title: The Many Layers of Web Development
 type: long-form
 description: Flexibility and choice is one of the greatest strengths of web development, as well as the core points of division across communities that build for browsers.
 draft: true
+date: 2023-05-03T00:00:00.000Z
 tags:
 - dev
 - web

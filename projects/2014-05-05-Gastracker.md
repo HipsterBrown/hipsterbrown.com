@@ -1,4 +1,5 @@
 ---
+date: 2014-05-05T00:00:00.000Z
 title: Gastracker
 description: A design-in-the-browser crack at a single page web app
 img_excerpt: http://hip.projects.s3.amazonaws.com/GasTracker/gastracker.png

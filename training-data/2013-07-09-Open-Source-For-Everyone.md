@@ -1,4 +1,5 @@
 ---
+date: 2013-07-09T00:00:00.000Z
 title: Open Source for Everyone
 type: long-form
 description: The open source movement has been around since the Internet was a fledgling phenomenon and grown exponentially over the past few years as new tools were released, which made working with open source projects easier for the common computer user. As these tools progressed, the definition of an open source project has also changed to stand for so much more than code.

@@ -3,6 +3,7 @@ title: End-to-End Testing for Everyone
 type: long-form
 description: An overview of browser testing experiences in web frameworks
 draft: true
+date: 2022-09-09T00:00:00.000Z
 tags:
 - dev
 - testing

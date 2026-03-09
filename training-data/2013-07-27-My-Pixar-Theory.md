@@ -1,4 +1,5 @@
 ---
+date: 2013-07-27T00:00:00.000Z
 title: My Pixar Theory
 type: long-form
 description: There are many things to learn from the Pixar franchise, not just for filmmakers and animators but product designers as well.

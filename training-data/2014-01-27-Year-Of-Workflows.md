@@ -1,4 +1,5 @@
 ---
+date: 2014-01-27T00:00:00.000Z
 title: 2014, My Year of Workflows
 type: long-form
 description: As I continue to charge confidently through 2014, I am making my vow here and now to stick to the life of workflows to streamline my management of money, data, photos, projects, and time.

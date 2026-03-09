@@ -1,4 +1,5 @@
 ---
+date: 2021-03-16T00:00:00.000Z
 title: Simple Slot API for React
 type: long-form
 description: One of my favorite features of Web Components is the `slot`, so I've replicated it in React to make more composable components.

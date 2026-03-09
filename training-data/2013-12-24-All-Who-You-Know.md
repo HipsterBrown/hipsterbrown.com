@@ -1,4 +1,5 @@
 ---
+date: 2013-12-24T00:00:00.000Z
 title: It's All Who You Know
 type: long-form
 description: I was surprised to discover it actually was, as the title implies, who I knew that finally landed me a job. I honestly believe it's the best way to find employment for almost anyone in any industry.

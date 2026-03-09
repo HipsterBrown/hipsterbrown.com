@@ -1,4 +1,5 @@
 ---
+date: 2013-08-01T00:00:00.000Z
 title: Summer Review & Plans for Fall
 type: long-form
 description: August has now reared it's ugly head, which means end of summer is near and time to prepare for a full class schedule once again. For this first of the August posts, I thought I would review some site stats from the summer and talk about the plans for Fall productivity.

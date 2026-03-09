@@ -1,4 +1,5 @@
 ---
+date: 2026-03-04T00:00:00.000Z
 title: Cube Sorter
 description: A robot arm that sorts colored cubes using a vision model and depth camera.
 status: building

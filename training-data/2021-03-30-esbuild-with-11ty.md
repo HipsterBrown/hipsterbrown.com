@@ -1,4 +1,5 @@
 ---
+date: 2021-03-30T00:00:00.000Z
 title: Using esbuild with 11ty
 type: long-form
 description: While looking to upgrade my site's asset pipeline, I ended up on esbuild as my solution with just a little bit of integration code.

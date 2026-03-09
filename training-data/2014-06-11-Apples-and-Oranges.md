@@ -1,4 +1,5 @@
 ---
+date: 2014-06-11T00:00:00.000Z
 title: Apples & Oranges
 type: long-form
 description: Thank you, Orlando. Hello, New York. Adventure is out there!

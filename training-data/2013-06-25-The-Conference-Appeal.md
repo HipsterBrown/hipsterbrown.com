@@ -1,4 +1,5 @@
 ---
+date: 2013-06-25T00:00:00.000Z
 title: The Conference Appeal
 type: long-form
 description: I attended my first, and certainly not last, conference about the web recently and it was one of the greatest looks at the industry I want to work in.

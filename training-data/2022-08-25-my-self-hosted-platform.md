@@ -1,4 +1,5 @@
 ---
+date: 2022-08-25T00:00:00.000Z
 title: My Self-Hosted Platform
 type: long-form
 description: Why I choose to use Dokku as a flexible platform to host my personal projects.

@@ -1,4 +1,5 @@
 ---
+date: 2021-04-13T00:00:00.000Z
 title: Decorate Storybook with MirageJS
 type: long-form
 description: Mocking HTTP requests from Storybook can allow for some powerful prototyping capabilities, and I've found MirageJS to be a brilliant tool in that regard.
