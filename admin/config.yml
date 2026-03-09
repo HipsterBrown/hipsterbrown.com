@@ -10,7 +10,7 @@ collections:
     label: "Training Data"
     folder: "training-data"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     sortable_fields:
       fields:
         - 'date'
@@ -35,4 +35,40 @@ collections:
           - { label: "Video", value: "video" }
           - { label: "Audio", value: "audio" }
       - { name: "tags", label: "Tags", widget: "list" }
+      - { name: "body", label: "Body", widget: "markdown" }
+  - name: "projects"
+    label: "Projects"
+    folder: "projects"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields:
+      fields:
+        - 'date'
+        - 'title'
+    editor:
+      preview: false
+    fields:
+      - { name: "title", label: "Title", widget: "string", required: true }
+      - { name: "description", label: "Description", widget: "string", required: true }
+      - { name: "status", label: "Status", widget: "select", options: ["idea", "building", "finished", "archived"], default: "idea" }
+      - { name: "stack", label: "Stack", widget: "list" }
+      - { name: "repo", label: "Repo URL", widget: "string", required: false }
+      - { name: "body", label: "Body", widget: "markdown" }
+  - name: "speaking"
+    label: "Speaking"
+    folder: "speaking"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields:
+      fields:
+        - 'date'
+        - 'title'
+    editor:
+      preview: false
+    fields:
+      - { name: "title", label: "Title", widget: "string", required: true }
+      - { name: "event", label: "Event", widget: "string", required: true }
+      - { name: "date", label: "Date", widget: "datetime", required: true }
+      - { name: "location", label: "Location", widget: "string", required: false }
+      - { name: "link", label: "Link", widget: "string", required: false }
       - { name: "body", label: "Body", widget: "markdown" }
