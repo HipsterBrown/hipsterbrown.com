@@ -1,4 +1,5 @@
 ---
+date: 2021-03-11T00:00:00.000Z
 title: Creating React Context types with generics
 type: long-form
 description: Have you ever tried to produce React Context that used TypeScript generics? It can be a little tricky to get right, so here my working solution.

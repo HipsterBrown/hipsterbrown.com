@@ -1,4 +1,5 @@
 ---
+date: 2021-05-02T00:00:00.000Z
 title: Shipping Web Workers Simply
 type: long-form
 description: Relieve the pain of shipping web workers by packaging them up as tagged template strings

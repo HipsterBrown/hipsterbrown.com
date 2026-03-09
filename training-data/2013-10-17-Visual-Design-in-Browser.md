@@ -1,4 +1,5 @@
 ---
+date: 2013-10-17T00:00:00.000Z
 title: Visual Design in the Browser
 type: long-form
 description: Wireframes and UI design seems to be making it's way to browser first, leaving the Photoshop, Illustrator, Sketch work to the visual designers instead. However, a small trend is happening—moving visual design into the browser.

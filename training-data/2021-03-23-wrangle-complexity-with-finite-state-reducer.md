@@ -1,4 +1,5 @@
 ---
+date: 2021-03-23T00:00:00.000Z
 title: Wrangle complexity with finite-state reducers
 type: long-form
 description: UI state can start out fairly simple, but quickly spiral out of control. How do you know when to reach for a more maintainable pattern?

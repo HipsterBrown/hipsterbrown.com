@@ -1,4 +1,5 @@
 ---
+date: 2014-11-04T00:00:00.000Z
 title: An Open Discussion About People
 type: long-form
 description: Some takeaways from a brief but thorough discussion with Ben Callahan

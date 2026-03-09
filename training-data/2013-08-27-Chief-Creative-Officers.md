@@ -1,4 +1,5 @@
 ---
+date: 2013-08-27T00:00:00.000Z
 title: Where are the Chief Creative Officers
 type: long-form
 description: In a world of CEOs, CFOs, and, even, CTOs, that does it take to accept the role of CCO for a startup or business? Is there even room on the top floor for another chief power?

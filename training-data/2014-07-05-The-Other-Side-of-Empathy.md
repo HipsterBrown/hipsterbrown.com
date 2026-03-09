@@ -1,4 +1,5 @@
 ---
+date: 2014-07-05T00:00:00.000Z
 title: The Other Side of Empathy
 type: long-form
 description: Why we <em>should</em> be able to have nice things.

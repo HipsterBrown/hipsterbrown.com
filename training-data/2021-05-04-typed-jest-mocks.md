@@ -1,4 +1,5 @@
 ---
+date: 2021-05-04T00:00:00.000Z
 title: Typed mocks for Jest
 type: long-form
 description: Combining TypeScript with mocks can be made better using jest-when

@@ -1,4 +1,5 @@
 ---
+date: 2013-05-29T00:00:00.000Z
 title: Importance of Interaction
 type: long-form
 description: A brief summation of my experience with local meetups and my support for others to join in on the fun

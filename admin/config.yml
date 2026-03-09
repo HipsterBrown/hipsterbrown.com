@@ -5,12 +5,17 @@ backend:
   branch: main
   base_url: https://auth.hipsterbrown.com/
 media_folder: "images/uploads"
+publish_mode: editorial_workflow
+display_url: https://hipsterbrown.com
+logo:
+  src: https://hipsterbrown.com/images/Logo.png
+  show_in_header: true
 collections:
   - name: "training-data"
     label: "Training Data"
     folder: "training-data"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     sortable_fields:
       - 'date'
       - 'title'
@@ -19,6 +24,7 @@ collections:
       preview: false
     fields:
       - { name: "draft", label: "Draft", widget: "boolean", default: false }
+      - { name: "date", label: "Date", widget: "datetime", required: true }
       - { name: "title", label: "Title", widget: "string", required: true }
       - { name: "description", label: "Description", widget: "string", required: true }
       - name: "type"
@@ -39,7 +45,7 @@ collections:
     label: "Projects"
     folder: "projects"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     sortable_fields:
       - 'date'
       - 'title'
@@ -47,6 +53,7 @@ collections:
       preview: false
     fields:
       - { name: "title", label: "Title", widget: "string", required: true }
+      - { name: "date", label: "Date", widget: "datetime", required: true }
       - { name: "description", label: "Description", widget: "string", required: true }
       - { name: "status", label: "Status", widget: "select", options: ["idea", "building", "finished", "archived"], default: "idea" }
       - { name: "stack", label: "Stack", widget: "list" }

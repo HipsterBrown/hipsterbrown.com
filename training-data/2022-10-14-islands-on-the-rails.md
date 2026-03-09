@@ -1,4 +1,5 @@
 ---
+date: 2022-10-14T00:00:00.000Z
 title: Islands on the Rails
 type: long-form
 description: An evolution of implementing "islands of richness" in a Ruby on Rails application

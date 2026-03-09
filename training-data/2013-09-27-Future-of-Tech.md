@@ -1,4 +1,5 @@
 ---
+date: 2013-09-27T00:00:00.000Z
 title: The Future of Tech is In and Near Our Hands
 type: long-form
 description: This is not a rant, but an imaginative rethinking of what the future of consumer of technology could look like.

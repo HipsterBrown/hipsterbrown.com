@@ -1,4 +1,5 @@
 ---
+date: 2014-04-15T00:00:00.000Z
 title: Pebble Mock
 description: A sketch mockup of the popular smartwatch for watchface design
 img_excerpt: http://hip.projects.s3.amazonaws.com/Pebble%20Mockup/Pebble_Mockup@2x.png

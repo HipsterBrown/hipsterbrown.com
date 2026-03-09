@@ -1,5 +1,6 @@
 ---
 draft: true
+date: 2023-12-01T00:00:00.000Z
 title: Open Design Docs
 type: long-form
 description: Trialing a new format for sharing ideas.

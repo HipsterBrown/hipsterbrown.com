@@ -1,4 +1,5 @@
 ---
+date: 2013-09-15T00:00:00.000Z
 title: A Personal Site and Delicious New Blogging Service
 type: long-form
 description: I'm always looking for something new to work on in my spare time because I can't help just not being productive, even after hours of class or work. This new project started out as a way to test out an interesting new blogging platform I had stumbled across called Postachio and the process of creating a personal site/blog around it. But as the project began to take shape, it became more about working on a personal brand and creative site with a blog attached.

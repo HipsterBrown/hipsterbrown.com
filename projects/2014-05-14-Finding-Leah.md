@@ -1,4 +1,5 @@
 ---
+date: 2014-05-14T00:00:00.000Z
 title: Finding Leah
 description: A simple site for a creative writer to display her work
 img_excerpt: http://hip.projects.s3.amazonaws.com/Finding%20Leah/Finding_Leah.png

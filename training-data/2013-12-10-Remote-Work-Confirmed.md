@@ -1,4 +1,5 @@
 ---
+date: 2013-12-10T00:00:00.000Z
 title: Remote Work Confirmed
 type: long-form
 description: A quick post about my thoughts on remote worker and the 37signals founders' new book "Remote."

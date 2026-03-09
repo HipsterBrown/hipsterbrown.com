@@ -1,4 +1,5 @@
 ---
+date: 2021-09-13T00:00:00.000Z
 title: Components for Everyone
 type: long-form
 description: With the adoption of component-driven architecture in JS frameworks, how can server-side applications take advantage of a similar workflow in their native languages?

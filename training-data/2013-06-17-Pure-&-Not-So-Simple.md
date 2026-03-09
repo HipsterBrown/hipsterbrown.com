@@ -1,4 +1,5 @@
 ---
+date: 2013-06-17T00:00:00.000Z
 title: Pure & Not-So-Simple
 type: long-form
 description: Learning how to develop with JavaScript can get muddled by the mass of libraries and plugins, so how does one go about learning plain-jane JS?

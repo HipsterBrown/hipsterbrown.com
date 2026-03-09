@@ -1,4 +1,5 @@
 ---
+date: 2014-06-20T00:00:00.000Z
 title: The Creativity Commitment
 type: long-form
 description: In a world where constant consumption is so easy, it is important to carve out some time each week for personal creation.

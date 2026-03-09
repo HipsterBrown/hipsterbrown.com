@@ -3,6 +3,7 @@ title: Your app is already a state machine
 type: long-form
 description: You just haven't seen it yet
 draft: true
+date: 2021-06-07T00:00:00.000Z
 tags:
 - dev
 - state machines

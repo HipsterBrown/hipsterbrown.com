@@ -1,5 +1,6 @@
 ---
 draft: true
+date: 2023-12-01T00:00:00.000Z
 title: Publishing from anywhere with Decap CMS
 type: long-form
 description: Breaking down the biggest barrier to publishing

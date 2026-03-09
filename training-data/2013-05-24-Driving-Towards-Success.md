@@ -1,4 +1,5 @@
 ---
+date: 2013-05-24T00:00:00.000Z
 title: Driving Towards Success
 type: long-form
 description: A simple analogy I thought of recently while driving around to various meetup events
