@@ -3,7 +3,7 @@ backend:
   name: github
   repo: hipsterbrown/hipsterbrown.com
   branch: main
-  # base_url: https://auth.hipsterbrown.com/
+  base_url: https://auth.hipsterbrown.com/
 media_folder: "images/uploads"
 publish_mode: editorial_workflow
 display_url: https://hipsterbrown.com
@@ -15,7 +15,7 @@ collections:
     label: "Training Data"
     folder: "training-data"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     sortable_fields:
       - 'date'
       - 'title'
@@ -45,7 +45,7 @@ collections:
     label: "Projects"
     folder: "projects"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     sortable_fields:
       - 'date'
       - 'title'
