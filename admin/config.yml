@@ -3,7 +3,7 @@ backend:
   name: github
   repo: hipsterbrown/hipsterbrown.com
   branch: main
-  base_url: https://auth.hipsterbrown.com/
+  # base_url: https://auth.hipsterbrown.com/
 media_folder: "images/uploads"
 collections:
   - name: "training-data"
@@ -12,10 +12,9 @@ collections:
     create: true
     slug: "{{slug}}"
     sortable_fields:
-      fields:
-        - 'date'
-        - 'title'
-        - 'slug'
+      - 'date'
+      - 'title'
+      - 'slug'
     editor:
       preview: false
     fields:
@@ -42,9 +41,8 @@ collections:
     create: true
     slug: "{{slug}}"
     sortable_fields:
-      fields:
-        - 'date'
-        - 'title'
+      - 'date'
+      - 'title'
     editor:
       preview: false
     fields:
@@ -60,9 +58,8 @@ collections:
     create: true
     slug: "{{slug}}"
     sortable_fields:
-      fields:
-        - 'date'
-        - 'title'
+      - 'date'
+      - 'title'
     editor:
       preview: false
     fields:

@@ -26,7 +26,5 @@
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "11.2.0"
   },
-  "dependencies": {
-    "decap-cms-app": "^3.0.0"
-  }
+  "dependencies": {}
 }
