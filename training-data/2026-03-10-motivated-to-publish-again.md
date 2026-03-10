@@ -3,9 +3,7 @@ draft: false
 date: 2026-03-09T21:59:00.000-04:00
 title: Motivated to publish again
 description: Writing is fun
-templateEngineOverride:
-  - label: Markdown
-    value: md
+templateEngineOverride: md
 type: note
 ---
 Feels good to want to write and publish again. Parental leave is definitely not a vacation, but it’s provided some space to think away from work to explore some ideas aided by my convenient pair programmer just a quick `claude` away. 
