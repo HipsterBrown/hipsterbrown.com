@@ -16,15 +16,17 @@
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "@jamshop/eleventy-plugin-svg": "^2.0.0",
-    "decap-server": "^3.5.2",
+    "@resvg/resvg-js": "^2.6.2",
     "@tsconfig/recommended": "1.0.13",
     "cssnano": "7.1.2",
+    "decap-server": "^3.5.2",
     "eleventy-google-fonts": "^0.1.0",
     "eleventy-plugin-embed-twitter": "1.4.3",
     "esbuild": "0.27.3",
+    "gray-matter": "^4.0.3",
     "postcss": "8.5.8",
     "postcss-import": "^16.1.1",
-    "postcss-preset-env": "11.2.0"
-  },
-  "dependencies": {}
+    "postcss-preset-env": "11.2.0",
+    "satori": "^0.25.0"
+  }
 }

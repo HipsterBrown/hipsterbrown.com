@@ -1,5 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
-import { glob as globAsync } from 'node:fs/promises'
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import matter from 'gray-matter'
 import { Resvg } from '@resvg/resvg-js'
@@ -222,7 +221,8 @@ await (async () => {
     console.log(`\nGenerated ${count} static OG images.`)
   } else {
     // Generate dynamic images for Training Data posts
-    const files = await globAsync('training-data/*.md')
+    const fileNames = readdirSync('training-data').filter(f => f.endsWith('.md'))
+    const files = fileNames.map(f => join('training-data', f))
     const posts = files.flatMap((file) => {
       const { data } = matter(readFileSync(file, 'utf8'))
       if (data.draft) return []

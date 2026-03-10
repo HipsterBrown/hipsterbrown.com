@@ -40,6 +40,18 @@ module.exports = (config) => {
       sourcemap: process.env.ELEVENTY_ENV !== "production",
     });
   });
+  // Generate dynamic OG images for Training Data posts after build
+  config.on('eleventy.after', async () => {
+    const { spawn } = require('child_process');
+    return new Promise((resolve, reject) => {
+      const proc = spawn('node', ['scripts/generate-og-images.mjs']);
+      proc.on('close', (code) => {
+        if (code === 0) resolve();
+        else reject(new Error(`OG generation failed with code ${code}`));
+      });
+    });
+  });
+
   config.addPlugin(pluginRSS);
   config.addPlugin(pluginSyntaxHighlight);
   config.addPlugin(pluginSvg, {
@@ -73,6 +85,7 @@ module.exports = (config) => {
   config.addPassthroughCopy({ "css/prism-a11y-dark.css": "css/prism-a11y-dark.css" });
   config.addPassthroughCopy("images");
   config.addPassthroughCopy("videos");
+  config.addPassthroughCopy({ "assets/og": "og" });
   config.addPassthroughCopy("admin/config.yml");
   config.setFrontMatterParsingOptions({
     excerpt: true,
