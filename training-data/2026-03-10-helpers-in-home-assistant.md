@@ -4,6 +4,7 @@ date: 2026-03-09T20:17:00.000-04:00
 title: Helpers in Home Assistant
 description: Learning about how helpful helpers are for smart homes
 type: til
+templateEngineOverride: md
 tags:
   - home-assistant
 ---
