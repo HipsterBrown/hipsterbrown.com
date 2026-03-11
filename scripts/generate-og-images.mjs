@@ -145,7 +145,7 @@ function buildCard({ title, type, date, description }) {
                      color: COLOR.text2,
                      lineHeight: 1.4,
                      maxWidth: 960,
-                     marginTop: 12,
+                     marginTop: 4,
                      display: 'flex',
                      WebkitLineClamp: 2,
                      WebkitBoxOrient: 'vertical',
