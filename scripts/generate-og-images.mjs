@@ -36,34 +36,34 @@ const COLOR = {
   text3: '#9A9088',
   accent: {
     'long-form': '#2D6A4F',
-    'til':       '#3D7A5F',
-    'link':      '#C24D2C',
-    'note':      '#C24D2C',
-    'talk':      '#8B6914',
-    'video':     '#8B6914',
-    'audio':     '#8B6914',
+    'til': '#3D7A5F',
+    'link': '#C24D2C',
+    'note': '#C24D2C',
+    'talk': '#8B6914',
+    'video': '#8B6914',
+    'audio': '#8B6914',
   },
 }
 
 const LABEL = {
   'long-form': 'Long Form',
-  'til':       'TIL',
-  'link':      'Link',
-  'note':      'Note',
-  'talk':      'Talk',
-  'video':     'Video',
-  'audio':     'Audio',
+  'til': 'TIL',
+  'link': 'Link',
+  'note': 'Note',
+  'talk': 'Talk',
+  'video': 'Video',
+  'audio': 'Audio',
 }
 
 // ─── Card template ────────────────────────────────────────────────────────────
 
 function buildCard({ title, type, date }) {
   const accent = COLOR.accent[type] ?? COLOR.ink
-  const label = LABEL[type] ?? type ?? 'Post'
+  const label = LABEL[type] ?? type ?? ''
   const dateStr = date
     ? new Date(date).toLocaleDateString('en-US', {
-        year: 'numeric', month: 'long', day: 'numeric',
-      })
+      year: 'numeric', month: 'long', day: 'numeric',
+    })
     : ''
   const titleSize = title.length > 70 ? 48 : title.length > 50 ? 56 : 64
 
@@ -206,10 +206,10 @@ await (async () => {
   if (isStatic) {
     // Generate static images for landing pages
     const staticCards = [
-      { file: 'assets/og/homepage.png', title: 'HipsterBrown', type: null, date: null },
+      { file: 'assets/og/homepage.png', title: 'Building where web meets the physical world', type: null, date: null },
       { file: 'assets/og/projects.png', title: 'Projects', type: null, date: null },
       { file: 'assets/og/speaking.png', title: 'Speaking', type: null, date: null },
-      { file: 'assets/og/default.png', title: 'HipsterBrown', type: null, date: null },
+      { file: 'assets/og/default.png', title: 'Building where web meets the physical world', type: null, date: null },
     ]
 
     let count = 0
@@ -237,7 +237,9 @@ await (async () => {
 
     let count = 0
     for (const post of posts) {
-      const path = await generateForPost(post)
+      // Strip date prefix (YYYY-MM-DD-) and convert to lowercase
+      const cleanSlug = post.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '').toLowerCase()
+      const path = await generateForPost({ ...post, slug: cleanSlug })
       console.log(`✓ ${path}`)
       count++
     }
