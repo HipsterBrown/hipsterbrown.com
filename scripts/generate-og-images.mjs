@@ -25,6 +25,12 @@ const fonts = [
     weight: 600,
     style: 'normal',
   },
+  {
+    name: 'InstrumentSerif',
+    data: readFileSync('./scripts/fonts/InstrumentSerif-Regular.ttf'),
+    weight: 400,
+    style: 'normal',
+  },
 ]
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
@@ -65,7 +71,7 @@ function buildCard({ title, type, date, description }) {
       year: 'numeric', month: 'long', day: 'numeric',
     })
     : ''
-  const titleSize = title.length > 70 ? 48 : title.length > 50 ? 56 : 64
+  const titleSize = title.length > 70 ? 48 : title.length > 50 ? 56 : 72
   // Limit description to 150 characters and 2 lines
   const truncatedDesc = description
     ? description.substring(0, 150) + (description.length > 150 ? '...' : '')
@@ -121,40 +127,51 @@ function buildCard({ title, type, date, description }) {
                   children: label,
                 },
               },
-               // Title
-               {
-                 type: 'div',
-                 props: {
-                   style: {
-                     fontSize: titleSize,
-                     fontWeight: 600,
-                     color: COLOR.ink,
-                     lineHeight: 1.15,
-                     maxWidth: 960,
-                   },
-                   children: title,
-                 },
-               },
-               // Description (optional)
-               ...(truncatedDesc ? [{
-                 type: 'div',
-                 props: {
-                   style: {
-                     fontSize: 24,
-                     fontWeight: 400,
-                     color: COLOR.text2,
-                     lineHeight: 1.4,
-                     maxWidth: 960,
-                     marginTop: 4,
-                     display: 'flex',
-                     WebkitLineClamp: 2,
-                     WebkitBoxOrient: 'vertical',
-                     overflow: 'hidden',
-                   },
-                   children: truncatedDesc,
-                 },
-               }] : []),
-               // Footer row
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column'
+                  },
+                  children: [
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          fontSize: titleSize,
+                          fontFamily: 'InstrumentSerif',
+                          color: COLOR.ink,
+                          lineHeight: 1.15,
+                          maxWidth: 960,
+                        },
+                        children: title,
+                      },
+                    },
+                    // Description (optional)
+                    ...(truncatedDesc ? [{
+                      type: 'div',
+                      props: {
+                        style: {
+                          fontSize: 24,
+                          fontWeight: 400,
+                          color: COLOR.text2,
+                          lineHeight: 1.4,
+                          maxWidth: 960,
+                          marginTop: 4,
+                          display: 'flex',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                        },
+                        children: truncatedDesc,
+                      },
+                    }] : []),
+                  ]
+                }
+              },
+              // Title
+              // Footer row
               {
                 type: 'div',
                 props: {
