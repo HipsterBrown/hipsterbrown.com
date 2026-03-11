@@ -57,7 +57,7 @@ const LABEL = {
 
 // ─── Card template ────────────────────────────────────────────────────────────
 
-function buildCard({ title, type, date }) {
+function buildCard({ title, type, date, description }) {
   const accent = COLOR.accent[type] ?? COLOR.ink
   const label = LABEL[type] ?? type ?? ''
   const dateStr = date
@@ -66,6 +66,10 @@ function buildCard({ title, type, date }) {
     })
     : ''
   const titleSize = title.length > 70 ? 48 : title.length > 50 ? 56 : 64
+  // Limit description to 150 characters and 2 lines
+  const truncatedDesc = description
+    ? description.substring(0, 150) + (description.length > 150 ? '...' : '')
+    : ''
 
   return {
     type: 'div',
@@ -117,21 +121,40 @@ function buildCard({ title, type, date }) {
                   children: label,
                 },
               },
-              // Title
-              {
-                type: 'div',
-                props: {
-                  style: {
-                    fontSize: titleSize,
-                    fontWeight: 600,
-                    color: COLOR.ink,
-                    lineHeight: 1.15,
-                    maxWidth: 960,
-                  },
-                  children: title,
-                },
-              },
-              // Footer row
+               // Title
+               {
+                 type: 'div',
+                 props: {
+                   style: {
+                     fontSize: titleSize,
+                     fontWeight: 600,
+                     color: COLOR.ink,
+                     lineHeight: 1.15,
+                     maxWidth: 960,
+                   },
+                   children: title,
+                 },
+               },
+               // Description (optional)
+               ...(truncatedDesc ? [{
+                 type: 'div',
+                 props: {
+                   style: {
+                     fontSize: 24,
+                     fontWeight: 400,
+                     color: COLOR.text2,
+                     lineHeight: 1.4,
+                     maxWidth: 960,
+                     marginTop: 12,
+                     display: 'flex',
+                     WebkitLineClamp: 2,
+                     WebkitBoxOrient: 'vertical',
+                     overflow: 'hidden',
+                   },
+                   children: truncatedDesc,
+                 },
+               }] : []),
+               // Footer row
               {
                 type: 'div',
                 props: {
@@ -183,10 +206,10 @@ async function renderPng(card) {
   return resvg.render().asPng()
 }
 
-async function generateForPost({ slug, title, type, date }) {
+async function generateForPost({ slug, title, type, date, description }) {
   const outputPath = join('_site', 'og', `${slug}.png`)
   mkdirSync(dirname(outputPath), { recursive: true })
-  const png = await renderPng(buildCard({ title, type, date }))
+  const png = await renderPng(buildCard({ title, type, date, description }))
   writeFileSync(outputPath, png)
   return outputPath
 }
