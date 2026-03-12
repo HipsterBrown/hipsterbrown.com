@@ -231,9 +231,9 @@ async function generateForPost({ slug, title, type, date, description }) {
   return outputPath
 }
 
-async function generateStatic(outputPath, { title, type, date }) {
+async function generateStatic(outputPath, { title, type, date, description }) {
   mkdirSync(dirname(outputPath), { recursive: true })
-  const png = await renderPng(buildCard({ title, type, date }))
+  const png = await renderPng(buildCard({ title, type, date, description }))
   writeFileSync(outputPath, png)
   return outputPath
 }
@@ -246,15 +246,16 @@ await (async () => {
   if (isStatic) {
     // Generate static images for landing pages
     const staticCards = [
-      { file: 'assets/og/homepage.png', title: 'Building where web meets the physical world', type: null, date: null },
+      { file: 'assets/og/homepage.png', title: 'Building where web meets the physical world', type: null, date: null, description: 'I make things, break things, and teach what I learn' },
       { file: 'assets/og/projects.png', title: 'Projects', type: null, date: null },
       { file: 'assets/og/speaking.png', title: 'Speaking', type: null, date: null },
-      { file: 'assets/og/default.png', title: 'Building where web meets the physical world', type: null, date: null },
+      { file: 'assets/og/training-data.png', title: 'Training Data', type: null, date: null, description: 'Sharing what I learn with the world and the robots.' },
+      { file: 'assets/og/default.png', title: 'Building where web meets the physical world', type: null, date: null, description: 'I make things, break things, and teach what I learn' },
     ]
 
     let count = 0
-    for (const { file, title, type, date } of staticCards) {
-      await generateStatic(file, { title, type, date })
+    for (const { file, title, type, date, description } of staticCards) {
+      await generateStatic(file, { title, type, date, description })
       console.log(`✓ ${file}`)
       count++
     }
