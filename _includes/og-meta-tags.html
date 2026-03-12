@@ -1,0 +1,19 @@
+<!-- Open Graph Meta Tags -->
+{%- if type -%}
+  {%- assign ogImageUrl = '/og/' | append: page.fileSlug | append: '.png' -%}
+{%- else -%}
+  {%- assign ogImageUrl = '/og/' | append: ogImage | default: 'default.png' | append: '' -%}
+{%- endif -%}
+
+<meta property="og:title" content="{{ title | escape }}">
+<meta property="og:description" content="{{ description | escape }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ canonicalUrl }}">
+<meta property="og:image" content="https://hipsterbrown.com{{ ogImageUrl }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ title | escape }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title | escape }}">
+<meta name="twitter:description" content="{{ description | escape }}">
+<meta name="twitter:image" content="https://hipsterbrown.com{{ ogImageUrl }}">
