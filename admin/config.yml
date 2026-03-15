@@ -27,6 +27,7 @@ collections:
       - { name: "date", label: "Date", widget: "datetime", required: true }
       - { name: "title", label: "Title", widget: "string", required: true }
       - { name: "description", label: "Description", widget: "string", required: true }
+      - { name: "external_url", label: "Link URL", widget: "string", required: false }
       - name: "templateEngineOverride"
         label: "Template Engine"
         widget: "select"

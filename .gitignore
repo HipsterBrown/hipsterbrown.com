@@ -9,7 +9,7 @@ css/main.min.css.map
 css/main.min.css
 css/main.css
 js/app.min.js
-assets/
+# assets/
 CLAUDE.md
 .claude/
 .devcontainer/

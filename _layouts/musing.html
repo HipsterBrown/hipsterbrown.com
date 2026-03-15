@@ -5,10 +5,18 @@ highlight: true
 
 {% include "header.html" %}
 
+{% if draft %}
+<div class="draft-banner" role="alert">Draft — not published</div>
+{% endif %}
 <header class="post-header">
   <div class="container">
     {% if type %}<span class="post-type-badge type-{{ type }}">{{ type }}</span>{% endif %}
+    {% if type == "link" and external_url %}
+    <h1><a href="{{ external_url }}" rel="noopener noreferrer" target="_blank" class="post-external-link">{{ title
+        }}<span aria-hidden="true" class="post-external-arrow">↗</span></a></h1>
+    {% else %}
     <h1>{{ title }}</h1>
+    {% endif %}
     <p class="mono post-meta">{{ page.date | date: "%B %e, %Y" }}</p>
   </div>
 </header>
