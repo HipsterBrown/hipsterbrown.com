@@ -3,8 +3,8 @@
 </div>
 <footer class="site-footer">
   <a href="/" class="footer-logo" aria-label="HipsterBrown — home">
-  {% svg "Logo" %}
-</a>
+    {% svg "Logo" %}
+  </a>
   <ul class="footer-links">
     <li><a rel="me" href="https://toot.cafe/@hipsterbrown">Mastodon</a></li>
     <li><a rel="me" href="https://bsky.app/profile/hipsterbrown.com">Bluesky</a></li>
@@ -14,6 +14,9 @@
   <span class="footer-copy">© {{ currentYear }} Nick Hehr</span>
 </footer>
 <script type="text/javascript" src="/assets/app.js" charset="utf-8"></script>
+{% if env.mode == "production" %}
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+{% endif %}
 </body>
 
 </html>

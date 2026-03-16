@@ -1,4 +1,5 @@
-const path = require("path");
+const path = require("node:path");
+const { execSync } = require("node:child_process")
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const {
@@ -32,12 +33,22 @@ function getCategory(name) {
 
 module.exports = (config) => {
   config.on("eleventy.after", () => {
+    const isProd = process.env.ELEVENTY_ENV === "production"
+    let release = "dev"
+    try {
+      release = execSync("git rev-parse --short HEAD").toString().trim()
+    } catch { }
+
     return esbuild.build({
       entryPoints: ["js/*.ts"],
       bundle: true,
       outdir: "_site/assets",
-      minify: process.env.ELEVENTY_ENV === "production",
-      sourcemap: process.env.ELEVENTY_ENV !== "production",
+      minify: isProd,
+      sourcemap: true,
+      define: {
+        __ELEVENTY_ENV__: JSON.stringify(process.env.ELEVENTY_ENV ?? "dev"),
+        __RELEASE__: JSON.stringify(release),
+      }
     });
   });
   // Generate dynamic OG images for Training Data posts after build

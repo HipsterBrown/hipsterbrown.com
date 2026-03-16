@@ -33,6 +33,17 @@ jobs:
         env:
           ELEVENTY_ENV: production
 
+      - name: Upload sourcemaps
+        run: |
+          npx sentry-cli sourcemaps inject ./_site/assets/
+          npx sentry-cli --url "$SENTRY_URL" sourcemaps --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" upload ./_site/assets
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_URL: ${{ secrets.SENTRY_URL }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
+
       - name: Add static marker
         run: touch _site/.static
 
