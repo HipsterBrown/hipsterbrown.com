@@ -1,6 +1,8 @@
 <!-- Open Graph Meta Tags -->
 {%- if type -%}
   {%- assign ogImageUrl = '/og/' | append: page.fileSlug | append: '.png' -%}
+{%- elsif contentType == "project" -%}
+  {%- assign ogImageUrl = '/og/projects/' | append: page.fileSlug | append: '.png' -%}
 {%- else -%}
   {%- assign ogImageUrl = '/og/' | append: ogImage | default: 'default.png' | append: '' -%}
 {%- endif -%}
