@@ -61,6 +61,7 @@ class SiteNavElement extends HTMLElement {
     if (!this.popover) return;
     this._isOpen = true;
     this.popover.classList.add('is-open');
+    this.popover.removeAttribute('aria-hidden');
     this.triggers?.forEach(btn => btn.setAttribute('aria-expanded', 'true'));
     document.addEventListener('mousedown', this._onDocClick);
   }
@@ -69,6 +70,7 @@ class SiteNavElement extends HTMLElement {
     if (!this.popover) return;
     this._isOpen = false;
     this.popover.classList.remove('is-open');
+    this.popover.setAttribute('aria-hidden', 'true');
     this.triggers?.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
     document.removeEventListener('mousedown', this._onDocClick);
   }
