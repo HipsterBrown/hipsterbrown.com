@@ -61,6 +61,12 @@ const LABEL = {
   'audio': 'Audio',
 }
 
+const STATUS_COLOR = {
+  'building': '#C24D2C',    // brick
+  'ongoing': '#2D6A4F',     // green
+  'in progress': '#8B6914', // amber
+}
+
 // ─── Card template ────────────────────────────────────────────────────────────
 
 function buildCard({ title, type, date, description }) {
@@ -211,6 +217,169 @@ function buildCard({ title, type, date, description }) {
   }
 }
 
+function buildProjectCard({ title, status, description, stack }) {
+  const statusColor = STATUS_COLOR[status] ?? COLOR.text3
+  const titleSize = title.length > 70 ? 48 : title.length > 50 ? 56 : 72
+  const truncatedDesc = description
+    ? description.substring(0, 150) + (description.length > 150 ? '...' : '')
+    : ''
+  const visibleStack = (stack ?? []).slice(0, 4)
+
+  return {
+    type: 'div',
+    props: {
+      style: {
+        width: 1200,
+        height: 630,
+        background: COLOR.bg,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: '0px',
+        fontFamily: 'Epilogue',
+        boxSizing: 'border-box',
+      },
+      children: [
+        // Top accent bar (always green for projects)
+        {
+          type: 'div',
+          props: {
+            style: { width: '100%', height: 8, background: COLOR.accent['long-form'] },
+            children: '',
+          },
+        },
+        // Main content
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              flex: 1,
+              padding: '56px 80px 64px',
+            },
+            children: [
+              // Label
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    fontFamily: 'Syne',
+                    fontSize: 20,
+                    fontWeight: 800,
+                    color: COLOR.accent['long-form'],
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                  },
+                  children: 'Project',
+                },
+              },
+              // Title + description
+              {
+                type: 'div',
+                props: {
+                  style: { display: 'flex', flexDirection: 'column' },
+                  children: [
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          fontSize: titleSize,
+                          fontFamily: 'InstrumentSerif',
+                          color: COLOR.ink,
+                          lineHeight: 1.15,
+                          maxWidth: 960,
+                        },
+                        children: title,
+                      },
+                    },
+                    ...(truncatedDesc ? [{
+                      type: 'div',
+                      props: {
+                        style: {
+                          fontSize: 24,
+                          fontWeight: 400,
+                          color: COLOR.text2,
+                          lineHeight: 1.4,
+                          maxWidth: 960,
+                          marginTop: 4,
+                        },
+                        children: truncatedDesc,
+                      },
+                    }] : []),
+                  ],
+                },
+              },
+              // Footer row: stack pills + status
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-end',
+                  },
+                  children: [
+                    // Stack pills
+                    {
+                      type: 'div',
+                      props: {
+                        style: { display: 'flex', gap: 8 },
+                        children: visibleStack.length > 0
+                          ? visibleStack.map(tech => ({
+                              type: 'div',
+                              props: {
+                                style: {
+                                  fontFamily: 'Epilogue',
+                                  fontSize: 14,
+                                  fontWeight: 600,
+                                  color: COLOR.ink,
+                                  background: '#E8E3DB',
+                                  borderRadius: 4,
+                                  padding: '3px 8px',
+                                },
+                                children: tech,
+                              },
+                            }))
+                          : [{
+                              type: 'div',
+                              props: {
+                                style: {
+                                  fontFamily: 'Syne',
+                                  fontSize: 28,
+                                  fontWeight: 800,
+                                  color: COLOR.ink,
+                                },
+                                children: 'HipsterBrown',
+                              },
+                            }],
+                      },
+                    },
+                    // Status
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          fontFamily: 'Epilogue',
+                          fontSize: 18,
+                          fontWeight: 600,
+                          color: statusColor,
+                        },
+                        children: status ?? '',
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+  }
+}
+
 // ─── Render ───────────────────────────────────────────────────────────────────
 
 async function renderPng(card) {
@@ -231,6 +400,14 @@ async function generateForPost({ slug, title, type, date, description }) {
   return outputPath
 }
 
+async function generateForProject({ slug, title, status, description, stack }) {
+  const outputPath = join('_site', 'og', 'projects', `${slug}.png`)
+  mkdirSync(dirname(outputPath), { recursive: true })
+  const png = await renderPng(buildProjectCard({ title, status, description, stack }))
+  writeFileSync(outputPath, png)
+  return outputPath
+}
+
 async function generateStatic(outputPath, { title, type, date, description }) {
   mkdirSync(dirname(outputPath), { recursive: true })
   const png = await renderPng(buildCard({ title, type, date, description }))
@@ -247,7 +424,7 @@ await (async () => {
     // Generate static images for landing pages
     const staticCards = [
       { file: 'assets/og/homepage.png', title: 'Building where web meets the physical world', type: null, date: null, description: 'I make things, break things, and teach what I learn' },
-      { file: 'assets/og/projects.png', title: 'Projects', type: null, date: null },
+      { file: 'assets/og/projects.png', title: 'Projects', type: null, date: null, description: "The work that's never done." },
       { file: 'assets/og/speaking.png', title: 'Speaking', type: null, date: null },
       { file: 'assets/og/training-data.png', title: 'Training Data', type: null, date: null, description: 'Sharing what I learn with the world and the robots.' },
       { file: 'assets/og/default.png', title: 'Building where web meets the physical world', type: null, date: null, description: 'I make things, break things, and teach what I learn' },
@@ -285,5 +462,23 @@ await (async () => {
       count++
     }
     console.log(`\nGenerated ${count} OG images.`)
+
+    // Generate project OG images
+    const projectFileNames = readdirSync('projects').filter(f => f.endsWith('.md'))
+    const projectFiles = projectFileNames.map(f => join('projects', f))
+    const projects = projectFiles.flatMap((file) => {
+      const { data } = matter(readFileSync(file, 'utf8'))
+      if (data.draft || data.archive) return []
+      const slug = file.replace('projects/', '').replace('.md', '')
+      return [{ slug, ...data }]
+    })
+
+    let projectCount = 0
+    for (const project of projects) {
+      const path = await generateForProject({ ...project })
+      console.log(`✓ ${path}`)
+      projectCount++
+    }
+    console.log(`\nGenerated ${projectCount} project OG images.`)
   }
 })()
