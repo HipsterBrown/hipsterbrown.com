@@ -82,6 +82,7 @@ class SiteNavElement extends HTMLElement {
   private _setActiveFromURL() {
     if (!this.items) return;
     const path = window.location.pathname;
+    let hasActive = false;
 
     this.items.forEach(item => {
       const href = item.getAttribute('href') ?? '';
@@ -95,6 +96,7 @@ class SiteNavElement extends HTMLElement {
       item.classList.toggle('is-active', isActive);
 
       if (isActive) {
+        hasActive = true;
         item.setAttribute('aria-current', 'page');
         const label = item.querySelector('.site-nav__item-label')?.textContent;
         if (label && this.channel) {
@@ -104,6 +106,10 @@ class SiteNavElement extends HTMLElement {
         item.removeAttribute('aria-current');
       }
     });
+
+    if (!hasActive && this.channel) {
+      this.channel.textContent = 'Select section';
+    }
   }
 }
 
