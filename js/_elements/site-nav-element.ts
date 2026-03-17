@@ -1,74 +1,96 @@
 class SiteNavElement extends HTMLElement {
-  private popover!: HTMLElement;
-  private triggers!: NodeListOf<HTMLButtonElement>;
-  private channel!: HTMLElement;
-  private items!: NodeListOf<HTMLAnchorElement>;
+  private popover: HTMLElement | null = null;
+  private triggers: NodeListOf<HTMLButtonElement> | null = null;
+  private channel: HTMLElement | null = null;
+  private items: NodeListOf<HTMLAnchorElement> | null = null;
   private _isOpen = false;
-  private _onDocClick!: (e: MouseEvent) => void;
+  private _onDocClick: (e: MouseEvent) => void;
+  private _onKeyDown: (e: KeyboardEvent) => void;
+
+  constructor() {
+    super();
+    this._onDocClick = this._handleOutsideClick.bind(this);
+    this._onKeyDown = this._handleKeyDown.bind(this);
+  }
 
   connectedCallback() {
-    this.popover = this.querySelector('.site-nav__popover') as HTMLElement;
+    this.popover = this.querySelector('.site-nav__popover');
     this.triggers = this.querySelectorAll<HTMLButtonElement>('.site-nav__explore-btn');
-    this.channel = this.querySelector('.site-nav__channel') as HTMLElement;
+    this.channel = this.querySelector('.site-nav__channel');
     this.items = this.querySelectorAll<HTMLAnchorElement>('.site-nav__item');
 
-    this._onDocClick = this._handleOutsideClick.bind(this);
-
-    this.triggers.forEach(btn => {
-      btn.addEventListener('click', () => this.toggle());
-    });
-
-    this.items.forEach(item => {
-      item.addEventListener('click', () => this.close());
-    });
+    this.addEventListener('click', this._handleClick);
+    this.addEventListener('keydown', this._onKeyDown);
 
     this._setActiveFromURL();
-
-    this.addEventListener('keydown', (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && this._isOpen) {
-        this.close();
-        const visibleTrigger = Array.from(this.triggers).find(
-          btn => btn.offsetParent !== null
-        );
-        visibleTrigger?.focus();
-      }
-    });
   }
 
-  toggle() {
-    this._isOpen ? this.close() : this.open();
+  disconnectedCallback() {
+    this.removeEventListener('click', this._handleClick);
+    this.removeEventListener('keydown', this._onKeyDown);
+    document.removeEventListener('mousedown', this._onDocClick);
   }
 
-  open() {
+  private _handleClick = (e: Event) => {
+    const target = e.target as HTMLElement;
+    const trigger = target.closest('.site-nav__explore-btn');
+    const item = target.closest('.site-nav__item');
+
+    if (trigger) {
+      this._toggle();
+    } else if (item) {
+      this._close();
+    }
+  };
+
+  private _handleKeyDown(e: KeyboardEvent) {
+    if (e.key === 'Escape' && this._isOpen) {
+      this._close();
+      const visibleTrigger = this.triggers
+        ? Array.from(this.triggers).find(btn => btn.offsetParent !== null)
+        : null;
+      visibleTrigger?.focus();
+    }
+  }
+
+  private _toggle() {
+    this._isOpen ? this._close() : this._open();
+  }
+
+  private _open() {
+    if (!this.popover) return;
     this._isOpen = true;
     this.popover.classList.add('is-open');
-    this.triggers.forEach(btn => btn.setAttribute('aria-expanded', 'true'));
+    this.triggers?.forEach(btn => btn.setAttribute('aria-expanded', 'true'));
     document.addEventListener('mousedown', this._onDocClick);
   }
 
-  close() {
+  private _close() {
+    if (!this.popover) return;
     this._isOpen = false;
     this.popover.classList.remove('is-open');
-    this.triggers.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+    this.triggers?.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
     document.removeEventListener('mousedown', this._onDocClick);
   }
 
   private _handleOutsideClick(e: MouseEvent) {
     if (!this.contains(e.target as Node)) {
-      this.close();
+      this._close();
     }
   }
 
   private _setActiveFromURL() {
+    if (!this.items) return;
     const path = window.location.pathname;
 
     this.items.forEach(item => {
       const href = item.getAttribute('href') ?? '';
-      // Normalize: strip trailing slash for comparison
       const hrefBase = href.replace(/\/$/, '');
-      const isActive = path === hrefBase
+      const isActive = hrefBase !== '' && (
+        path === hrefBase
         || path === hrefBase + '/'
-        || path.startsWith(hrefBase + '/');
+        || path.startsWith(hrefBase + '/')
+      );
 
       item.classList.toggle('is-active', isActive);
 
