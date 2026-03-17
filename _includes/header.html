@@ -29,12 +29,4 @@
 
 <body>
   <a class="skip-main" href="#main" tabindex="0">Skip to main content</a>
-  <nav class="site-nav">
-    <a href="/" class="site-logo">HipsterBrown</a>
-    <ul class="nav-links">
-      <li {% if page.url contains '/training-data' %}class="nav-active" {% endif %}>
-        <a href="/training-data/">Training Data</a>
-      </li>
-    </ul>
-    <theme-toggle aria-label="Toggle dark mode" role="button" tabindex="0"></theme-toggle>
-  </nav>
+  {% include "components/site-nav.html" %}
