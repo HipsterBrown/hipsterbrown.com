@@ -163,6 +163,7 @@ module.exports = (config) => {
   // Archive: reserved for future /projects/archive page
   config.addCollection("projectsArchive", (collection) =>
     collection.getFilteredByGlob("projects/*.md")
+      .reverse()
       .filter((post) => post.data.archive)
   );
 
