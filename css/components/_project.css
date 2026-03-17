@@ -66,7 +66,7 @@
 }
 
 .project-link-source {
-  color: var(--text-3);
+  color: var(--text-2);
 }
 
 .project-screenshot {
@@ -74,4 +74,10 @@
   border-radius: 8px;
   margin-bottom: var(--space-8);
   border: 1px solid var(--border);
+}
+
+.project-header-meta {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  margin-top: var(--space-2);
 }

@@ -17,6 +17,9 @@ permalink: "/projects/{{ page.fileSlug }}/"
     {% if description %}
     <p class="project-header-desc">{{ description }}</p>
     {% endif %}
+    {% if updated %}
+    <p class="mono project-header-meta">Updated {{ updated | date: "%B %e, %Y" }}</p>
+    {% endif %}
     {% if stack %}
     <div class="project-header-stack">
       {% for tech in stack %}
