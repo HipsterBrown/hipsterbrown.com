@@ -4,6 +4,10 @@ permalink: "/projects/{{ page.fileSlug }}/"
 
 {% include "header.html" %}
 
+{% if draft %}
+<div class="draft-banner" role="alert">Draft — not published</div>
+{% endif %}
+
 <header class="post-header">
   <div class="container">
     {% if status %}
