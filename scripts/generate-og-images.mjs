@@ -260,19 +260,45 @@ function buildProjectCard({ title, status, description, stack }) {
               padding: '56px 80px 64px',
             },
             children: [
-              // Label
+              // Label row: type (left) + status (right)
               {
                 type: 'div',
                 props: {
                   style: {
-                    fontFamily: 'Syne',
-                    fontSize: 20,
-                    fontWeight: 800,
-                    color: COLOR.accent['long-form'],
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
                   },
-                  children: 'Project',
+                  children: [
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          fontFamily: 'Syne',
+                          fontSize: 20,
+                          fontWeight: 800,
+                          color: COLOR.accent['long-form'],
+                          letterSpacing: '0.12em',
+                          textTransform: 'uppercase',
+                        },
+                        children: 'Project',
+                      },
+                    },
+                    ...(status ? [{
+                      type: 'div',
+                      props: {
+                        style: {
+                          fontFamily: 'Syne',
+                          fontSize: 18,
+                          fontWeight: 800,
+                          color: statusColor,
+                          letterSpacing: '0.08em',
+                          textTransform: 'uppercase',
+                        },
+                        children: status,
+                      },
+                    }] : []),
+                  ],
                 },
               },
               // Title + description
@@ -311,7 +337,7 @@ function buildProjectCard({ title, status, description, stack }) {
                   ],
                 },
               },
-              // Footer row: wordmark (left) + stack pills + status (right)
+              // Footer row: wordmark (left) + stack pills (right)
               {
                 type: 'div',
                 props: {
@@ -334,40 +360,26 @@ function buildProjectCard({ title, status, description, stack }) {
                         children: 'HipsterBrown',
                       },
                     },
-                    // Stack pills + status
+                    // Stack pills
                     {
                       type: 'div',
                       props: {
-                        style: { display: 'flex', gap: 12, alignItems: 'flex-end' },
-                        children: [
-                          ...visibleStack.map(tech => ({
-                            type: 'div',
-                            props: {
-                              style: {
-                                fontFamily: 'Epilogue',
-                                fontSize: 14,
-                                fontWeight: 600,
-                                color: COLOR.ink,
-                                background: '#E8E3DB',
-                                borderRadius: 4,
-                                padding: '3px 8px',
-                              },
-                              children: tech,
+                        style: { display: 'flex', gap: 8, alignItems: 'flex-end' },
+                        children: visibleStack.map(tech => ({
+                          type: 'div',
+                          props: {
+                            style: {
+                              fontFamily: 'Epilogue',
+                              fontSize: 14,
+                              fontWeight: 600,
+                              color: COLOR.ink,
+                              background: '#E8E3DB',
+                              borderRadius: 4,
+                              padding: '3px 8px',
                             },
-                          })),
-                          ...(status ? [{
-                            type: 'div',
-                            props: {
-                              style: {
-                                fontFamily: 'Epilogue',
-                                fontSize: 18,
-                                fontWeight: 600,
-                                color: statusColor,
-                              },
-                              children: status,
-                            },
-                          }] : []),
-                        ],
+                            children: tech,
+                          },
+                        })),
                       },
                     },
                   ],
