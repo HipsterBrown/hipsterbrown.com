@@ -1,0 +1,83 @@
+<site-nav>
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav__bar">
+      <a href="/" class="site-nav__logo" aria-label="HipsterBrown home">
+        <span class="site-nav__logo-full">HIPSTERBROWN</span>
+        <span class="site-nav__logo-mark">HB</span>
+      </a>
+
+      <div class="site-nav__actions">
+        <theme-toggle aria-label="Toggle dark mode" role="button" tabindex="0"></theme-toggle>
+
+        <!-- Text trigger (shown ≥ 480px) -->
+        <button
+          class="site-nav__explore-btn site-nav__explore-btn--text"
+          aria-expanded="false"
+          aria-controls="explore-popover"
+        >
+          <span class="site-nav__explore-label-closed">explore ▾</span>
+          <span class="site-nav__explore-label-open">
+            close
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Icon trigger (shown < 480px) -->
+        <button
+          class="site-nav__explore-btn site-nav__explore-btn--icon"
+          aria-expanded="false"
+          aria-controls="explore-popover"
+        >
+          <span class="site-nav__explore-label-closed">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" opacity="0.3" stroke="currentColor"/>
+            </svg>
+          </span>
+          <span class="site-nav__explore-label-open">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Popover panel -->
+    <div id="explore-popover" class="site-nav__popover" role="menu">
+      <div class="site-nav__channel" aria-live="polite">Select section</div>
+      <div class="site-nav__grid" role="group">
+        <a href="/projects/" class="site-nav__item" role="menuitem">
+          <span class="site-nav__led" aria-hidden="true"></span>
+          <span class="site-nav__item-content">
+            <span class="site-nav__item-label">Projects</span>
+            <span class="site-nav__item-desc">What I'm building</span>
+          </span>
+        </a>
+        <a href="/training-data/" class="site-nav__item" role="menuitem">
+          <span class="site-nav__led" aria-hidden="true"></span>
+          <span class="site-nav__item-content">
+            <span class="site-nav__item-label">Training Data</span>
+            <span class="site-nav__item-desc">Writing, links, notes</span>
+          </span>
+        </a>
+        <a href="/demos/" class="site-nav__item" role="menuitem">
+          <span class="site-nav__led" aria-hidden="true"></span>
+          <span class="site-nav__item-content">
+            <span class="site-nav__item-label">Demos</span>
+            <span class="site-nav__item-desc">Interactive experiments</span>
+          </span>
+        </a>
+        <a href="/speaking/" class="site-nav__item" role="menuitem">
+          <span class="site-nav__led" aria-hidden="true"></span>
+          <span class="site-nav__item-content">
+            <span class="site-nav__item-label">Speaking</span>
+            <span class="site-nav__item-desc">Talks & appearances</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</site-nav>
