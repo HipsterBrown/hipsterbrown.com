@@ -152,6 +152,20 @@ module.exports = (config) => {
       .filter((post) => ["talk", "video", "audio"].includes(post.data.type))
   );
 
+  // Active projects: excludes drafts (in production) and archived
+  config.addCollection("projects", (collection) =>
+    collection.getFilteredByGlob("projects/*.md")
+      .reverse()
+      .filter((post) => process.env.ELEVENTY_ENV !== "production" || !post.data.draft)
+      .filter((post) => !post.data.archive)
+  );
+
+  // Archive: reserved for future /projects/archive page
+  config.addCollection("projectsArchive", (collection) =>
+    collection.getFilteredByGlob("projects/*.md")
+      .filter((post) => post.data.archive)
+  );
+
   return {
     dir: {
       includes: "_includes",
