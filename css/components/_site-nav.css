@@ -143,7 +143,7 @@ site-nav {
     width: 320px;
     border: 1px solid var(--surface);
     border-radius: 10px;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(240,230,215,0.04);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px color-mix(in srgb, var(--border) 50%, transparent);
     z-index: 100;
     opacity: 0;
     transform: translateY(-8px);
