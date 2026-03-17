@@ -311,7 +311,7 @@ function buildProjectCard({ title, status, description, stack }) {
                   ],
                 },
               },
-              // Footer row: stack pills + status
+              // Footer row: wordmark (left) + stack pills + status (right)
               {
                 type: 'div',
                 props: {
@@ -321,52 +321,53 @@ function buildProjectCard({ title, status, description, stack }) {
                     alignItems: 'flex-end',
                   },
                   children: [
-                    // Stack pills
-                    {
-                      type: 'div',
-                      props: {
-                        style: { display: 'flex', gap: 8 },
-                        children: visibleStack.length > 0
-                          ? visibleStack.map(tech => ({
-                              type: 'div',
-                              props: {
-                                style: {
-                                  fontFamily: 'Epilogue',
-                                  fontSize: 14,
-                                  fontWeight: 600,
-                                  color: COLOR.ink,
-                                  background: '#E8E3DB',
-                                  borderRadius: 4,
-                                  padding: '3px 8px',
-                                },
-                                children: tech,
-                              },
-                            }))
-                          : [{
-                              type: 'div',
-                              props: {
-                                style: {
-                                  fontFamily: 'Syne',
-                                  fontSize: 28,
-                                  fontWeight: 800,
-                                  color: COLOR.ink,
-                                },
-                                children: 'HipsterBrown',
-                              },
-                            }],
-                      },
-                    },
-                    // Status
+                    // Wordmark
                     {
                       type: 'div',
                       props: {
                         style: {
-                          fontFamily: 'Epilogue',
-                          fontSize: 18,
-                          fontWeight: 600,
-                          color: statusColor,
+                          fontFamily: 'Syne',
+                          fontSize: 28,
+                          fontWeight: 800,
+                          color: COLOR.ink,
                         },
-                        children: status ?? '',
+                        children: 'HipsterBrown',
+                      },
+                    },
+                    // Stack pills + status
+                    {
+                      type: 'div',
+                      props: {
+                        style: { display: 'flex', gap: 12, alignItems: 'flex-end' },
+                        children: [
+                          ...visibleStack.map(tech => ({
+                            type: 'div',
+                            props: {
+                              style: {
+                                fontFamily: 'Epilogue',
+                                fontSize: 14,
+                                fontWeight: 600,
+                                color: COLOR.ink,
+                                background: '#E8E3DB',
+                                borderRadius: 4,
+                                padding: '3px 8px',
+                              },
+                              children: tech,
+                            },
+                          })),
+                          ...(status ? [{
+                            type: 'div',
+                            props: {
+                              style: {
+                                fontFamily: 'Epilogue',
+                                fontSize: 18,
+                                fontWeight: 600,
+                                color: statusColor,
+                              },
+                              children: status,
+                            },
+                          }] : []),
+                        ],
                       },
                     },
                   ],
