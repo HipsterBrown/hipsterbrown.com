@@ -87,6 +87,11 @@ site-nav {
   gap: 4px;
 }
 
+.site-nav__explore-btn:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
 /* Text variant (≥ 480px) */
 .site-nav__explore-btn--text {
   font-family: var(--font-mono);
@@ -229,12 +234,17 @@ site-nav {
   border-radius: 6px;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .site-nav__item:hover {
   background: var(--surface);
+}
+
+.site-nav__item:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
 }
 
 .site-nav__item.is-active {
