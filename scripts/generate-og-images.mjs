@@ -469,7 +469,7 @@ await (async () => {
     const projects = projectFiles.flatMap((file) => {
       const { data } = matter(readFileSync(file, 'utf8'))
       if (data.draft || data.archive) return []
-      const slug = file.replace('projects/', '').replace('.md', '')
+      const slug = file.replace('projects/', '').replace('.md', '').replace(/^\d{4}-\d{2}-\d{2}-/, '').toLowerCase()
       return [{ slug, ...data }]
     })
 
