@@ -9,6 +9,7 @@ stack:
   - RealSense
   - uFactory Lite6
 repo: https://github.com/HipsterBrown/cube-sorter
+draft: true
 ---
 
 A vision-guided robot arm build using a RealSense depth camera, Jetson Nano, and uFactory Lite6 arm — all orchestrated via Viam.
