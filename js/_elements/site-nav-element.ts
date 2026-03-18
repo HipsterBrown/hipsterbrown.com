@@ -1,5 +1,5 @@
 class SiteNavElement extends HTMLElement {
-  private popover: HTMLElement | null = null;
+  private popper: HTMLElement | null = null;
   private triggers: NodeListOf<HTMLButtonElement> | null = null;
   private channel: HTMLElement | null = null;
   private items: NodeListOf<HTMLAnchorElement> | null = null;
@@ -14,7 +14,7 @@ class SiteNavElement extends HTMLElement {
   }
 
   connectedCallback() {
-    this.popover = this.querySelector('.site-nav__popover');
+    this.popper = this.querySelector('.site-nav__popover');
     this.triggers = this.querySelectorAll<HTMLButtonElement>('.site-nav__explore-btn');
     this.channel = this.querySelector('.site-nav__channel');
     this.items = this.querySelectorAll<HTMLAnchorElement>('.site-nav__item');
@@ -58,19 +58,19 @@ class SiteNavElement extends HTMLElement {
   }
 
   private _open() {
-    if (!this.popover) return;
+    if (!this.popper) return;
     this._isOpen = true;
-    this.popover.classList.add('is-open');
-    this.popover.removeAttribute('aria-hidden');
+    this.popper.classList.add('is-open');
+    this.popper.removeAttribute('aria-hidden');
     this.triggers?.forEach(btn => btn.setAttribute('aria-expanded', 'true'));
     document.addEventListener('mousedown', this._onDocClick);
   }
 
   private _close() {
-    if (!this.popover) return;
+    if (!this.popper) return;
     this._isOpen = false;
-    this.popover.classList.remove('is-open');
-    this.popover.setAttribute('aria-hidden', 'true');
+    this.popper.classList.remove('is-open');
+    this.popper.setAttribute('aria-hidden', 'true');
     this.triggers?.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
     document.removeEventListener('mousedown', this._onDocClick);
   }

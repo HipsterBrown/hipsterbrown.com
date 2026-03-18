@@ -38,22 +38,11 @@ site-nav {
   display: none;
 }
 
-@media (max-width: 767px) {
-  .site-nav__logo-full {
-    display: none;
-  }
-
-  .site-nav__logo-mark {
-    display: inline;
-    letter-spacing: 0.06em;
-  }
-}
-
 /* ── Actions toolbar ──────────────────────────────── */
 .site-nav__actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 1rem;
 }
 
 /* ── Explore trigger (shared) ─────────────────────── */
@@ -148,13 +137,13 @@ site-nav {
     width: 320px;
     border: 1px solid var(--surface);
     border-radius: 10px;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px color-mix(in srgb, var(--border) 50%, transparent);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px color-mix(in srgb, var(--border) 50%, transparent);
     z-index: 100;
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
     transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .site-nav__popover.is-open {
@@ -190,9 +179,9 @@ site-nav {
     border: 1px solid var(--border);
     border-radius: 8px;
     transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                margin-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      margin-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .site-nav__popover.is-open {
@@ -235,7 +224,7 @@ site-nav {
   cursor: pointer;
   text-decoration: none;
   transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .site-nav__item:hover {
@@ -250,7 +239,7 @@ site-nav {
 .site-nav__item.is-active {
   background: var(--surface);
   border-color: color-mix(in srgb, var(--green) 50%, transparent);
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
   transform: translateY(1px);
 }
 
@@ -292,6 +281,10 @@ site-nav {
   line-height: 1.3;
 }
 
+theme-toggle {
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   .site-nav__item {
     padding: 12px 14px;
@@ -310,6 +303,7 @@ site-nav {
 
 /* ── Reduced motion ───────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+
   .site-nav__popover,
   .site-nav__item,
   .site-nav__led,
