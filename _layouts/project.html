@@ -4,6 +4,10 @@ permalink: "/projects/{{ page.fileSlug }}/"
 
 {% include "header.html" %}
 
+{% if draft %}
+<div class="draft-banner" role="alert">Draft — not published</div>
+{% endif %}
+
 <header class="post-header">
   <div class="container">
     {% if status %}
@@ -12,6 +16,9 @@ permalink: "/projects/{{ page.fileSlug }}/"
     <h1>{{ title }}</h1>
     {% if description %}
     <p class="project-header-desc">{{ description }}</p>
+    {% endif %}
+    {% if updated %}
+    <p class="mono project-header-meta">Updated {{ updated | date: "%B %e, %Y" }}</p>
     {% endif %}
     {% if stack %}
     <div class="project-header-stack">

@@ -1,5 +1,5 @@
 module.exports = {
   layout: "project",
-  tags: ["projects"],
+  contentType: "project",
   permalink: "/projects/{{ page.fileSlug }}/index.html",
 };
