@@ -9,7 +9,7 @@ tags:
   - 11ty
   - website
 ---
-When I working on [redesigning my website]https://hipsterbrown.com/projects/personal-site/), one of the big features I wanted to add was Open Graph (OG) images. These always seemed like such a flex to see from personal blogs and really made those links stand out in every social site that supported them.  
+When I working on [redesigning my website](https://hipsterbrown.com/projects/personal-site/), one of the big features I wanted to add was Open Graph (OG) images. These always seemed like such a flex to see from personal blogs and really made those links stand out in every social site that supported them.  
 
 I had a few main criteria to cover when adding support for this feature:
 
@@ -30,7 +30,7 @@ I knew very little about how OG images are implemented outside of some special `
 
 Each of those tags needs to be included in the head of each page that wants the social glow up treatment. So I created the following template partial to contain the small amount of logic required to use the correct content for the relevant tags:
 
-```liquid,html
+```html
 <!-- Open Graph Meta Tags -->
 {%- if type -%}
   {%- assign ogImageUrl = '/og/' | append: page.fileSlug | append: '.png' -%}
@@ -205,6 +205,8 @@ function buildCard({ title, type, date, description }) {
 ```
 
 _Looks reminiscent of the early days of React before everyone used JSX by default. 😆_
+
+![blog post open graph image](https://hipsterbrown.com/og/generating-open-graph-images-in-11ty.png)
 
 That function is called with data for each content type or static page:
 
